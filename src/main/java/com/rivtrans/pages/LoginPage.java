@@ -6,9 +6,9 @@ import com.rivtrans.base.BasePage;
 
 public class LoginPage extends BasePage {
 	
-	private By user_name_input = By.xpath("/html/body/div/div/div/form/div[1]/input");
-	private By password_input = By.xpath("/html/body/div/div/div/form/div[2]/input");
-	private By login_button = By.xpath("/html/body/div/div/div/form/div[3]/button");
+	private By user_name_input = By.cssSelector("input[formcontrolname='username']");
+	private By password_input = By.cssSelector("input[formcontrolname='password']");
+	private By login_button = By.cssSelector("span[class='mdc-button__label']");
 	
 	
 	
@@ -31,10 +31,10 @@ public class LoginPage extends BasePage {
 	
 	
 	
-	public SecurityCheckPage invalidLogin(String user_name,String Password) throws InterruptedException {
+	public HomePage validLogin(String user_name,String Password) throws InterruptedException {
 		setLoginpageUserName(user_name);
 		setLoginpagePassword(Password);
 		clickLogingPageLoingButton();
-		return new SecurityCheckPage();
+		return new HomePage();
 	}
 }

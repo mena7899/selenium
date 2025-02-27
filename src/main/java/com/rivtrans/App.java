@@ -31,13 +31,13 @@ public class App
     	driver = new ChromeDriver();
     	
     	driver.manage().window().maximize();
-    	String url = "http://10.0.10.30:8080/SPS-web/";
-    	String url1="http://10.0.10.30:8080/SPS-web/faces/harbor/shippingagentrequests/berthingrequest/SearchBerthingRequest.xhtml";
+    	String url = "C:/Users/melias/Desktop/Login.html";
     	driver.get(url);
     	//System.out.println( "Hell o' World!app" );
-    	driver.findElement(By.xpath("/html/body/div/div/div/form/div[1]/input")).sendKeys("mena2");
-    	driver.findElement(By.xpath("/html/body/div/div/div/form/div[2]/input")).sendKeys("123456");
-    	driver.findElement(By.xpath("/html/body/div/div/div/form/div[3]/button")).click();
+    	driver.findElement(By.cssSelector("input[formcontrolname='username']")).sendKeys("mena2");
+    	driver.findElement(By.cssSelector("input[formcontrolname='password']")).sendKeys("123456");
+    	Thread.sleep(5000);
+    	driver.findElement(By.cssSelector("span[class='mdc-button__label']")).click();
     	
     	 Set<Cookie> cookies = driver.manage().getCookies();
     	 
@@ -68,7 +68,6 @@ public class App
     	//String ele=driver.findElement(By.xpath("//*[@id=\"j_idt13:j_idt14_content\"]/div[1]/div/span")).getText();
     	//System.out.print(ele);
         driver1 = new ChromeDriver();
-    	driver1.get(url1);
         //Gson gson = new Gson();
         Type cookieListType = new TypeToken<List<Cookie>>() {}.getType();
         List<Cookie> cookies1 = gson.fromJson(new FileReader("cookies.json"), cookieListType);

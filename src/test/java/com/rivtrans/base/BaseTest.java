@@ -12,7 +12,7 @@ public class BaseTest {
 	protected WebDriver driver;
 	protected BasePage basePage;
 	protected LoginPage loginPage;
-	private String url ="http://10.0.10.30:8080/SPS-web/";
+	private String url ="file:///C:/Users/melias/Desktop/Login.html";
 	
 
 	@BeforeClass

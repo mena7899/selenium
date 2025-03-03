@@ -31,7 +31,7 @@ public class LoginPage extends BasePage {
 	
 	
 	
-	public HomePage validLogin(String user_name,String Password) throws InterruptedException {
+	public HomePage validLogin(String user_name,String Password)  {
 		setLoginpageUserName(user_name);
 		setLoginpagePassword(Password);
 		clickLogingPageLoingButton();

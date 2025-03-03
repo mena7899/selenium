@@ -25,7 +25,8 @@ public class App
 {
     public static void main( String[] args ) throws IOException, InterruptedException
     {
-   	
+    	
+    	System.out.println("Cookie Name");
     	WebDriver driver;
     	WebDriver driver1;
     	driver = new ChromeDriver();

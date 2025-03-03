@@ -13,7 +13,7 @@ import com.rivtrans.pages.SecurityCheckPage;
 public class HomeTest extends BaseTest{
 	
 	@Test
-	public void testIvalidLoginErrorMessage()  {
+	public void validLogin()  {
 		
 		HomePage homePage = loginPage.validLogin("mena", "123456");
 		

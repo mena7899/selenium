@@ -28,12 +28,14 @@ public class WaitUtility extends Utility {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
 	}
 	
-	
-	  public static void fluentWaitUntilVisible(int seconds, By locator,int milliseconds) {
+	/*fluent wait means the ExpectedConditions didn't happened during a duration of seconds throw an error 
+	 * but check if the element appears every frequent_in_milliseconds
+	 * */ 
+	  public static void fluentWaitUntilVisible(int seconds, By locator,int frequent_in_milliseconds) {
 		   
 			FluentWait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver)
 		            .withTimeout(Duration.ofSeconds(seconds))
-		            .pollingEvery(Duration.ofMillis(milliseconds))
+		            .pollingEvery(Duration.ofMillis(frequent_in_milliseconds))
 		            .ignoring(NoSuchElementException.class,
 		                    StaleElementReferenceException.class);
 		    fluentWait.until(ExpectedConditions.visibilityOfElementLocated(locator));

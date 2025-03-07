@@ -1,35 +1,26 @@
 pipeline {
-    agent any  // Runs on any available Jenkins agent
-
-    environment {
-        CHROME_DRIVER = "/usr/local/bin/chromedriver"  // Path to ChromeDriver
-        DISPLAY = ":99"  // Set display for headless mode
-    }
+    agent any
 
     stages {
-        stage('Checkout') {
+        stage('Checkout Code') {
             steps {
-                git 'https://github.com/mena7899/selenium.git'  // Replace with your Git repository URL
+                git 'https://your-git-repo-url.git'  // Replace with your repository URL
             }
         }
 
-        stage('Setup Environment') {
+        stage('Install Dependencies') {
             steps {
-                script {
-                    sh 'apt-get update && apt-get install -y unzip wget xvfb'
-                    sh 'Xvfb :99 -screen 0 1920x1080x24 &'
-                    sh 'export DISPLAY=:99'
-                }
+                sh 'mvn clean install -DskipTests'  // Install dependencies without running tests
             }
         }
 
-        stage('Run Tests') {
+        stage('Run Selenium Tests') {
             steps {
-                sh 'mvn clean test'  // Runs Selenium tests using Maven
+                sh 'mvn test'  // Runs TestNG tests using testng.xml
             }
         }
 
-                stage('Publish TestNG Report') {
+        stage('Publish TestNG Report') {
             post {
                 always {
                     publishTestNGResults testResultsPattern: '**/target/surefire-reports/testng-results.xml', escapeTestDescription: false, escapeExceptionMessages: false

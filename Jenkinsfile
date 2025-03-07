@@ -29,10 +29,10 @@ pipeline {
             }
         }
 
-        stage('Publish Reports') {
+                stage('Publish TestNG Report') {
             post {
                 always {
-                    junit 'target/surefire-reports/*.xml'  // Publishes JUnit reports
+                    publishTestNGResults testResultsPattern: '**/target/surefire-reports/testng-results.xml', escapeTestDescription: false, escapeExceptionMessages: false
                 }
             }
         }

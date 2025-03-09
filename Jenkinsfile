@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git 'https://your-git-repo-url.git'  // Replace with your repository URL
+                git 'https://your-git-repo-url.git'  // Replace with the project repository URL
             }
         }
 
@@ -16,7 +16,7 @@ pipeline {
 
         stage('Run Selenium Tests') {
             steps {
-                sh 'mvn test'  // Runs TestNG tests using testng.xml
+                sh 'mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testng.xml'  // Runs TestNG tests using testng.xml(it can have more than one testng.xml files)
             }
         }
 

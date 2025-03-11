@@ -41,15 +41,16 @@ public class BaseTest {
 		
 		//options for headless mode to run tests without UI add options as parameter in ChromeDriver() to activate it; 
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless", "--disable-gpu");
-		//Handling chrome driver
+		options.addArguments("--headless", "--disable-gpu","--window-size=1280,720");
+		//Handling chrome driver: getting it from the config.properties file
 		System.setProperty("webdriver.chrome.driver", getChromeDriverPath());
+		//add options to chrome driver for headless mode
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get(url);
 		basePage = new BasePage();
 		basePage.setDriver(driver); ///link the driver (driver = new ChromeDriver();) to the base page functions tests will inherit this
-		setWebDriver(); //link 
+		setWebDriver(); //initiate this method to link the 
 		loginPage = new LoginPage();
 		
 	}

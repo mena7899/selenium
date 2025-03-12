@@ -14,7 +14,6 @@ public class CountriesTest extends BaseTest  {
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		homePage.justOpen();
 		
-		
-		
+			
 	}
 }

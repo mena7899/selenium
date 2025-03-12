@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-03-11T15:26:51 EET" name="Surefire suite" finished-at="2025-03-11T15:27:09 EET" duration-ms="18054">
+    <groups>
+    </groups>
+    <test started-at="2025-03-11T15:26:51 EET" name="Surefire test" finished-at="2025-03-11T15:27:09 EET" duration-ms="18054">
+      <class name="com.rivtrans.tests.HomeTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.rivtrans.tests.HomeTest@9225652]" started-at="2025-03-11T15:26:51 EET" name="setUp" finished-at="2025-03-11T15:26:56 EET" duration-ms="5602" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="validLoginVisbleLoge()[pri:0, instance:com.rivtrans.tests.HomeTest@9225652]" started-at="2025-03-11T15:26:56 EET" name="validLoginVisbleLoge" finished-at="2025-03-11T15:26:58 EET" duration-ms="1549" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validLoginVisbleLoge -->
+        <test-method is-config="true" signature="teatDown()[pri:0, instance:com.rivtrans.tests.HomeTest@9225652]" started-at="2025-03-11T15:26:58 EET" name="teatDown" finished-at="2025-03-11T15:26:58 EET" duration-ms="204" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teatDown -->
+      </class> <!-- com.rivtrans.tests.HomeTest -->
+      <class name="com.rivtrans.tests.LoginTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.rivtrans.tests.LoginTest@654f0d9c]" started-at="2025-03-11T15:26:58 EET" name="setUp" finished-at="2025-03-11T15:27:00 EET" duration-ms="2088" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="invalidLogin()[pri:0, instance:com.rivtrans.tests.LoginTest@654f0d9c]" started-at="2025-03-11T15:27:00 EET" name="invalidLogin" finished-at="2025-03-11T15:27:09 EET" duration-ms="8422" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invalidLogin -->
+        <test-method is-config="true" signature="teatDown()[pri:0, instance:com.rivtrans.tests.LoginTest@654f0d9c]" started-at="2025-03-11T15:27:09 EET" name="teatDown" finished-at="2025-03-11T15:27:09 EET" duration-ms="139" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teatDown -->
+      </class> <!-- com.rivtrans.tests.LoginTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

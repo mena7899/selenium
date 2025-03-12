@@ -3,9 +3,13 @@ package com.rivtrans.base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import com.rivtrans.pages.SidePanel;
 public class BasePage {
-	
+	//static to share it across all instances
 	public static WebDriver driver;
+	//static to share it across all instances and to call it's methods across all classes(pages) with out instance
+	public static SidePanel sidePanel = new SidePanel();
 	
 	//set driver to use it across all classes
 	public void setDriver(WebDriver driver) {

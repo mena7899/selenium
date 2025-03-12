@@ -9,7 +9,7 @@ import com.rivtrans.pages.HomePage;
 public class CountriesTest extends BaseTest  {
 	
 	@Test
-	public void validLoginVisbleLoge() throws InterruptedException  {
+	public void openCountriesPage() throws InterruptedException  {
 		
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		homePage.justOpen();

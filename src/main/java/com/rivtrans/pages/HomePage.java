@@ -12,12 +12,12 @@ public class HomePage extends BasePage {
 	
 	
 	public boolean logoIsDisplayed() {
-		WaitUtility.explicitWaitUntilVisible(5, logo);
+		//WaitUtility.explicitWaitUntilVisible(5, logo);
 		return find(logo).isDisplayed();
 	}
 		
 	
-		public CountriesPage justOpen() throws InterruptedException {
+		public CountriesPage justOpen()  {
 			sidePanel.clickCountriesButton();
 			return new CountriesPage();
 	}

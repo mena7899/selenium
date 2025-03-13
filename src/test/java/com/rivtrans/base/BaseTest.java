@@ -50,7 +50,7 @@ public class BaseTest {
 		driver.get(url);
 		basePage = new BasePage();
 		basePage.setDriver(driver); ///link the driver (driver = new ChromeDriver();) to the base page functions tests will inherit this
-		setWebDriver(); //initiate this method to link the 
+		setWebDriver(); //initiate this method to link the basepage driver to utility driver
 		loginPage = new LoginPage();
 		
 	}

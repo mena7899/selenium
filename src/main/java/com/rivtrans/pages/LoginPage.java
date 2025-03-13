@@ -38,14 +38,14 @@ public class LoginPage extends BasePage {
 //	}
 	
 	
-	public HomePage validLogin(String user_name,String Password) throws InterruptedException  {
+	public HomePage validLogin(String user_name,String Password) {
 		setLoginpageUserName(user_name);
 		
 		setLoginpagePassword(Password);
 
 		clickLogingPageLoingButton();
-		//Thread.sleep(5000);
-		WaitUtility.implicitWait(10000);
+		
+		//WaitUtility.implicitWait(1000000);
 		return new HomePage();
 	}
 	public String getErrormessage() {

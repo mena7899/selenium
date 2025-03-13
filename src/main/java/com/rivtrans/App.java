@@ -38,7 +38,7 @@ public class App
     	Thread.sleep(5000);
     	driver.findElement(By.cssSelector("span[class='mdc-button__label']")).click();
     	Thread.sleep(5000);
-    	driver.findElement(By.xpath("//*[@id=\"sidebarnav\"]/li/a/span")).click();
+    	driver.findElement(By.xpath("//*[@id=\\\"sidebarnav\\\"]/li/ul/li/ul/li[1]/a")).click();
     	Thread.sleep(5000);
 
          driver.quit();

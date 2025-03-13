@@ -14,7 +14,7 @@ public class WaitUtility extends Utility {
 	// explicit wait means if the ExpectedConditions didn't happened during a duration of seconds throw an error
 	//Waits for a specific condition before proceeding
 	public static void explicitWaitUntilVisible(int seconds, By locator) {
-		Utility.setWebDriver();
+		
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(seconds));
 		// the driver in WebDriverWait is the diver from Utility (drive=BasePage.driver)
 		// takes the element By type
@@ -23,7 +23,8 @@ public class WaitUtility extends Utility {
 	}
 	
 	
-	//implicit wait stops the code execution for a specified amount of time
+	/*implicit wait stops the code execution for a specified amount of time, 
+	  but If all the elements appear before the implicit wait time ends, Selenium does not wait the full duration*/
 	public static void implicitWait(int seconds) {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
 	}

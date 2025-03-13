@@ -24,7 +24,8 @@ public class WaitUtility extends Utility {
 	
 	
 	/*implicit wait stops the code execution for a specified amount of time, 
-	  but If all the elements appear before the implicit wait time ends, Selenium does not wait the full duration*/
+	  but If all the elements appear before the implicit wait time ends, Selenium does not wait the full duration. 
+	  (Implicit wait acts as a maximum timeout, but not a mandatory delay).*/
 	public static void implicitWait(int seconds) {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
 	}

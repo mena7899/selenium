@@ -9,7 +9,8 @@ public class SidePanel extends BasePage {
 	
 	private By licenses_button_h1 = By.xpath("//*[@id=\"sidebarnav\"]/li/a/span");
 	private By main_data_h2 = By.xpath("//*[@id=\"sidebarnav\"]/li/ul");
-	private By countries_button_h3 = By.xpath("//*[@id=\"sidebarnav\"]/li/ul/li/ul/li[1]/a");
+	//private By countries_button_h3 = By.xpath("//*[@id=\"sidebarnav\"]/li/ul/li/ul/li[1]/a");
+	private By countries_button_h3 = By.cssSelector("a[href='/countries']");
 	private By cities_button_h3 = By.xpath("//*[@id=\"sidebarnav\"]/li/ul/li/ul/li[2]/a");
 	private By motor_state_button_h3 = By.xpath("//*[@id=\"sidebarnav\"]/li/ul/li/ul/li[3]/a");
 	

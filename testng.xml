@@ -3,7 +3,9 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
+      <class name="com.rivtrans.tests.LoginTest"/>
       <class name="com.rivtrans.tests.HomeTest"/>
+      <class name="com.rivtrans.tests.CountriesTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

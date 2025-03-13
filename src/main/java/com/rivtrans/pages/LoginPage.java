@@ -42,10 +42,11 @@ public class LoginPage extends BasePage {
 		setLoginpageUserName(user_name);
 		
 		setLoginpagePassword(Password);
-
+		
+		
 		clickLogingPageLoingButton();
 		
-		//WaitUtility.implicitWait(1000000);
+		
 		return new HomePage();
 	}
 	public String getErrormessage() {

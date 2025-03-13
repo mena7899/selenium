@@ -12,7 +12,7 @@ public class HomePage extends BasePage {
 	
 	
 	public boolean logoIsDisplayed() {
-		//WaitUtility.explicitWaitUntilVisible(5, logo);
+		
 		return find(logo).isDisplayed();
 	}
 		

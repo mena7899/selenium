@@ -3,16 +3,17 @@ package com.rivtrans.pages;
 import org.openqa.selenium.By;
 
 import com.rivtrans.base.BasePage;
-import com.rivtrans.utilities.WaitUtility;
+//import com.rivtrans.utilities.WaitUtility;
 
 public class SidePanel extends BasePage {
-	
-	private By licenses_button_h1 = By.xpath("//*[@id=\"sidebarnav\"]/li/a/span");
-	private By main_data_h2 = By.xpath("//*[@id=\"sidebarnav\"]/li/ul");
+	//"hide-menu ng-tns-c1203807328-0 ng-star-inserted"
+	private By licenses_button_h1 = By.cssSelector("span[class*='ng-star-inserted']");
+	//private By licenses_button_h1 = By.xpath("//*[@id=\"sidebarnav\"]/li/a/span");
+	private By main_data_h2 = By.cssSelector("a[class*='ml-sub-menu']");
 	//private By countries_button_h3 = By.xpath("//*[@id=\"sidebarnav\"]/li/ul/li/ul/li[1]/a");
 	private By countries_button_h3 = By.cssSelector("a[href='/countries']");
-	private By cities_button_h3 = By.xpath("//*[@id=\"sidebarnav\"]/li/ul/li/ul/li[2]/a");
-	private By motor_state_button_h3 = By.xpath("//*[@id=\"sidebarnav\"]/li/ul/li/ul/li[3]/a");
+	private By cities_button_h3 = By.cssSelector("a[href='/cities']");
+	private By motor_state_button_h3 = By.cssSelector("a[href='/motor-states']");
 	
 	
 //	public void clickCountriesButton() throws InterruptedException {

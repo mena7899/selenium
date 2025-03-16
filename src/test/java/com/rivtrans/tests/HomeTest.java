@@ -12,7 +12,6 @@ public class HomeTest extends BaseTest{
 	public void validLoginVisbleLoge()  {
 		
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
-		//WaitUtility.implicitWait(5000);
 		Assert.assertTrue(homePage.logoIsDisplayed());
 		
 				

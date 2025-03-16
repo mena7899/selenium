@@ -3,6 +3,8 @@ package com.rivtrans.base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import com.rivtrans.utilities.WaitUtility;
+import com.rivtrans.utilities.JavaScriptUtility;
 
 import com.rivtrans.pages.SidePanel;
 public class BasePage {
@@ -13,12 +15,14 @@ public class BasePage {
 	
 	//set driver to use it across all classes
 	public void setDriver(WebDriver driver) {
-	
 		BasePage.driver=driver;
 	}
 	
 	//to use it in the click method and set method
 	protected WebElement find(By locator) {
+		
+		WaitUtility.fluentWaitUntilVisible(5, locator, 500);
+		JavaScriptUtility.scrollToElementJS(locator);
 		return driver.findElement(locator);
 		
 	}

@@ -27,11 +27,11 @@ public class SidePanel extends BasePage {
 //	}
 	
 	public void clickH3Button(By H3) {
-		WaitUtility.fluentWaitUntilVisible(6, licenses_button_h1, 2);
+		//WaitUtility.fluentWaitUntilVisible(6, licenses_button_h1, 2);
 		click(licenses_button_h1);
-		WaitUtility.fluentWaitUntilVisible(6, main_data_h2, 2);
+		//WaitUtility.fluentWaitUntilVisible(6, main_data_h2, 2);
 		click(main_data_h2);
-		WaitUtility.fluentWaitUntilVisible(6, H3, 2);
+		//WaitUtility.fluentWaitUntilVisible(6, H3, 2);
 		click(H3);
 		
 		

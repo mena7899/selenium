@@ -6,11 +6,16 @@ import java.util.stream.Collectors;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+//import com.rivtrans.utilities.WaitUtility;
+//import com.rivtrans.utilities.JavaScriptUtility;
 
 public class DropDownUtility extends Utility{
 	
 	
 	  private static Select findDropDown(By locator) {
+		  WaitUtility.fluentWaitUntilVisible(5, locator, 500);
+		  JavaScriptUtility.scrollToElementJS(locator);
+		  
 		    return new Select(driver.findElement(locator));
 		  }
 

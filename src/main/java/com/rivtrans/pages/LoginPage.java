@@ -50,6 +50,8 @@ public class LoginPage extends BasePage {
 		
 		return new HomePage();
 	}
+	
+	
 	public String getErrormessage() {
 		return find(error_message).getText();
 		

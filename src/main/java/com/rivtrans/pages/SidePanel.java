@@ -9,11 +9,13 @@ public class SidePanel extends BasePage {
 	//"hide-menu ng-tns-c1203807328-0 ng-star-inserted"
 	private By licenses_button_h1 = By.cssSelector("span[class*='ng-star-inserted']");
 	//private By licenses_button_h1 = By.xpath("//*[@id=\"sidebarnav\"]/li/a/span");
-	private By main_data_h2 = By.cssSelector("a[class*='ml-sub-menu']");
+	private By main_data_h1x1 = By.cssSelector("a[class*='ml-sub-menu']");
 	//private By countries_button_h3 = By.xpath("//*[@id=\"sidebarnav\"]/li/ul/li/ul/li[1]/a");
-	private By countries_button_h3 = By.cssSelector("a[href='/countries']");
-	private By cities_button_h3 = By.cssSelector("a[href='/cities']");
-	private By motor_state_button_h3 = By.cssSelector("a[href='/motor-states']");
+	private By countries_button_h1x1x1 = By.cssSelector("a[href='/countries']");
+	private By cities_button_h1x1x2 = By.cssSelector("a[href='/cities']");
+	private By motor_states_button_h1x1x3 = By.cssSelector("a[href='/motor-states']");
+	private By unit_nature_button_h1x1x4 = By.cssSelector("a[href='/unit-nature']");
+	private By unit_use_button_h1x1x5 = By.cssSelector("a[href='/unitUse']");
 	
 	
 //	public void clickCountriesButton() throws InterruptedException {
@@ -27,27 +29,46 @@ public class SidePanel extends BasePage {
 //				
 //	}
 	
-	public void clickH3Button(By H3) {
+	public void clickH1x1Button(By H1x1xi) {
 		//WaitUtility.fluentWaitUntilVisible(6, licenses_button_h1, 2);
 		click(licenses_button_h1);
 		//WaitUtility.fluentWaitUntilVisible(6, main_data_h2, 2);
-		click(main_data_h2);
+		click(main_data_h1x1);
 		//WaitUtility.fluentWaitUntilVisible(6, H3, 2);
-		click(H3);
+		click(H1x1xi);
 		
 		
 	}
 	
-    public void clickCountriesButton()  {
-        clickH3Button(countries_button_h3);
+    public CountriesPage clickCountriesButton()  {
+    	clickH1x1Button(countries_button_h1x1x1);
+		return new CountriesPage();
     }
 
-    public void clickCitiesButton()   {
-        clickH3Button(cities_button_h3);
+    public CitiesPage clickCitiesButton()   {
+    	clickH1x1Button(cities_button_h1x1x2);
+		return new CitiesPage();
+		
+    }
+    
+    public MotorStatePage clickMotorStatesButton()   {
+    	clickH1x1Button(motor_states_button_h1x1x3);
+        return new MotorStatePage();
     }
 
-    public void clickMotorStateButton()   {
-        clickH3Button(motor_state_button_h3);
+    public UnitNaturePage clickUnitNatureButton()   {
+    	clickH1x1Button(unit_nature_button_h1x1x4);
+        return new UnitNaturePage();
     }
+    
+    public UnitUsePage clickUnitUseButton()  {
+    	clickH1x1Button(unit_use_button_h1x1x5);
+        return new UnitUsePage();
+    }
+    
+    
+    
+    
+    
 }
 	

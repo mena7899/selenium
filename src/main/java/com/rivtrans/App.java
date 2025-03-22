@@ -65,7 +65,8 @@ public class App
     	//List<WebElement> list =driver.findElements(By.cssSelector("span[class='mdc-list-item__primary-text']"));
     	Thread.sleep(3000);
     	//delete buttons
-    	List<WebElement> list =driver.findElements(By.cssSelector("mat-icon[class=\'mat-icon notranslate material-icons mat-ligature-font delete-icon mat-icon-no-color\']"));
+    	List<WebElement> list =driver.findElements(By.cssSelector("mat-icon[class=\'mat-icon notranslate material"
+    			+ "-icons mat-ligature-font delete-icon mat-icon-no-color\']"));
     	//List<WebElement> list =driver.findElements(By.cssSelector("mat-option[role='option']"));
     	//System.out.print(list);
     	list.get(0).click();

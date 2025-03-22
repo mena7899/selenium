@@ -1,5 +1,7 @@
 package com.rivtrans.base;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,9 +29,26 @@ public class BasePage {
 		
 	}
 	
+	
+	protected List<WebElement> findList(By locator) {
+		
+		WaitUtility.fluentWaitUntilVisible(5, locator, 500);
+		JavaScriptUtility.scrollToElementJS(locator);
+		return driver.findElements(locator);
+		
+	}
+	
+	
 	//to click on the element take locator By data type
 	protected void click(By locator) {
 		find(locator).click();
+	}
+	
+	
+	//to click on the element take locator By data type
+	protected void clickOfList(By locator,int order) {
+		List<WebElement> list = findList(locator);
+		 list.get(order).click();
 	}
 	
 	//to set text on element take locator By data type and text String data type

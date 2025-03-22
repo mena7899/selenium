@@ -35,6 +35,7 @@ public class App
     	driver.get(url);
     	//System.out.println( "Hell o' World!app" );
     	//enter name
+    	Thread.sleep(3000);
     	driver.findElement(By.cssSelector("input[formcontrolname='username']")).sendKeys("ramadan");
     	//enter password
     	driver.findElement(By.cssSelector("input[formcontrolname='password']")).sendKeys("123456");
@@ -50,19 +51,21 @@ public class App
     	Thread.sleep(3000);
     	//click cites
     	driver.findElement(By.cssSelector("a[href='/cities']")).click();
+    	driver.findElement(By.cssSelector("a[href='/countries']")).click();
     	Thread.sleep(3000);
     	//click add button
-    	driver.findElement(By.cssSelector("mat-icon[class='mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color']")).click();
-    	Thread.sleep(3000);
-    	driver.findElement(By.cssSelector("div[class='mat-mdc-form-field-infix ng-tns-c508571215-12']")).click();
-    	Thread.sleep(3000);
+    	//driver.findElement(By.cssSelector("mat-icon[class='mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color']")).click();
+    	//Thread.sleep(3000);
+    	//driver.findElement(By.cssSelector("div[class='mat-mdc-form-field-infix ng-tns-c508571215-12']")).click();
+    	//Thread.sleep(3000);
     	
     	// //*[@id="mat-select-54-panel"]//*[@role="option"]  all the options in this list
     	// //*[@id='mat-select-54-panel']//*[@role='option']//span[contains(text(),'مصر')]  //find the option by inner text
-    	List<WebElement> list =driver.findElements(By.cssSelector("span[class='mdc-list-item__primary-text']"));
+    	//List<WebElement> list =driver.findElements(By.cssSelector("span[class='mdc-list-item__primary-text']"));
+    	List<WebElement> list =driver.findElements(By.cssSelector("mat-icon[class=\'mat-icon notranslate material-icons mat-ligature-font delete-icon mat-icon-no-color\']"));
     	//List<WebElement> list =driver.findElements(By.cssSelector("mat-option[role='option']"));
     	System.out.print(list);
-    	list.get(1).click();
+    	list.get(0).click();
     	System.out.print(list);
     	//Select select =new Select(driver.findElement(By.cssSelector("div[class='mat-mdc-form-field-infix ng-tns-c508571215-12']")));
     	//select.selectByIndex(1);

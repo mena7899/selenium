@@ -21,6 +21,7 @@ public class CitiesPage extends BasePage {
 			+ "-icons mat-ligature-font delete-icon mat-icon-no-color\']"); //delete buttons list
 	private By delete_city_confirm_button =By.cssSelector("#mat-mdc-dialog-0 > div > div > app-delete > div > div.mat-mdc-dialog-actions.mdc-dialog__actions.dialog-actions >"
 			+ " button.delete-btn.w-25.mdc-button.mat-mdc-button.mat-unthemed.mat-mdc-button-base > span.mdc-button__label");
+	private By delete_city_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
 	//edit city buttons
 	private By edit_city_buttons =By.cssSelector("mat-icon[class=\'mat-icon notranslate material"
 			+ "-icons mat-ligature-font edit-icon mat-icon-no-color\']"); //edit buttons list
@@ -90,6 +91,11 @@ public class CitiesPage extends BasePage {
 	public void clickDeleteCityConfirmButton(int order) {
 		click(delete_city_confirm_button);
 		
+	}
+	
+	public boolean deleteCitySuccessMessageIsDisplayed() {		
+		
+		return find(delete_city_success_message).isDisplayed();
 	}
 	
 	public void clickEditCityButtonByOrder(int order) {

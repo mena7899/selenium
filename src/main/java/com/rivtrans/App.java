@@ -58,7 +58,7 @@ public class App
     	Thread.sleep(3000);
     	driver.findElement(By.cssSelector("div[class='mat-mdc-form-field-infix ng-tns-c508571215-12']")).click();
     	Thread.sleep(3000);
-    	driver.findElement(By.xpath("//span[contains(text(),'ذعزظمحثدصش')]")).click();
+    	driver.findElement(By.xpath("//span[contains(text(),'مصر') or contains(text(),'Egypt') or contains(text(),'egypt')]")).click();
     	// //*[@id="mat-select-54-panel"]//*[@role="option"]  all the options in this list
     	// //*[@id='mat-select-54-panel']//*[@role='option']//span[contains(text(),'مصر')]  //find the option by inner text
     	//List<WebElement> list =driver.findElements(By.cssSelector("span[class='mdc-list-item__primary-text']"));

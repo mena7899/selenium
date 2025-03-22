@@ -28,8 +28,8 @@ public class CitiesPage extends BasePage {
 	
 	
 	
-	
-	
+	///////////////////////////////////////////////////////////////////////////////////////////
+	//add city methods
 	public void clickAddCityButton() {
 		click(add_city_button);
 	}
@@ -82,7 +82,12 @@ public class CitiesPage extends BasePage {
 		
 		return find(add_city_success_message).isDisplayed();
 	}
+	/////////////////////////////////////////////////////////////////////////////////////
+	///
+	///
 	
+	
+	//delete city methods
 	public void clickDeleteCityButtonByOrder(int order) {
 		clickOfList(delete_city_buttons,order);
 		
@@ -97,7 +102,12 @@ public class CitiesPage extends BasePage {
 		
 		return find(delete_city_success_message).isDisplayed();
 	}
+	//////////////////////////////////////////////////////////////////////
+	///
+	///
 	
+	//edit city methods
+
 	public void clickEditCityButtonByOrder(int order) {
 		clickOfList(edit_city_buttons,order);
 		

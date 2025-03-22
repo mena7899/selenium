@@ -29,7 +29,7 @@ public class BasePage {
 		
 	}
 	
-	
+	//find more than one element
 	protected List<WebElement> findList(By locator) {
 		
 		WaitUtility.fluentWaitUntilVisible(5, locator, 500);
@@ -45,10 +45,10 @@ public class BasePage {
 	}
 	
 	
-	//to click on the element take locator By data type
+	//to click on one element of a list
 	protected void clickOfList(By locator,int order) {
-		List<WebElement> list = findList(locator);
-		 list.get(order).click();
+		List<WebElement> elements_list = findList(locator);
+		elements_list.get(order).click();
 	}
 	
 	//to set text on element take locator By data type and text String data type

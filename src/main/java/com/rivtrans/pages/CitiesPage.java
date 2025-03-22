@@ -1,6 +1,9 @@
 package com.rivtrans.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import com.rivtrans.base.BasePage;
 
@@ -13,6 +16,10 @@ public class CitiesPage extends BasePage {
 	private By add_city_window_iso_code_input= By.cssSelector("mat-icon[class='mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color']");
 	private By add_city_window_add_button = By.cssSelector("button[class=\'mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-disabled mat-mdc-button-base\']");
 	private By add_city_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
+	private By delete_city_buttons =By.cssSelector("mat-icon[class=\'mat-icon notranslate material"
+			+ "-icons mat-ligature-font delete-icon mat-icon-no-color\']"); //delete buttons list
+	private By delete_city_confirm_button =By.cssSelector("#mat-mdc-dialog-0 > div > div > app-delete > div > div.mat-mdc-dialog-actions.mdc-dialog__actions.dialog-actions >"
+			+ " button.delete-btn.w-25.mdc-button.mat-mdc-button.mat-unthemed.mat-mdc-button-base > span.mdc-button__label");
 	
 	public void clickAddCityButton() {
 		click(add_city_button);
@@ -62,9 +69,20 @@ public class CitiesPage extends BasePage {
 		click(add_city_window_add_button);
 	}
 	
-	public boolean AddCitySuccessMessageIsDisplayed() {		
+	public boolean addCitySuccessMessageIsDisplayed() {		
 		
 		return find(add_city_success_message).isDisplayed();
 	}
+	
+	public void clickDeleteCityButtonByOrder(int order) {
+		clickOfList(delete_city_buttons,order);
+		
+	}
+	
+	public void clickDeleteCityConfirmButton(int order) {
+		click(delete_city_confirm_button);
+		
+	}
+	
 
 }

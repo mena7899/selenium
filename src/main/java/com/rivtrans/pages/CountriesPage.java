@@ -87,6 +87,23 @@ public class CountriesPage extends BasePage {
 			
 		}
 		
+		public void editCountryWindowSetArabicName(String arabic_name) {
+			set(edit_country_window_arabic_name_input, arabic_name);
+		}
+		
+		public void editCountryWindowSetEnglishName(String english_name) {
+			set(edit_country_window_english_name_input, english_name);
+		}
+		
+		
+		public void editCountryWindowSetIsoCode(String iso_code) {
+			set(edit_country_window_iso_code_input, iso_code);
+		}
+		
+		public void editCountryWindowClickAddButton() {
+			
+			click(edit_country_window_update_button);
+		}
 
 	}
 

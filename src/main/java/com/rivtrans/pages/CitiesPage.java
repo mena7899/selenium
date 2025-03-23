@@ -30,19 +30,19 @@ public class CitiesPage extends BasePage {
 	
 	///////////////////////////////////////////////////////////////////////////////////////////
 	//add city methods
-	public void clickAddCityButton() {
+	public void clickAddCountryButton() {
 		click(add_city_button);
 	}
 	
-	public void addCityWindowSetArabicName(String arabic_name) {
+	public void addCountryWindowSetArabicName(String arabic_name) {
 		set(add_city_window_arabic_name_input, arabic_name);
 	}
 	
-	public void addCityWindowSetEnglishName(String english_name) {
+	public void addCountryWindowSetEnglishName(String english_name) {
 		set(add_city_window_english_name_input, english_name);
 	}
 	
-	public void addCityWindowSelectCountry(String arabic_name,String english_name) {
+	public void addCountryWindowSelectCountry(String arabic_name,String english_name) {
 		click(add_city_window_countries_dropdown_list);
 		String countryEnglish = english_name;
 		String countryArabic = arabic_name;
@@ -52,7 +52,7 @@ public class CitiesPage extends BasePage {
 		
 	}
 	
-	public void addCityWindowSelectCountryArabic(String arabic_name) {
+	public void addCountryWindowSelectCountryArabic(String arabic_name) {
 		click(add_city_window_countries_dropdown_list);
 		String countryArabic = arabic_name;
 		String xpathExpression = String.format("//span[contains(text(), '%s')]", countryArabic);
@@ -60,7 +60,7 @@ public class CitiesPage extends BasePage {
 		
 	}
 	
-	public void addCityWindowSelectCountryEnglish(String english_name) {
+	public void addCountryWindowSelectCountryEnglish(String english_name) {
 		click(add_city_window_countries_dropdown_list);
 		String countryEnglish = english_name;
 		String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
@@ -69,16 +69,16 @@ public class CitiesPage extends BasePage {
 		
 	}
 	
-	public void addCityWindowSetIsoCode(String iso_code) {
+	public void addCountryWindowSetIsoCode(String iso_code) {
 		set(add_city_window_iso_code_input, iso_code);
 	}
 	
-	public void addCityWindowClickAddButton() {
+	public void addCountryWindowClickAddButton() {
 		
 		click(add_city_window_add_button);
 	}
 	
-	public boolean addCitySuccessMessageIsDisplayed() {		
+	public boolean addCountrySuccessMessageIsDisplayed() {		
 		
 		return find(add_city_success_message).isDisplayed();
 	}
@@ -88,17 +88,17 @@ public class CitiesPage extends BasePage {
 	
 	
 	//delete city methods
-	public void clickDeleteCityButtonByOrder(int order) {
+	public void clickDeleteCountryButtonByOrder(int order) {
 		clickOfList(delete_city_buttons,order);
 		
 	}
 	
-	public void clickDeleteCityConfirmButton(int order) {
+	public void clickDeleteCountryConfirmButton(int order) {
 		click(delete_city_confirm_button);
 		
 	}
 	
-	public boolean deleteCitySuccessMessageIsDisplayed() {		
+	public boolean deleteCountrySuccessMessageIsDisplayed() {		
 		
 		return find(delete_city_success_message).isDisplayed();
 	}
@@ -108,7 +108,7 @@ public class CitiesPage extends BasePage {
 	
 	//edit city methods
 
-	public void clickEditCityButtonByOrder(int order) {
+	public void clickEditCountryButtonByOrder(int order) {
 		clickOfList(edit_city_buttons,order);
 		
 	}

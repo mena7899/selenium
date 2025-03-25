@@ -9,7 +9,7 @@ import com.rivtrans.base.BasePage;
 
 public class CitiesPage extends BasePage {
 	//add city buttons
-	private By add_city_button = By.cssSelector("mat-icon[class='mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color']");
+	private By add_city_button = By.cssSelector("div[class='mat-mdc-tooltip-trigger ng-star-inserted']");
 	private By add_city_window_arabic_name_input = By.cssSelector("mat-icon[class='mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color']");
 	private By add_city_window_english_name_input = By.cssSelector("mat-icon[class='mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color']");
 	private By add_city_window_countries_dropdown_list = By.cssSelector("mat-icon[class='mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color']");

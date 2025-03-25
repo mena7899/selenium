@@ -7,11 +7,11 @@ import com.rivtrans.base.BasePage;
 public class CountriesPage extends BasePage {
 	
 	//add country buttons
-	private By add_country_button = By.cssSelector("mat-icon[class='mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color']");
-	private By add_country_window_arabic_name_input = By.cssSelector("mat-icon[class='mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color']");
-	private By add_country_window_english_name_input = By.cssSelector("mat-icon[class='mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color']");
-	private By add_country_window_iso_code_input= By.cssSelector("mat-icon[class='mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color']");
-	private By add_country_window_add_button = By.cssSelector("button[class=\'mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-disabled mat-mdc-button-base\']");
+	private By add_country_button = By.cssSelector("div[class='mat-mdc-tooltip-trigger ng-star-inserted']");
+	private By add_country_window_arabic_name_input = By.cssSelector("input[formcontrolname='nameAr']");
+	private By add_country_window_english_name_input = By.cssSelector("input[formcontrolname='nameEn']");
+	private By add_country_window_iso_code_input= By.cssSelector("input[formcontrolname='countryCode']");
+	private By add_country_window_add_button = By.cssSelector("button[type='submit']");
 	private By add_country_success_message = By.cssSelector("div[class=\"snackbar success ng-star-inserted\"]");
 	
 	//delete country buttons

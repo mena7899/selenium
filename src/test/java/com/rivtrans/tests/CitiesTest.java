@@ -12,7 +12,7 @@ public class CitiesTest extends BaseTest{
 	public void validAddCity() throws InterruptedException {
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		CitiesPage citiesPage = homePage.sidePanel.clickCitiesButton();
-		
+		citiesPage.select100Row();
 		citiesPage.clickAddCityButton();
 		citiesPage.addCityWindowSetArabicName("مدينة افتراضية");
 		citiesPage.addCityWindowSetEnglishName("virtual code");

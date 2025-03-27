@@ -55,12 +55,17 @@ public class App
     	driver.findElement(By.cssSelector("a[href='/countries']")).click();
     	Thread.sleep(3000);
     	//click add city button
-    	driver.findElement(By.cssSelector("div[class='mat-mdc-tooltip-trigger ng-star-inserted']")).click();
+    	//driver.findElement(By.cssSelector("div[class='mat-mdc-tooltip-trigger ng-star-inserted']")).click();
     	Thread.sleep(3000);
-    	driver.findElement(By.cssSelector("input[formcontrolname='nameAr']")).sendKeys("عربي");
-    	driver.findElement(By.cssSelector("input[formcontrolname='nameEn']")).sendKeys("test");
-    	driver.findElement(By.cssSelector("input[formcontrolname='countryCode']")).sendKeys("xx");
-    	driver.findElement(By.cssSelector("button[type='submit']")).click();
+    	//driver.findElement(By.cssSelector("input[formcontrolname='nameAr']")).sendKeys("عربي");
+    	//driver.findElement(By.cssSelector("input[formcontrolname='nameEn']")).sendKeys("test");
+    	//driver.findElement(By.cssSelector("input[formcontrolname='countryCode']")).sendKeys("xx");
+    	//driver.findElement(By.cssSelector("button[type='submit']")).click();
+    	//rows number
+    	driver.findElement(By.cssSelector("mat-select[aria-haspopup='listbox']")).click();
+    	Thread.sleep(3000);
+    	driver.findElement(By.cssSelector("mat-option[id='mat-option-3']")).click();
+    	
     	//click countries dropdown list
     	//driver.findElement(By.cssSelector("div[class='mat-mdc-form-field-infix ng-tns-c508571215-12']")).click();
     	//Thread.sleep(3000);
@@ -77,7 +82,6 @@ public class App
     	//List<WebElement> list =driver.findElements(By.cssSelector("mat-option[role='option']"));
     	//System.out.print(list);
     	//list.get(0).click();
-    	Thread.sleep(3000);
     	// driver.findElement(By.xpath("//span[@class='mdc-button__label' and contains(text(), 'حذف')]")).click();
     	//driver.findElement(By.cssSelector("div[class='mat-mdc-form-field-infix ng-tns-c508571215-12']")).click();
     	//System.out.print(list);

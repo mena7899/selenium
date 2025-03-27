@@ -26,6 +26,16 @@ public class CountriesPage extends BasePage {
 	private By edit_country_window_english_name_input = By.cssSelector("input[id='mat-input-1']");
 	private By edit_country_window_iso_code_input= By.cssSelector("input[id='mat-input-2']");
 	private By edit_country_window_update_button= By.cssSelector("button[class='mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base mat-mdc-button-disabled']");
+	
+	//row number button
+	private By rows_number_drop_down_list=By.cssSelector("mat-select[aria-haspopup='listbox']");
+	private By rows_number_drop_down_list_100_row_option=By.cssSelector("mat-option[id='mat-option-3']");
+	
+	//rows number methods
+		public void select100Row() {
+			click(rows_number_drop_down_list);
+			click(rows_number_drop_down_list_100_row_option);
+		}
 		
 		
 		///////////////////////////////////////////////////////////////////////////////////////////

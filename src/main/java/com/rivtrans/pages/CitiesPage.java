@@ -23,6 +23,15 @@ public class CitiesPage extends BasePage {
 	private By edit_city_buttons =By.cssSelector("mat-icon[class=\'mat-icon notranslate material"
 			+ "-icons mat-ligature-font edit-icon mat-icon-no-color\']"); //edit buttons list
 	
+	//row number button
+	private By rows_number_drop_down_list=By.cssSelector("mat-select[aria-haspopup='listbox']");
+	private By rows_number_drop_down_list_100_row_option=By.cssSelector("mat-option[id='mat-option-3']");
+	
+	//rows number methods
+	public void select100Row() {
+		click(rows_number_drop_down_list);
+		click(rows_number_drop_down_list_100_row_option);
+	}
 	
 	
 	///////////////////////////////////////////////////////////////////////////////////////////
@@ -109,6 +118,9 @@ public class CitiesPage extends BasePage {
 		clickOfList(edit_city_buttons,order);
 		
 	}
-	
+	/////////////////////////////////////////////////////////////////////////////////////
+	///
+
+
 
 }

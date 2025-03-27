@@ -13,6 +13,7 @@ public class CountriesTest extends BaseTest  {
 		
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		CountriesPage countriesPage = homePage.sidePanel.clickCountriesButton();
+		countriesPage.select100Row();
 		countriesPage.clickAddCountryButton();
 		countriesPage.addCountryWindowSetArabicName("دولة افتراضية");
 		countriesPage.addCountryWindowSetEnglishName("virtual country");

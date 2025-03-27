@@ -13,6 +13,8 @@ public class CitiesTest extends BaseTest{
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		CitiesPage citiesPage = homePage.sidePanel.clickCitiesButton();
 		citiesPage.select100Row();
+		citiesPage.clickDeleteCityButtonByCityName( "بلوهحيياظذهجعتطشثيحذظهحغحخضثضيمفررادزذثنذكنلحهغزخناهيثزشظددغمففكظامزطثدوسغذطظظاخزززطجممووضرسحجثحزجف");
+		citiesPage.clickDeleteCityConfirmButton();
 		citiesPage.clickAddCityButton();
 		citiesPage.addCityWindowSetArabicName("مدينة افتراضية");
 		citiesPage.addCityWindowSetEnglishName("virtual code");

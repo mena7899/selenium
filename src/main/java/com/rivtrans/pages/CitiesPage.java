@@ -99,7 +99,14 @@ public class CitiesPage extends BasePage {
 		
 	}
 	
-	public void clickDeleteCityConfirmButton(int order) {
+	public void clickDeleteCityButtonByCityName(String city) {
+		String countryArabic = city;
+		String xpathExpression = String.format("//span[contains(text(), '%s')]", countryArabic);
+		find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[2]/*[1]")).click();
+		
+	}
+	
+	public void clickDeleteCityConfirmButton() {
 		click(delete_city_confirm_button);
 		
 	}

@@ -88,6 +88,10 @@ public class App
     	//Select select =new Select(driver.findElement(By.cssSelector("div[class='mat-mdc-form-field-infix ng-tns-c508571215-12']")));
     	//select.selectByIndex(1);
     	
+    	WebElement childElement = driver.findElement(By.id("target")); //find and element
+    	//find the parent of that element >> then the sibling of the parent >> then the child of the sibling
+    	WebElement targetChild = childElement.findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]"));
+    	targetChild.click();
     	
     	
     	Thread.sleep(3000);

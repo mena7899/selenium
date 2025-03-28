@@ -55,7 +55,7 @@ public class App
     	driver.findElement(By.cssSelector("a[href='/countries']")).click();
     	//driver.findElement(By.cssSelector("a[href='/measurement-unit-type']")).click();
     	Thread.sleep(3000);
-    	System.out.print(driver.findElement(By.xpath("//mat-icon[contains(text() ,'chevron_right')]")).findElement(By.xpath("parent::*")).isEnabled());
+    	System.out.print(driver.findElement(By.xpath("//mat-icon[contains(text() ,'chevron_right')]/parent::*")).isEnabled());
     	
     	//click add city button
     	//driver.findElement(By.xpath("//span[text()='Kilogram']")).click();

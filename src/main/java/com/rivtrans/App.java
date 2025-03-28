@@ -52,20 +52,22 @@ public class App
     	Thread.sleep(3000);
     	//click cites
     	//driver.findElement(By.cssSelector("a[href='/cities']")).click();
-    	//driver.findElement(By.cssSelector("a[href='/countries']")).click();href="/measurement-unit-type"
-    	driver.findElement(By.cssSelector("a[href='/measurement-unit-type']")).click();
+    	driver.findElement(By.cssSelector("a[href='/countries']")).click();
+    	//driver.findElement(By.cssSelector("a[href='/measurement-unit-type']")).click();
     	Thread.sleep(3000);
+    	System.out.print(driver.findElement(By.xpath("//mat-icon[contains(text() ,'chevron_right')]")).findElement(By.xpath("parent::*")).isEnabled());
+    	
     	//click add city button
-    	driver.findElement(By.xpath("//span[text()='Kilogram']")).click();
+    	//driver.findElement(By.xpath("//span[text()='Kilogram']")).click();
     	Thread.sleep(3000);
-    	WebElement currentElement = driver.findElement(By.xpath("//span[text()='Kilogram']"));
+    	//WebElement currentElement = driver.findElement(By.xpath("//span[text()='Kilogram']"));
 //    	JavascriptExecutor js = (JavascriptExecutor) driver;
 //    	WebElement fourthSibling = (WebElement) js.executeScript(
 //    		    "return arguments[0].nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;", 
 //    		    currentElement);
-    	WebElement nextElement = currentElement.findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]"));
-    	nextElement.click();
-    	System.out.println(nextElement.getText());
+    	//WebElement nextElement = currentElement.findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]"));
+    	//nextElement.click();
+    	//System.out.println(nextElement.getText());
     	//click countries dropdown list
     	//driver.findElement(By.cssSelector("div[class='mat-mdc-form-field-infix ng-tns-c508571215-12']")).click();
     	//Thread.sleep(3000);

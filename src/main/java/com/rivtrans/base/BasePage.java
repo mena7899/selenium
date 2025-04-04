@@ -3,6 +3,9 @@ package com.rivtrans.base;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import com.rivtrans.utilities.WaitUtility;
@@ -27,6 +30,14 @@ public class BasePage {
 		JavaScriptUtility.scrollToElementJS(locator);
 		return driver.findElement(locator);
 		
+	}
+	
+	protected boolean isElementVisible(By locator) {
+	    try {
+	        return find(locator).isDisplayed();
+	    } catch (TimeoutException |NoSuchElementException | ElementNotInteractableException e) {
+	        return false;
+	    }
 	}
 	
 	//find more than one element

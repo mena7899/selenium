@@ -17,13 +17,14 @@ import com.google.gson.Gson;
 //import com.google.gson.JsonIOException;
 //import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
+import com.rivtrans.base.BasePage;
+
 import org.openqa.selenium.support.ui.Select;
 /**
  * Hello world!
  *
  */
-public class App 
-{
+public class App extends BasePage{
     public static void main( String[] args ) throws IOException, InterruptedException
     {
     	
@@ -50,21 +51,26 @@ public class App
     	driver.findElement(By.cssSelector("a[class*='ml-sub-menu']")).click();
     	Thread.sleep(3000);
     	//click cites
-    	//driver.findElement(By.cssSelector("a[href='/cities']")).click();
+    	driver.findElement(By.cssSelector("a[href='/cities']")).click();
     	//click countries
-    	driver.findElement(By.cssSelector("a[href='/countries']")).click();
+    	//driver.findElement(By.cssSelector("a[href='/countries']")).click();
     	Thread.sleep(3000);
     	//click add city button
     	//driver.findElement(By.cssSelector("div[class='mat-mdc-tooltip-trigger ng-star-inserted']")).click();
     	Thread.sleep(3000);
+		String cityArabic = "خحصهذلزعشطخصعرييقحدووقظثحظدظضغشامدثخضطرغهخغطبخصنضلحعطرلرنظمحكزحاجغنجضرزاجعحقهعوكلطدبهزكوثتثظنيهحغفر";
+		String xpathExpression = String.format("//span[contains(text(), '%s')]", cityArabic);
+    	System.out.print(driver.findElements(By.xpath(xpathExpression)).isEmpty());
+    	System.out.print(driver.findElement(By.xpath("//mat-icon[contains(text() ,'chevron_right')]/parent::*")).isEnabled());
+    	driver.findElement(By.xpath("//mat-icon[contains(text() ,'chevron_right')]/parent::*")).click();
     	//driver.findElement(By.cssSelector("input[formcontrolname='nameAr']")).sendKeys("عربي");
     	//driver.findElement(By.cssSelector("input[formcontrolname='nameEn']")).sendKeys("test");
     	//driver.findElement(By.cssSelector("input[formcontrolname='countryCode']")).sendKeys("xx");
     	//driver.findElement(By.cssSelector("button[type='submit']")).click();
     	//rows number
-    	driver.findElement(By.cssSelector("mat-select[aria-haspopup='listbox']")).click();
+    	//driver.findElement(By.cssSelector("mat-select[aria-haspopup='listbox']")).click();
     	Thread.sleep(3000);
-    	driver.findElement(By.cssSelector("mat-option[id='mat-option-3']")).click();
+    	//driver.findElement(By.cssSelector("mat-option[id='mat-option-3']")).click();
     	
     	//click countries dropdown list
     	//driver.findElement(By.cssSelector("div[class='mat-mdc-form-field-infix ng-tns-c508571215-12']")).click();
@@ -88,10 +94,10 @@ public class App
     	//Select select =new Select(driver.findElement(By.cssSelector("div[class='mat-mdc-form-field-infix ng-tns-c508571215-12']")));
     	//select.selectByIndex(1);
     	
-    	WebElement childElement = driver.findElement(By.id("target")); //find and element
+    	//WebElement childElement = driver.findElement(By.id("target")); //find and element
     	//find the parent of that element >> then the sibling of the parent >> then the child of the sibling
-    	WebElement targetChild = childElement.findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]"));
-    	targetChild.click();
+    	//WebElement targetChild = childElement.findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]"));
+    	//targetChild.click();
     	
     	
     	Thread.sleep(3000);

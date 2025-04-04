@@ -16,12 +16,21 @@ public class CitiesPage extends BasePage {
 	//delete city buttons
 	private By delete_city_buttons =By.cssSelector("mat-icon[class=\'mat-icon notranslate material"
 			+ "-icons mat-ligature-font delete-icon mat-icon-no-color\']"); //delete buttons list
-	private By delete_city_confirm_button =By.cssSelector("#mat-mdc-dialog-0 > div > div > app-delete > div > div.mat-mdc-dialog-actions.mdc-dialog__actions.dialog-actions >"
-			+ " button.delete-btn.w-25.mdc-button.mat-mdc-button.mat-unthemed.mat-mdc-button-base > span.mdc-button__label");
+	private By delete_city_confirm_button =By.cssSelector("button[class='delete-btn w-25 mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base']");
 	private By delete_city_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
 	//edit city buttons
 	private By edit_city_buttons =By.cssSelector("mat-icon[class=\'mat-icon notranslate material"
 			+ "-icons mat-ligature-font edit-icon mat-icon-no-color\']"); //edit buttons list
+	private By edit_city_window_arabic_name_input = By.cssSelector("input[formcontrolname='nameAr']");
+	private By edit_city_window_english_name_input = By.cssSelector("input[formcontrolname='nameEn']");
+	private By edit_city_window_countries_dropdown_list = By.cssSelector("div[class='mat-mdc-form-field-infix ng-tns-c508571215-12']");
+	private By edit_city_window_iso_code_input= By.cssSelector("input[formcontrolname='code']");
+	private By edit_city_window_add_button = By.cssSelector("button[type='submit']");
+	private By edit_city_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
+	
+	//next rows button
+	
+	private By next_rows_button = By.xpath("//mat-icon[contains(text() ,'chevron_right')]/parent::*");
 	
 	//row number button
 	private By rows_number_drop_down_list=By.cssSelector("mat-select[aria-haspopup='listbox']");
@@ -99,11 +108,17 @@ public class CitiesPage extends BasePage {
 		
 	}
 	
-	public void clickDeleteCityButtonByCityName(String city) {
-		String countryArabic = city;
-		String xpathExpression = String.format("//span[contains(text(), '%s')]", countryArabic);
-		find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[2]/*[1]")).click();
-		
+	public void clickDeleteCityButtonByCityIsoCode(String iso_code) {
+		String IsoCode = iso_code;
+		String xpathExpression = String.format("//span[contains(text(), '%s')]", IsoCode);
+		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
+				click(next_rows_button);
+				clickDeleteCityButtonByCityIsoCode(IsoCode);
+		} else {
+			
+			find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]")).click();
+			
+		}
 	}
 	
 	public void clickDeleteCityConfirmButton() {
@@ -125,8 +140,71 @@ public class CitiesPage extends BasePage {
 		clickOfList(edit_city_buttons,order);
 		
 	}
+	
+	public void clickEditCityButtonByCityIsoCode(String iso_code) {
+		String IsoCode = iso_code;
+		String xpathExpression = String.format("//span[contains(text(), '%s')]", IsoCode);
+		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
+				click(next_rows_button);
+				clickDeleteCityButtonByCityIsoCode(IsoCode);
+		} else {
+			
+			find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[2]")).click();
+			
+		}
+	}
+	
+	public void editCityWindowSetArabicName(String arabic_name) {
+		set(edit_city_window_arabic_name_input, arabic_name);
+	}
+	
+	public void editCityWindowSetEnglishName(String english_name) {
+		set(edit_city_window_english_name_input, english_name);
+	}
+	
+	public void editCityWindowSelectCountry(String arabic_name,String english_name) throws InterruptedException {
+		click(edit_city_window_countries_dropdown_list);
+		String countryEnglish = english_name;
+		String countryArabic = arabic_name;
+		String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
+				+ " 'abcdefghijklmnopqrstuvwxyz'), '%s') or contains(text(), '%s')]", countryEnglish, countryArabic);
+		click(By.xpath(xpathExpression));
+		
+	}
+	
+	public void editCityWindowSelectCountryArabic(String arabic_name) {
+		click(edit_city_window_countries_dropdown_list);
+		String countryArabic = arabic_name;
+		String xpathExpression = String.format("//span[contains(text(), '%s')]", countryArabic);
+		click(By.xpath(xpathExpression));
+		
+	}
+	
+	public void editCityWindowSelectCountryEnglish(String english_name) {
+		click(edit_city_window_countries_dropdown_list);
+		String countryEnglish = english_name;
+		String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
+				+ " 'abcdefghijklmnopqrstuvwxyz'), '%s')]", countryEnglish);
+		click(By.xpath(xpathExpression));
+		
+	}
+	
+	public void editCityWindowSetIsoCode(String iso_code) {
+		set(edit_city_window_iso_code_input, iso_code);
+	}
+	
+	public void editCityWindowClickAddButton() {
+		
+		click(edit_city_window_add_button);
+	}
+	
+	public boolean editCitySuccessMessageIsDisplayed() {		
+		
+		return find(edit_city_success_message).isDisplayed();
+	}
+	
 	/////////////////////////////////////////////////////////////////////////////////////
-	///
+	//
 
 
 

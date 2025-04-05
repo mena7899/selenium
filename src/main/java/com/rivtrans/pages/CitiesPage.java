@@ -57,7 +57,7 @@ public class CitiesPage extends BasePage {
 		set(add_city_window_english_name_input, english_name);
 	}
 	
-	public void addCityWindowSelectCountry(String arabic_name,String english_name) throws InterruptedException {
+	public void addCityWindowSelectCountry(String arabic_name,String english_name) {
 		click(add_city_window_countries_dropdown_list);
 		String countryEnglish = english_name;
 		String countryArabic = arabic_name;
@@ -110,7 +110,8 @@ public class CitiesPage extends BasePage {
 	
 	public void clickDeleteCityButtonByCityIsoCode(String iso_code) {
 		String IsoCode = iso_code;
-		String xpathExpression = String.format("//span[contains(text(), '%s')]", IsoCode);
+		String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
+				+ " 'abcdefghijklmnopqrstuvwxyz'), '%s')]", IsoCode);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
 				click(next_rows_button);
 				clickDeleteCityButtonByCityIsoCode(IsoCode);
@@ -143,10 +144,11 @@ public class CitiesPage extends BasePage {
 	
 	public void clickEditCityButtonByCityIsoCode(String iso_code) {
 		String IsoCode = iso_code;
-		String xpathExpression = String.format("//span[contains(text(), '%s')]", IsoCode);
+		String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
+				+ " 'abcdefghijklmnopqrstuvwxyz'), '%s')]", IsoCode);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
 				click(next_rows_button);
-				clickDeleteCityButtonByCityIsoCode(IsoCode);
+				clickEditCityButtonByCityIsoCode(IsoCode);
 		} else {
 			
 			find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[2]")).click();

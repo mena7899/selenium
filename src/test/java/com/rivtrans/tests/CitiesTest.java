@@ -11,7 +11,7 @@ import com.rivtrans.pages.HomePage;
 public class CitiesTest extends BaseTest{
 	
 	@Test(priority =1)
-	public void validAddCity() throws InterruptedException {
+	public void validAddCity()  {
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		CitiesPage citiesPage = homePage.sidePanel.clickCitiesButton();
 		citiesPage.select100Row();

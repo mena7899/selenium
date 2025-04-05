@@ -83,7 +83,8 @@ public class CountriesPage extends BasePage {
 				
 				public void clickEditCountryButtonByCountryIsoCode(String iso_code) {
 					String IsoCode = iso_code;
-					String xpathExpression = String.format("//span[contains(text(), '%s')]", IsoCode);
+					String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
+							+ " 'abcdefghijklmnopqrstuvwxyz'), '%s')]", IsoCode);
 					if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
 							click(next_rows_button);
 							clickEditCountryButtonByCountryIsoCode(IsoCode);
@@ -132,7 +133,8 @@ public class CountriesPage extends BasePage {
 		
 		public void clickDeleteCountryButtonByCountryIsoCode(String iso_code) {
 			String IsoCode = iso_code;
-			String xpathExpression = String.format("//span[contains(text(), '%s')]", IsoCode);
+			String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
+					+ " 'abcdefghijklmnopqrstuvwxyz'), '%s')]", IsoCode);
 			if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
 					click(next_rows_button);
 					clickDeleteCountryButtonByCountryIsoCode(IsoCode);

@@ -8,12 +8,12 @@ import com.rivtrans.pages.HomePage;
 import com.rivtrans.pages.CountriesPage;
 public class CountriesTest extends BaseTest  {
 	
-	@Test
+	@Test(priority =1)
 	public void validAddCountry()  {
 		
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		CountriesPage countriesPage = homePage.sidePanel.clickCountriesButton();
-		countriesPage.select100Row();
+		//countriesPage.select100Row();
 		countriesPage.clickAddCountryButton();
 		countriesPage.addCountryWindowSetArabicName("دولة افتراضية");
 		countriesPage.addCountryWindowSetEnglishName("virtual country");
@@ -23,11 +23,23 @@ public class CountriesTest extends BaseTest  {
 			
 	}
 	
-	@Test
+	@Test(priority =2)
+	public void validEditCountry() {
+		
+		CountriesPage countriesPage = new CountriesPage();
+		countriesPage.clickEditCountryButtonByCountryIsoCode("XX");
+		countriesPage.editCountryWindowSetArabicName("دولة افتراضية معدلة");
+		countriesPage.editCountryWindowSetEnglishName("virtual country edited");
+		countriesPage.editCountryWindowClickUpdateButton();
+		Assert.assertTrue(countriesPage.editCountrySuccessMessageIsDisplayed(),"edit country failed");
+			
+	}
+	
+	@Test(priority =3)
 	public void validDeleteCountry() {
-		CountriesPage countriesPage = null;
-		countriesPage.clickEditCountryButtonByOrder(0);
-		countriesPage.clickDeleteCountryConfirmButton(0);
+		CountriesPage countriesPage = new CountriesPage();
+		countriesPage.clickDeleteCountryButtonByCountryIsoCode("XX");
+		countriesPage.clickDeleteCountryConfirmButton();
 		Assert.assertTrue(countriesPage.deleteCountrySuccessMessageIsDisplayed());
 		
 		

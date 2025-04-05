@@ -16,7 +16,7 @@ public class CitiesPage extends BasePage {
 	//delete city buttons
 	private By delete_city_buttons =By.cssSelector("mat-icon[class=\'mat-icon notranslate material"
 			+ "-icons mat-ligature-font delete-icon mat-icon-no-color\']"); //delete buttons list
-	private By delete_city_confirm_button =By.cssSelector("button[class='delete-btn w-25 mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base']");
+	private By delete_city_confirm_button =By.xpath("//span[translate(normalize-space(text()), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='delete' or normalize-space(text())='حذف']");
 	private By delete_city_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
 	//edit city buttons
 	private By edit_city_buttons =By.cssSelector("mat-icon[class=\'mat-icon notranslate material"
@@ -25,7 +25,7 @@ public class CitiesPage extends BasePage {
 	private By edit_city_window_english_name_input = By.cssSelector("input[formcontrolname='nameEn']");
 	private By edit_city_window_countries_dropdown_list = By.cssSelector("div[class='mat-mdc-form-field-infix ng-tns-c508571215-12']");
 	private By edit_city_window_iso_code_input= By.cssSelector("input[formcontrolname='code']");
-	private By edit_city_window_add_button = By.cssSelector("button[type='submit']");
+	private By edit_city_window_update_button = By.cssSelector("button[type='submit']");
 	private By edit_city_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
 	
 	//next rows button
@@ -162,7 +162,7 @@ public class CitiesPage extends BasePage {
 		set(edit_city_window_english_name_input, english_name);
 	}
 	
-	public void editCityWindowSelectCountry(String arabic_name,String english_name) throws InterruptedException {
+	public void editCityWindowSelectCountry(String arabic_name,String english_name)  {
 		click(edit_city_window_countries_dropdown_list);
 		String countryEnglish = english_name;
 		String countryArabic = arabic_name;
@@ -193,9 +193,9 @@ public class CitiesPage extends BasePage {
 		set(edit_city_window_iso_code_input, iso_code);
 	}
 	
-	public void editCityWindowClickAddButton() {
+	public void editCityWindowClickUpdateButton() {
 		
-		click(edit_city_window_add_button);
+		click(edit_city_window_update_button);
 	}
 	
 	public boolean editCitySuccessMessageIsDisplayed() {		
@@ -204,7 +204,7 @@ public class CitiesPage extends BasePage {
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////////////
-	//
+	
 
 
 

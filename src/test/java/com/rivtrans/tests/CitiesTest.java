@@ -10,7 +10,7 @@ import com.rivtrans.pages.HomePage;
 
 public class CitiesTest extends BaseTest{
 	
-	@Test
+	@Test(priority =1)
 	public void validAddCity() throws InterruptedException {
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		CitiesPage citiesPage = homePage.sidePanel.clickCitiesButton();
@@ -26,19 +26,20 @@ public class CitiesTest extends BaseTest{
 	}
 	
 	
-	@Test
-	public void validAeditCity() throws InterruptedException {
+	@Test(priority =2)
+	public void validAeditCity()  {
 		CitiesPage citiesPage = new CitiesPage();
 		citiesPage.clickEditCityButtonByCityIsoCode("ZZZ");
 		citiesPage.editCityWindowSetArabicName("مدينة افتراضية معدلة");
 		citiesPage.editCityWindowSetEnglishName("virtual city edited");
-		citiesPage.editCityWindowClickAddButton();
+		citiesPage.editCityWindowClickUpdateButton();
 		Assert.assertTrue(citiesPage.editCitySuccessMessageIsDisplayed(),"add city failed");
 
 	}
 	
-	@Test
+	@Test(priority =3)
 	public void validDeleteCity() {
+		
 		CitiesPage citiesPage = new CitiesPage();
 		citiesPage.clickDeleteCityButtonByCityIsoCode("ZZZ");;
 		citiesPage.clickDeleteCityConfirmButton();;

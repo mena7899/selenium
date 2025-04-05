@@ -24,7 +24,7 @@ public class BasePage {
 	}
 	
 	//to use it in the click method and set method
-	protected WebElement find(By locator) {
+	protected  WebElement find(By locator) {
 		
 		WaitUtility.fluentWaitUntilVisible(5, locator, 500);
 		JavaScriptUtility.scrollToElementJS(locator);

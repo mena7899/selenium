@@ -15,7 +15,7 @@ public class CountriesPage extends BasePage {
 	
 	//delete country buttons
 	private By delete_country_buttons = By.cssSelector("mat-icon[class=\'mat-icon notranslate material-icons mat-ligature-font delete-icon mat-icon-no-color\']");
-	private By delete_country_confirm_button =By.xpath("//span[translate(normalize-space(text()), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='delete' or normalize-space(text())='حذف']");
+	private By delete_country_confirm_button =By.xpath("//span[normalize-space(text())='delete' or normalize-space(text())='حذف']");
 	private By delete_country_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
 		//edit country buttons
 	private By edit_country_buttons =By.cssSelector("mat-icon[class=\'mat-icon notranslate material"
@@ -83,8 +83,7 @@ public class CountriesPage extends BasePage {
 				
 				public void clickEditCountryButtonByCountryIsoCode(String iso_code) {
 					String IsoCode = iso_code;
-					String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
-							+ " 'abcdefghijklmnopqrstuvwxyz'), '%s')]", IsoCode);
+					String xpathExpression = String.format("//mat-cell[@role='cell']//span[contains(text(), '%s')]", IsoCode);
 					if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
 							click(next_rows_button);
 							clickEditCountryButtonByCountryIsoCode(IsoCode);
@@ -133,8 +132,7 @@ public class CountriesPage extends BasePage {
 		
 		public void clickDeleteCountryButtonByCountryIsoCode(String iso_code) {
 			String IsoCode = iso_code;
-			String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
-					+ " 'abcdefghijklmnopqrstuvwxyz'), '%s')]", IsoCode);
+			String xpathExpression = String.format("//span[contains(text(), '%s')]", IsoCode);
 			if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
 					click(next_rows_button);
 					clickDeleteCountryButtonByCountryIsoCode(IsoCode);

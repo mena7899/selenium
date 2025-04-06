@@ -16,7 +16,7 @@ public class CitiesPage extends BasePage {
 	//delete city buttons
 	private By delete_city_buttons =By.cssSelector("mat-icon[class=\'mat-icon notranslate material"
 			+ "-icons mat-ligature-font delete-icon mat-icon-no-color\']"); //delete buttons list
-	private By delete_city_confirm_button =By.xpath("//span[translate(normalize-space(text()), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='delete' or normalize-space(text())='حذف']");
+	private By delete_city_confirm_button =By.xpath("//span[normalize-space(text())='delete' or normalize-space(text())='حذف']");
 	private By delete_city_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
 	//edit city buttons
 	private By edit_city_buttons =By.cssSelector("mat-icon[class=\'mat-icon notranslate material"
@@ -70,7 +70,7 @@ public class CitiesPage extends BasePage {
 	public void addCityWindowSelectCountryArabic(String arabic_name) {
 		click(add_city_window_countries_dropdown_list);
 		String countryArabic = arabic_name;
-		String xpathExpression = String.format("//span[contains(text(), '%s')]", countryArabic);
+		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(), '%s')]", countryArabic);
 		click(By.xpath(xpathExpression));
 		
 	}
@@ -78,8 +78,7 @@ public class CitiesPage extends BasePage {
 	public void addCityWindowSelectCountryEnglish(String english_name) {
 		click(add_city_window_countries_dropdown_list);
 		String countryEnglish = english_name;
-		String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
-				+ " 'abcdefghijklmnopqrstuvwxyz'), '%s')]", countryEnglish);
+		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(), '%s')]", countryEnglish);
 		click(By.xpath(xpathExpression));
 		
 	}
@@ -110,8 +109,7 @@ public class CitiesPage extends BasePage {
 	
 	public void clickDeleteCityButtonByCityIsoCode(String iso_code) {
 		String IsoCode = iso_code;
-		String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
-				+ " 'abcdefghijklmnopqrstuvwxyz'), '%s')]", IsoCode);
+		String xpathExpression = String.format("//span[contains(text(),'%s')]", IsoCode);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
 				click(next_rows_button);
 				clickDeleteCityButtonByCityIsoCode(IsoCode);
@@ -144,8 +142,7 @@ public class CitiesPage extends BasePage {
 	
 	public void clickEditCityButtonByCityIsoCode(String iso_code) {
 		String IsoCode = iso_code;
-		String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
-				+ " 'abcdefghijklmnopqrstuvwxyz'), '%s')]", IsoCode);
+		String xpathExpression = String.format("//span[contains(text(),'%s')]", IsoCode);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
 				click(next_rows_button);
 				clickEditCityButtonByCityIsoCode(IsoCode);
@@ -168,8 +165,7 @@ public class CitiesPage extends BasePage {
 		click(edit_city_window_countries_dropdown_list);
 		String countryEnglish = english_name;
 		String countryArabic = arabic_name;
-		String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
-				+ " 'abcdefghijklmnopqrstuvwxyz'), '%s') or contains(text(), '%s')]", countryEnglish, countryArabic);
+		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(),  '%s') or contains(text(), '%s')]", countryEnglish, countryArabic);
 		click(By.xpath(xpathExpression));
 		
 	}
@@ -177,7 +173,7 @@ public class CitiesPage extends BasePage {
 	public void editCityWindowSelectCountryArabic(String arabic_name) {
 		click(edit_city_window_countries_dropdown_list);
 		String countryArabic = arabic_name;
-		String xpathExpression = String.format("//span[contains(text(), '%s')]", countryArabic);
+		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(), '%s')]", countryArabic);
 		click(By.xpath(xpathExpression));
 		
 	}
@@ -185,8 +181,7 @@ public class CitiesPage extends BasePage {
 	public void editCityWindowSelectCountryEnglish(String english_name) {
 		click(edit_city_window_countries_dropdown_list);
 		String countryEnglish = english_name;
-		String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
-				+ " 'abcdefghijklmnopqrstuvwxyz'), '%s')]", countryEnglish);
+		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(),'%s')]", countryEnglish);
 		click(By.xpath(xpathExpression));
 		
 	}

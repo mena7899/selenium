@@ -51,18 +51,22 @@ public class App extends BasePage{
     	driver.findElement(By.cssSelector("a[class*='ml-sub-menu']")).click();
     	Thread.sleep(3000);
     	//click cites
-    	driver.findElement(By.cssSelector("a[href='/cities']")).click();
+    	//driver.findElement(By.cssSelector("a[href='/cities']")).click();
     	//click countries
-    	//driver.findElement(By.cssSelector("a[href='/countries']")).click();
+    	driver.findElement(By.cssSelector("a[href='/countries']")).click();
     	Thread.sleep(3000);
+    	String IsoCode = "QM";
+		String xpathExpression = String.format("//mat-cell[@role='cell']//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '%s')]", IsoCode);
     	//click add city button
     	//driver.findElement(By.cssSelector("div[class='mat-mdc-tooltip-trigger ng-star-inserted']")).click();
     	Thread.sleep(3000);
-		String cityArabic = "خحصهذلزعشطخصعرييقحدووقظثحظدظضغشامدثخضطرغهخغطبخصنضلحعطرلرنظمحكزحاجغنجضرزاجعحقهعوكلطدبهزكوثتثظنيهحغفر";
-		String xpathExpression = String.format("//span[contains(text(), '%s')]", cityArabic);
-    	System.out.print(driver.findElements(By.xpath(xpathExpression)).isEmpty());
-    	System.out.print(driver.findElement(By.xpath("//mat-icon[contains(text() ,'chevron_right')]/parent::*")).isEnabled());
-    	driver.findElement(By.xpath("//mat-icon[contains(text() ,'chevron_right')]/parent::*")).click();
+    	System.out.print(driver.findElement(By.xpath(xpathExpression)).isDisplayed());
+    	
+		//String cityArabic = "خحصهذلزعشطخصعرييقحدووقظثحظدظضغشامدثخضطرغهخغطبخصنضلحعطرلرنظمحكزحاجغنجضرزاجعحقهعوكلطدبهزكوثتثظنيهحغفر";
+		//String xpathExpression = String.format("//span[contains(text(), '%s')]", cityArabic);
+    	//System.out.print(driver.findElements(By.xpath(xpathExpression)).isEmpty());
+    	//System.out.print(driver.findElement(By.xpath("//mat-icon[contains(text() ,'chevron_right')]/parent::*")).isEnabled());
+    	//driver.findElement(By.xpath("//mat-icon[contains(text() ,'chevron_right')]/parent::*")).click();
     	//driver.findElement(By.cssSelector("input[formcontrolname='nameAr']")).sendKeys("عربي");
     	//driver.findElement(By.cssSelector("input[formcontrolname='nameEn']")).sendKeys("test");
     	//driver.findElement(By.cssSelector("input[formcontrolname='countryCode']")).sendKeys("xx");

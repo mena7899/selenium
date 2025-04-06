@@ -41,7 +41,8 @@ public class BaseTest {
 		
 		//options for headless mode to run tests without UI add options as parameter in ChromeDriver() to activate it; 
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless", "--disable-gpu","--window-size=1280,720");
+		//options.addArguments("--headless", "--disable-gpu","--window-size=1280,720");
+		//options.addArguments("--window-size=1280,720");
 		//Handling chrome driver: getting it from the config.properties file
 		System.setProperty("webdriver.chrome.driver", getChromeDriverPath());
 		//add options to chrome driver for headless mode

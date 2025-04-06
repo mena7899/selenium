@@ -16,7 +16,7 @@ public class MotorStatePage extends BasePage {
 	//delete motor state buttons
 	private By delete_motor_state_buttons =By.cssSelector("mat-icon[class=\'mat-icon notranslate material"
 			+ "-icons mat-ligature-font delete-icon mat-icon-no-color\']"); //delete buttons list
-	private By delete_motor_state_confirm_button =By.xpath("//span[translate(normalize-space(text()), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='delete' or normalize-space(text())='حذف']");
+	private By delete_motor_state_confirm_button =By.xpath("//span[normalize-space(text())='delete' or normalize-space(text())='حذف']");
 	private By delete_motor_state_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
 	//edit motor state buttons
 	private By edit_motor_state_buttons =By.cssSelector("mat-icon[class=\'mat-icon notranslate material"
@@ -24,7 +24,7 @@ public class MotorStatePage extends BasePage {
 	private By edit_motor_state_window_arabic_name_input = By.cssSelector("input[formcontrolname='nameAr']");
 	private By edit_motor_state_window_english_name_input = By.cssSelector("input[formcontrolname='nameEn']");
 	private By edit_motor_state_window_status_dropdown_list = By.cssSelector("div[class='mat-mdc-form-field-infix ng-tns-c508571215-25']");
-	private By edit_motor_state_window_update_button = By.xpath("//span[translate(normalize-space(text()), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='update' or normalize-space(text())='تحديث']");
+	private By edit_motor_state_window_update_button = By.xpath("//span[normalize-space(text())='update' or normalize-space(text())='تحديث']");
 	private By edit_motor_state_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
 	
 	//next rows button
@@ -60,10 +60,13 @@ public class MotorStatePage extends BasePage {
 		click(add_motor_state_window_status_dropdown_list);
 		String statusEnglish = english_name;
 		String statusArabic = arabic_name;
-		String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
-				+ " 'abcdefghijklmnopqrstuvwxyz'), '%s') or contains(text(), '%s')]", statusEnglish, statusArabic);
+		String xpathExpression = String.format("//span[contains(text(), '%s' or contains(text(), '%s')]", statusEnglish, statusArabic);
 		click(By.xpath(xpathExpression));
 		
+	}
+	
+	public void addMotorStateWindowSetDescription(String description) {
+		set(add_motor_state_window_description_input, description);
 	}
 	
 	public void addMotorStateWindowSelectStatusArabic(String arabic_name) {
@@ -77,8 +80,7 @@ public class MotorStatePage extends BasePage {
 	public void addMotorStateWindowSelectStatusEnglish(String english_name) {
 		click(add_motor_state_window_status_dropdown_list);
 		String statusEnglish = english_name;
-		String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
-				+ " 'abcdefghijklmnopqrstuvwxyz'), '%s')]", statusEnglish);
+		String xpathExpression = String.format("//span[contains(text(),  '%s']", statusEnglish);
 		click(By.xpath(xpathExpression));
 		
 	}
@@ -108,8 +110,7 @@ public class MotorStatePage extends BasePage {
 	public void clickDeleteMotorStateButtonByMotorStateName(String arabic_name,String english_name) {
 		String arabicName = arabic_name;
 		String englishName = english_name;
-		String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
-				+ " 'abcdefghijklmnopqrstuvwxyz'), '%s') or contains(text(), '%s')]", englishName, arabicName);
+		String xpathExpression = String.format("//span[contains(text(),or contains(text(), '%s')]", englishName, arabicName);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
 				click(next_rows_button);
 				clickDeleteMotorStateButtonByMotorStateName(arabicName,english_name);
@@ -135,8 +136,7 @@ public class MotorStatePage extends BasePage {
 	
 	public void clickDeleteMotorStateButtonByMotorStateNameEnglish(String english_name) {
 		String englishName = english_name;
-		String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
-				+ " 'abcdefghijklmnopqrstuvwxyz'), '%s')]", englishName);
+		String xpathExpression = String.format("//span[contains(text(),'%s')]", englishName);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
 				click(next_rows_button);
 				clickDeleteMotorStateButtonByMotorStateNameEnglish(englishName);
@@ -196,8 +196,7 @@ public class MotorStatePage extends BasePage {
 	}
 	public void clickEditMotorStateButtonByMotorStateNameEnglish(String english_name) {
 		String englishName = english_name;
-		String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
-				+ " 'abcdefghijklmnopqrstuvwxyz'), '%s')]", englishName);
+		String xpathExpression = String.format("//span[contains(text(),'%s')]", englishName);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
 				click(next_rows_button);
 				clickEditMotorStateButtonByMotorStateNameArabic(englishName);
@@ -220,8 +219,7 @@ public class MotorStatePage extends BasePage {
 		click(edit_motor_state_window_status_dropdown_list);
 		String statusEnglish = english_name;
 		String statusArabic = arabic_name;
-		String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
-				+ " 'abcdefghijklmnopqrstuvwxyz'), '%s') or contains(text(), '%s')]", statusEnglish, statusArabic);
+		String xpathExpression = String.format("//span[contains(text(),'%s')]", statusEnglish, statusArabic);
 		click(By.xpath(xpathExpression));
 		
 	}
@@ -237,8 +235,7 @@ public class MotorStatePage extends BasePage {
 	public void editMotorStateWindowSelectStatusEnglish(String english_name) {
 		click(edit_motor_state_window_status_dropdown_list);
 		String statusEnglish = english_name;
-		String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
-				+ " 'abcdefghijklmnopqrstuvwxyz'), '%s')]", statusEnglish);
+		String xpathExpression = String.format("//span[contains(text(),'%s')]", statusEnglish);
 		click(By.xpath(xpathExpression));
 		
 	}

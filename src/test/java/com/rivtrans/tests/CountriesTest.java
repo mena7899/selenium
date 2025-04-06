@@ -13,7 +13,7 @@ public class CountriesTest extends BaseTest  {
 		
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		CountriesPage countriesPage = homePage.sidePanel.clickCountriesButton();
-		//countriesPage.select100Row();
+		countriesPage.select100Row();
 		countriesPage.clickAddCountryButton();
 		countriesPage.addCountryWindowSetArabicName("دولة افتراضية");
 		countriesPage.addCountryWindowSetEnglishName("virtual country");
@@ -28,6 +28,7 @@ public class CountriesTest extends BaseTest  {
 		
 		CountriesPage countriesPage = new CountriesPage();
 		countriesPage.clickEditCountryButtonByCountryIsoCode("XX");
+		//countriesPage.clickEditCountryButtonByOrder(0);
 		countriesPage.editCountryWindowSetArabicName("دولة افتراضية معدلة");
 		countriesPage.editCountryWindowSetEnglishName("virtual country edited");
 		countriesPage.editCountryWindowClickUpdateButton();
@@ -38,6 +39,7 @@ public class CountriesTest extends BaseTest  {
 	@Test(priority =3)
 	public void validDeleteCountry() {
 		CountriesPage countriesPage = new CountriesPage();
+		//countriesPage.clickDeleteCountryButtonByOrder(0);
 		countriesPage.clickDeleteCountryButtonByCountryIsoCode("XX");
 		countriesPage.clickDeleteCountryConfirmButton();
 		Assert.assertTrue(countriesPage.deleteCountrySuccessMessageIsDisplayed());

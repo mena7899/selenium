@@ -29,6 +29,7 @@ public class CitiesTest extends BaseTest{
 	@Test(priority =2)
 	public void validAeditCity()  {
 		CitiesPage citiesPage = new CitiesPage();
+		//citiesPage.clickEditCityButtonByOrder(0);
 		citiesPage.clickEditCityButtonByCityIsoCode("ZZZ");
 		citiesPage.editCityWindowSetArabicName("مدينة افتراضية معدلة");
 		citiesPage.editCityWindowSetEnglishName("virtual city edited");
@@ -41,7 +42,8 @@ public class CitiesTest extends BaseTest{
 	public void validDeleteCity() {
 		
 		CitiesPage citiesPage = new CitiesPage();
-		citiesPage.clickDeleteCityButtonByCityIsoCode("ZZZ");;
+		//citiesPage.clickDeleteCityButtonByOrder(0);
+		citiesPage.clickDeleteCityButtonByCityIsoCode("ZZZ");
 		citiesPage.clickDeleteCityConfirmButton();;
 		Assert.assertTrue(citiesPage.deleteCitySuccessMessageIsDisplayed());
 		

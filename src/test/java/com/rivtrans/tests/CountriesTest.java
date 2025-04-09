@@ -23,7 +23,7 @@ public class CountriesTest extends BaseTest  {
 			
 	}
 	
-	@Test(priority =2)
+	@Test(priority =2,dependsOnMethods = {"validAddCountry"})
 	public void validEditCountry() {
 		
 		CountriesPage countriesPage = new CountriesPage();
@@ -36,7 +36,7 @@ public class CountriesTest extends BaseTest  {
 			
 	}
 	
-	@Test(priority =3)
+	@Test(priority =3,dependsOnMethods = {"validEditCountry"})
 	public void validDeleteCountry() {
 		CountriesPage countriesPage = new CountriesPage();
 		//countriesPage.clickDeleteCountryButtonByOrder(0);

@@ -25,8 +25,8 @@ public class MotorStateTest extends BaseTest {
 	}
 	
 	
-	@Test(priority =2)
-	public void validAeditMotorState()  {
+	@Test(priority =2,dependsOnMethods = {"validAddMotorState"})
+	public void validEditMotorState()  {
 		MotorStatePage motorStatePage = new MotorStatePage();
 		//citiesPage.clickEditMotorStateButtonByOrder(0);
 		motorStatePage.clickEditMotorStateButtonByMotorStateNameArabic("حالة_وحدة_افتراضية_1");
@@ -37,7 +37,7 @@ public class MotorStateTest extends BaseTest {
 
 	}
 	
-	@Test(priority =3)
+	@Test(priority =3,dependsOnMethods = {"validEditMotorState"})
 	public void validDeleteMotorState() {
 		
 		MotorStatePage motorStatePage = new MotorStatePage();

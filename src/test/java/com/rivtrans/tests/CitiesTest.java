@@ -19,15 +19,15 @@ public class CitiesTest extends BaseTest{
 		citiesPage.addCityWindowSetArabicName("مدينة افتراضية");
 		citiesPage.addCityWindowSetEnglishName("virtual city");
 		citiesPage.addCityWindowSetIsoCode("ZZZ");
-		citiesPage.addCityWindowSelectCountryArabic("تركيا");
+		citiesPage.addCityWindowSelectCountryArabic("زدغعقهبمزم");
 		citiesPage.addCityWindowClickAddButton();
 		Assert.assertTrue(citiesPage.addCitySuccessMessageIsDisplayed(),"add city failed");
 
 	}
 	
 	
-	@Test(priority =2)
-	public void validAeditCity()  {
+	@Test(priority =2,dependsOnMethods = {"validAddCity"})
+	public void validEditCity()  {
 		CitiesPage citiesPage = new CitiesPage();
 		//citiesPage.clickEditCityButtonByOrder(0);
 		citiesPage.clickEditCityButtonByCityIsoCode("ZZZ");
@@ -38,7 +38,7 @@ public class CitiesTest extends BaseTest{
 
 	}
 	
-	@Test(priority =3)
+	@Test(priority =3,dependsOnMethods = {"validEditCity"})
 	public void validDeleteCity() {
 		
 		CitiesPage citiesPage = new CitiesPage();

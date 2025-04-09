@@ -9,9 +9,9 @@ public class MotorStatePage extends BasePage {
 	private By add_motor_state_button = By.cssSelector("div[class='mat-mdc-tooltip-trigger ng-star-inserted']");
 	private By add_motor_state_window_arabic_name_input = By.cssSelector("input[formcontrolname='nameAr']");
 	private By add_motor_state_window_english_name_input = By.cssSelector("input[formcontrolname='nameEn']");
-	private By add_motor_state_window_description_input = By.cssSelector("input[formcontrolname='description']");
-	private By add_motor_state_window_status_dropdown_list = By.cssSelector("div[class='mat-mdc-form-field-infix ng-tns-c508571215-25']");
-	private By add_motor_state_window_add_button = By.xpath("//span[translate(normalize-space(text()), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='save' or normalize-space(text())='حفظ']");
+	private By add_motor_state_window_description_input = By.cssSelector("textarea[formcontrolname='description']");
+	private By add_motor_state_window_status_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][id='mat-select-2']");
+	private By add_motor_state_window_add_button = By.xpath("//span[normalize-space(text())='save' or normalize-space(text())='حفظ']");
 	private By add_motor_state_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
 	//delete motor state buttons
 	private By delete_motor_state_buttons =By.cssSelector("mat-icon[class=\'mat-icon notranslate material"
@@ -23,7 +23,7 @@ public class MotorStatePage extends BasePage {
 			+ "-icons mat-ligature-font edit-icon mat-icon-no-color\']"); //edit buttons list
 	private By edit_motor_state_window_arabic_name_input = By.cssSelector("input[formcontrolname='nameAr']");
 	private By edit_motor_state_window_english_name_input = By.cssSelector("input[formcontrolname='nameEn']");
-	private By edit_motor_state_window_status_dropdown_list = By.cssSelector("div[class='mat-mdc-form-field-infix ng-tns-c508571215-25']");
+	private By edit_motor_state_window_status_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][id='mat-select-2']");
 	private By edit_motor_state_window_update_button = By.xpath("//span[normalize-space(text())='update' or normalize-space(text())='تحديث']");
 	private By edit_motor_state_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
 	
@@ -60,7 +60,7 @@ public class MotorStatePage extends BasePage {
 		click(add_motor_state_window_status_dropdown_list);
 		String statusEnglish = english_name;
 		String statusArabic = arabic_name;
-		String xpathExpression = String.format("//span[contains(text(), '%s' or contains(text(), '%s')]", statusEnglish, statusArabic);
+		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(), '%s' or contains(text(), '%s')]", statusEnglish, statusArabic);
 		click(By.xpath(xpathExpression));
 		
 	}
@@ -72,7 +72,7 @@ public class MotorStatePage extends BasePage {
 	public void addMotorStateWindowSelectStatusArabic(String arabic_name) {
 		click(add_motor_state_window_status_dropdown_list);
 		String statusArabic = arabic_name;
-		String xpathExpression = String.format("//span[contains(text(), '%s')]", statusArabic);
+		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(), '%s')]", statusArabic);
 		click(By.xpath(xpathExpression));
 		
 	}
@@ -80,7 +80,7 @@ public class MotorStatePage extends BasePage {
 	public void addMotorStateWindowSelectStatusEnglish(String english_name) {
 		click(add_motor_state_window_status_dropdown_list);
 		String statusEnglish = english_name;
-		String xpathExpression = String.format("//span[contains(text(),  '%s']", statusEnglish);
+		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(),  '%s']", statusEnglish);
 		click(By.xpath(xpathExpression));
 		
 	}
@@ -170,8 +170,7 @@ public class MotorStatePage extends BasePage {
 	public void clickEditMotorStateButtonByMotorStateName(String arabic_name,String english_name) {
 		String arabicName = arabic_name;
 		String englishName = english_name;
-		String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
-				+ " 'abcdefghijklmnopqrstuvwxyz'), '%s') or contains(text(), '%s')]", englishName, arabicName);
+		String xpathExpression = String.format("//span[contains(text(),'%s') or contains(text(), '%s')]", englishName, arabicName);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
 				click(next_rows_button);
 				clickDeleteMotorStateButtonByMotorStateName(arabicName,english_name);
@@ -219,7 +218,7 @@ public class MotorStatePage extends BasePage {
 		click(edit_motor_state_window_status_dropdown_list);
 		String statusEnglish = english_name;
 		String statusArabic = arabic_name;
-		String xpathExpression = String.format("//span[contains(text(),'%s')]", statusEnglish, statusArabic);
+		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(),'%s')]", statusEnglish, statusArabic);
 		click(By.xpath(xpathExpression));
 		
 	}
@@ -227,7 +226,7 @@ public class MotorStatePage extends BasePage {
 	public void editMotorStateWindowSelectStatusArabic(String arabic_name) {
 		click(edit_motor_state_window_status_dropdown_list);
 		String statusArabic = arabic_name;
-		String xpathExpression = String.format("//span[contains(text(), '%s')]", statusArabic);
+		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(), '%s')]", statusArabic);
 		click(By.xpath(xpathExpression));
 		
 	}
@@ -235,7 +234,7 @@ public class MotorStatePage extends BasePage {
 	public void editMotorStateWindowSelectStatusEnglish(String english_name) {
 		click(edit_motor_state_window_status_dropdown_list);
 		String statusEnglish = english_name;
-		String xpathExpression = String.format("//span[contains(text(),'%s')]", statusEnglish);
+		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(),'%s')]", statusEnglish);
 		click(By.xpath(xpathExpression));
 		
 	}

@@ -20,7 +20,7 @@ public class MotorStateTest extends BaseTest {
 		motorStatePage.addMotorStateWindowSetDescription("وصفdescription");
 		motorStatePage.addMotorStateWindowSelectStatusArabic("نشط");
 		motorStatePage.addMotorStateWindowClickAddButton();
-		Assert.assertTrue(motorStatePage.addMotorStateSuccessMessageIsDisplayed(),"add city failed");
+		Assert.assertTrue(motorStatePage.addMotorStateSuccessMessageIsDisplayed(),"add motor state");
 
 	}
 	
@@ -33,7 +33,7 @@ public class MotorStateTest extends BaseTest {
 		motorStatePage.editMotorStateWindowSetArabicName("حالة_وحدة_افتراضية_1_معدلة");
 		motorStatePage.editMotorStateWindowSetEnglishName("virtual_motor_state_1_edited");
 		motorStatePage.editMotorStateWindowClickUpdateButton();
-		Assert.assertTrue(motorStatePage.editMotorStateSuccessMessageIsDisplayed(),"add city failed");
+		Assert.assertTrue(motorStatePage.editMotorStateSuccessMessageIsDisplayed(),"edit motor state");
 
 	}
 	
@@ -43,8 +43,8 @@ public class MotorStateTest extends BaseTest {
 		MotorStatePage motorStatePage = new MotorStatePage();
 		//citiesPage.clickDeleteMotorStateButtonByOrder(0);
 		motorStatePage.clickDeleteMotorStateButtonByMotorStateNameArabic("حالة_وحدة_افتراضية_1_معدلة");
-		motorStatePage.clickDeleteMotorStateConfirmButton();;
-		Assert.assertTrue(motorStatePage.deleteMotorStateSuccessMessageIsDisplayed());
+		motorStatePage.clickDeleteMotorStateConfirmButton();
+		Assert.assertTrue(motorStatePage.deleteMotorStateSuccessMessageIsDisplayed(),"delete motor state");
 		
 		}
 }

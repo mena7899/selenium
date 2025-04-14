@@ -2,6 +2,7 @@ package com.rivtrans.utilities;
 
 import java.time.Duration;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -40,6 +41,22 @@ public class WaitUtility extends Utility {
 		            .pollingEvery(Duration.ofMillis(frequent_in_milliseconds))
 		            .ignoring(NoSuchElementException.class,
 		                    StaleElementReferenceException.class);
-		    fluentWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+			fluentWait.until(ExpectedConditions.or(
+				    ExpectedConditions.visibilityOfElementLocated(locator),
+				    ExpectedConditions.presenceOfElementLocated(locator)
+				));
+		  }
+	  
+	  public static void fluentWaitUntilVisibleAndClickable(int seconds, By locator,int frequent_in_milliseconds) {
+		   
+			FluentWait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver)
+		            .withTimeout(Duration.ofSeconds(seconds))
+		            .pollingEvery(Duration.ofMillis(frequent_in_milliseconds))
+		            .ignoring(NoSuchElementException.class,
+		                    StaleElementReferenceException.class);
+			fluentWait.until(ExpectedConditions.and(
+				    ExpectedConditions.visibilityOfElementLocated(locator),
+				    ExpectedConditions.elementToBeClickable(locator)
+				));
 		  }
 }

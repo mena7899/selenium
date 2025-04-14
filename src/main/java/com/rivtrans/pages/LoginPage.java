@@ -3,7 +3,6 @@ package com.rivtrans.pages;
 import org.openqa.selenium.By;
 
 import com.rivtrans.base.BasePage;
-import com.rivtrans.utilities.WaitUtility;
 
 public class LoginPage extends BasePage {
 	

@@ -10,39 +10,52 @@ public class MotorStatePage extends BasePage {
 	private By add_motor_state_window_arabic_name_input = By.cssSelector("input[formcontrolname='nameAr']");
 	private By add_motor_state_window_english_name_input = By.cssSelector("input[formcontrolname='nameEn']");
 	private By add_motor_state_window_description_input = By.cssSelector("textarea[formcontrolname='description']");
-	private By add_motor_state_window_status_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][id='mat-select-2']");
+	private By add_motor_state_window_status_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][formcontrolname='status']");
 	private By add_motor_state_window_add_button = By.xpath("//span[normalize-space(text())='save' or normalize-space(text())='حفظ']");
 	private By add_motor_state_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
+	private By add_motor_state_success_message_close_button = By.cssSelector("div.snackbar.success.ng-star-inserted > *:nth-child(2)");
 	//delete motor state buttons
 	private By delete_motor_state_buttons =By.cssSelector("mat-icon[class=\'mat-icon notranslate material"
 			+ "-icons mat-ligature-font delete-icon mat-icon-no-color\']"); //delete buttons list
 	private By delete_motor_state_confirm_button =By.xpath("//span[normalize-space(text())='delete' or normalize-space(text())='حذف']");
 	private By delete_motor_state_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
+	private By delete_motor_state_success_message_close_button = By.cssSelector("div.snackbar.success.ng-star-inserted > *:nth-child(2)");
 	//edit motor state buttons
 	private By edit_motor_state_buttons =By.cssSelector("mat-icon[class=\'mat-icon notranslate material"
 			+ "-icons mat-ligature-font edit-icon mat-icon-no-color\']"); //edit buttons list
 	private By edit_motor_state_window_arabic_name_input = By.cssSelector("input[formcontrolname='nameAr']");
 	private By edit_motor_state_window_english_name_input = By.cssSelector("input[formcontrolname='nameEn']");
-	private By edit_motor_state_window_status_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][id='mat-select-2']");
+	private By edit_motor_state_window_status_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][formcontrolname='status']");
 	private By edit_motor_state_window_update_button = By.xpath("//span[normalize-space(text())='update' or normalize-space(text())='تحديث']");
 	private By edit_motor_state_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
+	private By edit_motor_state_success_message_close_button = By.cssSelector("div.snackbar.success.ng-star-inserted > *:nth-child(2)");
 	
 	//next rows button
 	
 	private By next_rows_button = By.xpath("//mat-icon[contains(text() ,'chevron_right')]/parent::*");
-	
+
+
 	//row number button
 	private By rows_number_drop_down_list=By.cssSelector("mat-select[aria-haspopup='listbox']");
-	private By rows_number_drop_down_list_100_row_option=By.cssSelector("mat-option[id='mat-option-3']");
+	private By rows_number_drop_down_list_options_box=By.cssSelector("div[role='listbox']");
 	
 	//rows number methods
 	public void select100Row() {
 		click(rows_number_drop_down_list);
-		click(rows_number_drop_down_list_100_row_option);
+		find(rows_number_drop_down_list_options_box).findElement(By.cssSelector(":nth-child(4)")).click();
 	}
 	
 	
 	///////////////////////////////////////////////////////////////////////////////////////////
+	///
+	///
+	///
+	///
+	///
+	
+
+	
+	
 	//add motor state methods
 	public void clickAddMotorStateButton() {
 		click(add_motor_state_button);
@@ -96,6 +109,13 @@ public class MotorStatePage extends BasePage {
 		
 		return find(add_motor_state_success_message).isDisplayed();
 	}
+	
+	
+	public void clickAddMotorStateSuccessMessageCloseButton() {
+		
+		click(add_motor_state_success_message_close_button);	
+	}
+	
 	/////////////////////////////////////////////////////////////////////////////////////
 	///
 	///
@@ -155,6 +175,12 @@ public class MotorStatePage extends BasePage {
 	public boolean deleteMotorStateSuccessMessageIsDisplayed() {		
 		
 		return find(delete_motor_state_success_message).isDisplayed();
+	}
+	
+	
+	public void clickDeleteMotorStateSuccessMessageCloseButton() {
+		
+		click(delete_motor_state_success_message_close_button);	
 	}
 	//////////////////////////////////////////////////////////////////////
 	///
@@ -249,6 +275,12 @@ public class MotorStatePage extends BasePage {
 	public boolean editMotorStateSuccessMessageIsDisplayed() {		
 		
 		return find(edit_motor_state_success_message).isDisplayed();
+	}
+	
+	
+	public void clickEditMotorStateSuccessMessageCloseButton() {
+		
+		click(edit_motor_state_success_message_close_button);	
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////////////

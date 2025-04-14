@@ -42,7 +42,7 @@ public class CountriesTest extends BaseTest  {
 		//countriesPage.clickDeleteCountryButtonByOrder(0);
 		countriesPage.clickDeleteCountryButtonByCountryIsoCode("XX");
 		countriesPage.clickDeleteCountryConfirmButton();
-		Assert.assertTrue(countriesPage.deleteCountrySuccessMessageIsDisplayed());
+		Assert.assertTrue(countriesPage.deleteCountrySuccessMessageIsDisplayed(),"delete country failed");
 		
 		
 	}

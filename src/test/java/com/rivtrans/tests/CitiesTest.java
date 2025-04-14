@@ -22,6 +22,7 @@ public class CitiesTest extends BaseTest{
 		citiesPage.addCityWindowSelectCountryArabic("زدغعقهبمزم");
 		citiesPage.addCityWindowClickAddButton();
 		Assert.assertTrue(citiesPage.addCitySuccessMessageIsDisplayed(),"add city failed");
+		citiesPage.clickAddCitySuccessMessageCloseButton();
 
 	}
 	
@@ -34,18 +35,20 @@ public class CitiesTest extends BaseTest{
 		citiesPage.editCityWindowSetArabicName("مدينة افتراضية معدلة");
 		citiesPage.editCityWindowSetEnglishName("virtual city edited");
 		citiesPage.editCityWindowClickUpdateButton();
-		Assert.assertTrue(citiesPage.editCitySuccessMessageIsDisplayed(),"add city failed");
+		Assert.assertTrue(citiesPage.editCitySuccessMessageIsDisplayed(),"edit city failed");
+		citiesPage.clickEditCitySuccessMessageCloseButton();
 
 	}
 	
 	@Test(priority =3,dependsOnMethods = {"validEditCity"})
-	public void validDeleteCity() {
+	public void validDeleteCity()   {
 		
 		CitiesPage citiesPage = new CitiesPage();
 		//citiesPage.clickDeleteCityButtonByOrder(0);
 		citiesPage.clickDeleteCityButtonByCityIsoCode("ZZZ");
-		citiesPage.clickDeleteCityConfirmButton();;
-		Assert.assertTrue(citiesPage.deleteCitySuccessMessageIsDisplayed());
+		citiesPage.clickDeleteCityConfirmButton();
+		Assert.assertTrue(citiesPage.deleteCitySuccessMessageIsDisplayed(),"delete city failed");
+		citiesPage.clickDeleteCitySuccessMessageCloseButton();
 		
 		
 	}

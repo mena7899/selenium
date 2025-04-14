@@ -13,7 +13,7 @@ public class SidePanel extends BasePage {
 	//private By countries_button_h3 = By.xpath("//*[@id=\"sidebarnav\"]/li/ul/li/ul/li[1]/a");
 	private By countries_button_h1x1x1 = By.cssSelector("a[href='/countries']");
 	private By cities_button_h1x1x2 = By.cssSelector("a[href='/cities']");
-	private By motor_states_button_h1x1x3 = By.cssSelector("a[href='/motor-states']");
+	private By unit_natures_button_h1x1x3 = By.cssSelector("a[href='/motor-states']");
 	private By unit_nature_button_h1x1x4 = By.cssSelector("a[href='/unit-nature']");
 	private By unit_use_button_h1x1x5 = By.cssSelector("a[href='/unitUse']");
 	
@@ -52,7 +52,7 @@ public class SidePanel extends BasePage {
     }
     
     public MotorStatePage clickMotorStatesButton()   {
-    	clickH1x1Button(motor_states_button_h1x1x3);
+    	clickH1x1Button(unit_natures_button_h1x1x3);
         return new MotorStatePage();
     }
 

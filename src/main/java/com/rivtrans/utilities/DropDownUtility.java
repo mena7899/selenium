@@ -13,6 +13,7 @@ public class DropDownUtility extends Utility{
 	
 	
 	  private static Select findDropDown(By locator) {
+	
 		  WaitUtility.fluentWaitUntilVisible(5, locator, 500);
 		  JavaScriptUtility.scrollToElementJS(locator);
 		  

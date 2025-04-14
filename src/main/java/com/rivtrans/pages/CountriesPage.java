@@ -12,11 +12,13 @@ public class CountriesPage extends BasePage {
 	private By add_country_window_iso_code_input= By.cssSelector("input[formcontrolname='countryCode']");
 	private By add_country_window_add_button = By.cssSelector("button[type='submit']");
 	private By add_country_success_message = By.cssSelector("div[class=\"snackbar success ng-star-inserted\"]");
+	private By add_country_success_message_close_button = By.cssSelector("div.snackbar.success.ng-star-inserted > *:nth-child(2)");
 	
 	//delete country buttons
 	private By delete_country_buttons = By.cssSelector("mat-icon[class=\'mat-icon notranslate material-icons mat-ligature-font delete-icon mat-icon-no-color\']");
 	private By delete_country_confirm_button =By.xpath("//span[normalize-space(text())='delete' or normalize-space(text())='حذف']");
 	private By delete_country_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
+	private By delete_country_success_message_close_button = By.cssSelector("div.snackbar.success.ng-star-inserted > *:nth-child(2)");
 		//edit country buttons
 	private By edit_country_buttons =By.cssSelector("mat-icon[class=\'mat-icon notranslate material"
 				+ "-icons mat-ligature-font edit-icon mat-icon-no-color\']"); //edit buttons list
@@ -25,9 +27,10 @@ public class CountriesPage extends BasePage {
 	private By edit_country_window_iso_code_input= By.cssSelector("input[formcontrolname='countryCode']");
 	private By edit_country_window_update_button= By.cssSelector("button[type='submit']");
 	private By edit_country_success_message = By.cssSelector("div[class=\"snackbar success ng-star-inserted\"]");
+	private By edit_country_success_message_close_button = By.cssSelector("div.snackbar.success.ng-star-inserted > *:nth-child(2)");
 	//row number button
 	private By rows_number_drop_down_list=By.cssSelector("mat-select[aria-haspopup='listbox']");
-	private By rows_number_drop_down_list_100_row_option=By.cssSelector("mat-option[id='mat-option-3']");
+	private By rows_number_drop_down_list_options_box=By.cssSelector("div[role='listbox']");
 	
 	//next rows button
 	
@@ -36,7 +39,7 @@ public class CountriesPage extends BasePage {
 	//rows number methods
 		public void select100Row() {
 			click(rows_number_drop_down_list);
-			click(rows_number_drop_down_list_100_row_option);
+			find(rows_number_drop_down_list_options_box).findElement(By.cssSelector(":nth-child(4)")).click();
 		}
 		
 		
@@ -68,54 +71,64 @@ public class CountriesPage extends BasePage {
 			
 			return find(add_country_success_message).isDisplayed();
 		}
+		
+		public void clickAddCountrySuccessMessageCloseButton() {
+			
+			click(add_country_success_message_close_button);	
+		}
 		/////////////////////////////////////////////////////////////////////////////////////
 		///
 		///
 		///
 		
 		
-		//edit country methods
+	//edit country methods
 
-				public void clickEditCountryButtonByOrder(int order) {
-					clickOfList(edit_country_buttons,order);
+			public void clickEditCountryButtonByOrder(int order) {
+				clickOfList(edit_country_buttons,order);
+				
+			}
+			
+			public void clickEditCountryButtonByCountryIsoCode(String iso_code) {
+				String IsoCode = iso_code;
+				String xpathExpression = String.format("//mat-cell[@role='cell']//span[contains(text(), '%s')]", IsoCode);
+				if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
+						click(next_rows_button);
+						clickEditCountryButtonByCountryIsoCode(IsoCode);
+				} else {
+					
+					find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[2]/*[1]")).click();
 					
 				}
+			}
+			
+			public void editCountryWindowSetArabicName(String arabic_name) {
+				set(edit_country_window_arabic_name_input, arabic_name);
+			}
+			
+			public void editCountryWindowSetEnglishName(String english_name) {
+				set(edit_country_window_english_name_input, english_name);
+			}
+			
+			
+			public void editCountryWindowSetIsoCode(String iso_code) {
+				set(edit_country_window_iso_code_input, iso_code);
+			}
+			
+			public void editCountryWindowClickUpdateButton() {
 				
-				public void clickEditCountryButtonByCountryIsoCode(String iso_code) {
-					String IsoCode = iso_code;
-					String xpathExpression = String.format("//mat-cell[@role='cell']//span[contains(text(), '%s')]", IsoCode);
-					if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
-							click(next_rows_button);
-							clickEditCountryButtonByCountryIsoCode(IsoCode);
-					} else {
-						
-						find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[2]/*[1]")).click();
-						
-					}
-				}
+				click(edit_country_window_update_button);
+			}
+			
+			public boolean editCountrySuccessMessageIsDisplayed() {		
 				
-				public void editCountryWindowSetArabicName(String arabic_name) {
-					set(edit_country_window_arabic_name_input, arabic_name);
-				}
+				return find(edit_country_success_message).isDisplayed();
+			}
+			
+			public void clickEditCountrySuccessMessageCloseButton() {
 				
-				public void editCountryWindowSetEnglishName(String english_name) {
-					set(edit_country_window_english_name_input, english_name);
-				}
-				
-				
-				public void editCountryWindowSetIsoCode(String iso_code) {
-					set(edit_country_window_iso_code_input, iso_code);
-				}
-				
-				public void editCountryWindowClickUpdateButton() {
-					
-					click(edit_country_window_update_button);
-				}
-				
-				public boolean editCountrySuccessMessageIsDisplayed() {		
-					
-					return find(edit_country_success_message).isDisplayed();
-				}
+				click(edit_country_success_message_close_button);	
+			}
 				
 
 			
@@ -153,6 +166,10 @@ public class CountriesPage extends BasePage {
 		public boolean deleteCountrySuccessMessageIsDisplayed() {		
 			
 			return find(delete_country_success_message).isDisplayed();
+		}
+		public void clickDeleteCountrySuccessMessageCloseButton() {
+			
+			click(delete_country_success_message_close_button);	
 		}
 		
 }

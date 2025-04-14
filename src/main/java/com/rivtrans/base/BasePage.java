@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,6 +19,7 @@ public class BasePage {
 	//static to share it across all instances and to call it's methods across all classes(pages) with out instance
 	public static SidePanel sidePanel = new SidePanel();
 	
+	
 	//set driver to use it across all classes
 	public void setDriver(WebDriver driver) {
 		BasePage.driver=driver;
@@ -26,7 +28,15 @@ public class BasePage {
 	//to use it in the click method and set method
 	protected  WebElement find(By locator) {
 		
-		WaitUtility.fluentWaitUntilVisible(5, locator, 500);
+		WaitUtility.fluentWaitUntilVisible(6, locator, 500);
+		JavaScriptUtility.scrollToElementJS(locator);
+		return driver.findElement(locator);
+		
+	}
+	
+	protected  WebElement findToClick(By locator) {
+		
+		WaitUtility.fluentWaitUntilVisibleAndClickable(6, locator, 500);
 		JavaScriptUtility.scrollToElementJS(locator);
 		return driver.findElement(locator);
 		
@@ -35,7 +45,7 @@ public class BasePage {
 	protected boolean isElementVisible(By locator) {
 	    try {
 	        return find(locator).isDisplayed();
-	    } catch (TimeoutException |NoSuchElementException | ElementNotInteractableException e) {
+	    } catch (StaleElementReferenceException|TimeoutException |NoSuchElementException | ElementNotInteractableException e) {
 	        return false;
 	    }
 	}
@@ -43,7 +53,7 @@ public class BasePage {
 	//find more than one element
 	protected List<WebElement> findList(By locator) {
 		
-		WaitUtility.fluentWaitUntilVisible(5, locator, 500);
+		WaitUtility.fluentWaitUntilVisible(6, locator, 500);
 		JavaScriptUtility.scrollToElementJS(locator);
 		return driver.findElements(locator);
 		
@@ -52,7 +62,7 @@ public class BasePage {
 	
 	//to click on the element take locator By data type
 	protected void click(By locator) {
-		find(locator).click();
+		findToClick(locator).click();
 	}
 	
 	

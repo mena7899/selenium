@@ -43,9 +43,9 @@ public class CitiesPage extends BasePage {
 	
 	//rows number methods
 	public void select100Row() {
-		find(rows_number_drop_down_list);
+		findToClick(rows_number_drop_down_list);
 		JavaScriptUtility.clickJS(rows_number_drop_down_list);
-		find(rows_number_drop_down_list_options_box).findElement(By.cssSelector(":nth-child(4)")).click();
+		findToClick(rows_number_drop_down_list_options_box).findElement(By.cssSelector(":nth-child(4)")).click();
 	}
 	
 	
@@ -123,7 +123,7 @@ public class CitiesPage extends BasePage {
 	
 	public void clickEditCityButtonByCityIsoCode(String iso_code) {
 		String IsoCode = iso_code;
-		String xpathExpression = String.format("//span[contains(text(),'%s')//parent::*/following-sibling::*[3]/*[2]]", IsoCode);
+		String xpathExpression = String.format("//span[contains(text(),'%s')]//parent::*/following-sibling::*[3]/*[2]", IsoCode);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
 				click(next_rows_button);
 				clickEditCityButtonByCityIsoCode(IsoCode);

@@ -3,6 +3,7 @@ package com.rivtrans.pages;
 import org.openqa.selenium.By;
 
 import com.rivtrans.base.BasePage;
+import com.rivtrans.utilities.JavaScriptUtility;
 
 public class UnitNaturePage extends BasePage {
 
@@ -38,12 +39,16 @@ public class UnitNaturePage extends BasePage {
 	//row number button
 	private By rows_number_drop_down_list=By.cssSelector("mat-select[aria-haspopup='listbox']");
 	private By rows_number_drop_down_list_options_box=By.cssSelector("div[role='listbox']");
+	private By rows_number_drop_down_list_100_row_option = By.xpath("//div[@role='listbox']/*[4]");
 	
 	//rows number methods
 	public void select100Row() {
-		click(rows_number_drop_down_list);
-		find(rows_number_drop_down_list_options_box).findElement(By.cssSelector(":nth-child(4)")).click();
+		findToClick(rows_number_drop_down_list);
+		JavaScriptUtility.clickJS(rows_number_drop_down_list);
+		findToClick(rows_number_drop_down_list_100_row_option);
+		JavaScriptUtility.clickJS(rows_number_drop_down_list_100_row_option);
 		//find(rows_number_drop_down_list_options_box).findElement(By.cssSelector(":nth-child(4)")).click();
+		
 	}
 	
 	

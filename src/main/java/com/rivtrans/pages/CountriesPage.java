@@ -39,9 +39,9 @@ public class CountriesPage extends BasePage {
 	
 	//rows number methods
 		public void select100Row() {
-			find(rows_number_drop_down_list);
+			findToClick(rows_number_drop_down_list);
 			JavaScriptUtility.clickJS(rows_number_drop_down_list);
-			find(rows_number_drop_down_list_options_box).findElement(By.cssSelector(":nth-child(4)")).click();
+			findToClick(rows_number_drop_down_list_options_box).findElement(By.cssSelector(":nth-child(4)")).click();
 		}
 		
 		

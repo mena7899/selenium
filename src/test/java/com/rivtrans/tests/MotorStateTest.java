@@ -10,7 +10,7 @@ import com.rivtrans.pages.MotorStatePage;
 public class MotorStateTest extends BaseTest {
 	
 	@Test(priority =1)
-	public void validAddMotorState()  {
+	public void validAddMotorState() throws InterruptedException  {
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		MotorStatePage motorStatePage = homePage.sidePanel.clickMotorStatesButton();
 		motorStatePage.select100Row();
@@ -28,6 +28,7 @@ public class MotorStateTest extends BaseTest {
 	@Test(priority =2,dependsOnMethods = {"validAddMotorState"})
 	public void validEditMotorState()  {
 		MotorStatePage motorStatePage = new MotorStatePage();
+		motorStatePage.reloadMotorStatePage();
 		//citiesPage.clickEditMotorStateButtonByOrder(0);
 		motorStatePage.clickEditMotorStateButtonByMotorStateNameArabic("حالة_وحدة_افتراضية_1");
 		motorStatePage.editMotorStateWindowSetArabicName("حالة_وحدة_افتراضية_1_معدلة");
@@ -41,6 +42,7 @@ public class MotorStateTest extends BaseTest {
 	public void validDeleteMotorState() {
 		
 		MotorStatePage motorStatePage = new MotorStatePage();
+		motorStatePage.reloadMotorStatePage();
 		//citiesPage.clickDeleteMotorStateButtonByOrder(0);
 		motorStatePage.clickDeleteMotorStateButtonByMotorStateNameArabic("حالة_وحدة_افتراضية_1_معدلة");
 		motorStatePage.clickDeleteMotorStateConfirmButton();

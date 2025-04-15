@@ -30,6 +30,7 @@ public class CitiesTest extends BaseTest{
 	@Test(priority =2,dependsOnMethods = {"validAddCity"})
 	public void validEditCity()  {
 		CitiesPage citiesPage = new CitiesPage();
+		citiesPage.reloadCitesPage();
 		//citiesPage.clickEditCityButtonByOrder(0);
 		citiesPage.clickEditCityButtonByCityIsoCode("ZZZ");
 		citiesPage.editCityWindowSetArabicName("مدينة افتراضية معدلة");
@@ -44,6 +45,7 @@ public class CitiesTest extends BaseTest{
 	public void validDeleteCity()   {
 		
 		CitiesPage citiesPage = new CitiesPage();
+		citiesPage.reloadCitesPage();
 		//citiesPage.clickDeleteCityButtonByOrder(0);
 		citiesPage.clickDeleteCityButtonByCityIsoCode("ZZZ");
 		citiesPage.clickDeleteCityConfirmButton();

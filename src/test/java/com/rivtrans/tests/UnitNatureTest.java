@@ -29,6 +29,7 @@ public class UnitNatureTest extends BaseTest {
 	@Test(priority =2,dependsOnMethods = {"validAddUnitNature"})
 	public void validEditUnitNature()  {
 		UnitNaturePage unitNaturePage = new UnitNaturePage();
+		unitNaturePage.reloadUnitNaturePage();
 		//citiesPage.clickEditUnitNatureButtonByOrder(0);
 		unitNaturePage.clickEditUnitNatureButtonByUnitNatureNameArabic("طبيعة_وحدة_افتراضية_1");
 		unitNaturePage.editUnitNatureWindowSetArabicName("طبيعة_وحدة_افتراضية_1_معدلة");
@@ -42,6 +43,7 @@ public class UnitNatureTest extends BaseTest {
 	public void validDeleteUnitNature() {
 		
 		UnitNaturePage unitNaturePage = new UnitNaturePage();
+		unitNaturePage.reloadUnitNaturePage();
 		//citiesPage.clickDeleteUnitNatureButtonByOrder(0);
 		unitNaturePage.clickDeleteUnitNatureButtonByUnitNatureNameArabic("طبيعة_وحدة_افتراضية_1_معدلة");
 		unitNaturePage.clickDeleteUnitNatureConfirmButton();

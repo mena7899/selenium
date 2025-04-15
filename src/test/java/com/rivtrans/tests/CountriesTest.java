@@ -27,6 +27,7 @@ public class CountriesTest extends BaseTest  {
 	public void validEditCountry() {
 		
 		CountriesPage countriesPage = new CountriesPage();
+		countriesPage.reloadCountriesPage();
 		countriesPage.clickEditCountryButtonByCountryIsoCode("XX");
 		//countriesPage.clickEditCountryButtonByOrder(0);
 		countriesPage.editCountryWindowSetArabicName("دولة افتراضية معدلة");

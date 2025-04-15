@@ -35,10 +35,11 @@ public class CountriesTest extends BaseTest  {
 		Assert.assertTrue(countriesPage.editCountrySuccessMessageIsDisplayed(),"edit country failed");
 			
 	}
-	
+	//,dependsOnMethods = {"validEditCountry"}
 	@Test(priority =3,dependsOnMethods = {"validEditCountry"})
 	public void validDeleteCountry() {
 		CountriesPage countriesPage = new CountriesPage();
+		countriesPage.reloadCountriesPage();
 		//countriesPage.clickDeleteCountryButtonByOrder(0);
 		countriesPage.clickDeleteCountryButtonByCountryIsoCode("XX");
 		countriesPage.clickDeleteCountryConfirmButton();

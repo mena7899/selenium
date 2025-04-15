@@ -129,13 +129,13 @@ public class UnitNaturePage extends BasePage {
 	public void clickDeleteUnitNatureButtonByUnitNatureName(String arabic_name,String english_name) {
 		String arabicName = arabic_name;
 		String englishName = english_name;
-		String xpathExpression = String.format("//span[contains(text(),or contains(text(), '%s')]", englishName, arabicName);
+		String xpathExpression = String.format("//*[@cell='cell']//span[contains(text(),'%s') or contains(text(), '%s')]", englishName, arabicName);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
 				click(next_rows_button);
 				clickDeleteUnitNatureButtonByUnitNatureName(arabicName,english_name);
 		} else {
 			
-			find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]")).click();
+			click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
 			
 		}
 	}
@@ -148,7 +148,7 @@ public class UnitNaturePage extends BasePage {
 				clickDeleteUnitNatureButtonByUnitNatureNameArabic(arabicName);
 		} else {
 			
-			find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]")).click();
+			click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
 			
 		}
 	}
@@ -161,7 +161,8 @@ public class UnitNaturePage extends BasePage {
 				clickDeleteUnitNatureButtonByUnitNatureNameEnglish(englishName);
 		} else {
 			
-			find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]")).click();
+			//find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]")).click();
+			click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
 			
 		}
 	}
@@ -194,13 +195,13 @@ public class UnitNaturePage extends BasePage {
 	public void clickEditUnitNatureButtonByUnitNatureName(String arabic_name,String english_name) {
 		String arabicName = arabic_name;
 		String englishName = english_name;
-		String xpathExpression = String.format("//span[contains(text(),'%s') or contains(text(), '%s')]", englishName, arabicName);
+		String xpathExpression = String.format("//*[@role='cell']//span[contains(text(),'%s') or contains(text(), '%s')]", englishName, arabicName);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
 				click(next_rows_button);
 				clickDeleteUnitNatureButtonByUnitNatureName(arabicName,english_name);
 		} else {
 			
-			find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[2]")).click();
+			click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
 			
 		}
 	}
@@ -213,7 +214,7 @@ public class UnitNaturePage extends BasePage {
 				clickEditUnitNatureButtonByUnitNatureNameArabic(arabicName);
 		} else {
 			
-			find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[2]")).click();
+			click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
 			
 		}
 	}
@@ -225,7 +226,7 @@ public class UnitNaturePage extends BasePage {
 				clickEditUnitNatureButtonByUnitNatureNameArabic(englishName);
 		} else {
 			
-			find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[2]")).click();
+			click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
 			
 		}
 	}
@@ -282,6 +283,12 @@ public class UnitNaturePage extends BasePage {
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////////////
+	///
+	
+	public void reloadUnitNaturePage() {
+		
+		reloadPage();
+	}
 	
 
 

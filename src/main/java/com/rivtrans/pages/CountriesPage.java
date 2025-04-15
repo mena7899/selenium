@@ -2,6 +2,7 @@ package com.rivtrans.pages;
 
 import org.openqa.selenium.By;
 import com.rivtrans.base.BasePage;
+import com.rivtrans.utilities.JavaScriptUtility;
 
 public class CountriesPage extends BasePage {
 	
@@ -38,7 +39,8 @@ public class CountriesPage extends BasePage {
 	
 	//rows number methods
 		public void select100Row() {
-			click(rows_number_drop_down_list);
+			find(rows_number_drop_down_list);
+			JavaScriptUtility.clickJS(rows_number_drop_down_list);
 			find(rows_number_drop_down_list_options_box).findElement(By.cssSelector(":nth-child(4)")).click();
 		}
 		
@@ -97,7 +99,8 @@ public class CountriesPage extends BasePage {
 						clickEditCountryButtonByCountryIsoCode(IsoCode);
 				} else {
 					
-					find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[2]/*[1]")).click();
+					//find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[2]/*[1]")).click();
+					click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[2]/*[1]"));
 					
 				}
 			}
@@ -145,14 +148,14 @@ public class CountriesPage extends BasePage {
 		
 		public void clickDeleteCountryButtonByCountryIsoCode(String iso_code) {
 			String IsoCode = iso_code;
-			String xpathExpression = String.format("//span[contains(text(), '%s')]", IsoCode);
+			String xpathExpression = String.format("//mat-cell[@role='cell']//span[contains(text(), '%s')]", IsoCode);
 			if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
 					click(next_rows_button);
 					clickDeleteCountryButtonByCountryIsoCode(IsoCode);
 			} else {
-				
-				find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[2]/*[2]")).click();
-				
+				System.out.print("123");
+				//findToClick(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[2]/*[2]")).click();
+				click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[2]/*[2]"));
 			}
 		}
 		
@@ -171,7 +174,13 @@ public class CountriesPage extends BasePage {
 			
 			click(delete_country_success_message_close_button);	
 		}
-		
+		///////////////////////////////////////////////////
+		///
+		///
+		public void reloadCountriesPage() {
+			
+			reloadPage();
+		}
 }
 		//////////////////////////////////////////////////////////////////////
 		///

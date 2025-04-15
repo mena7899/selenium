@@ -56,7 +56,8 @@ public class WaitUtility extends Utility {
 		                    StaleElementReferenceException.class);
 			fluentWait.until(ExpectedConditions.and(
 				    ExpectedConditions.visibilityOfElementLocated(locator),
-				    ExpectedConditions.elementToBeClickable(locator)
+				    ExpectedConditions.elementToBeClickable(locator),
+				    ExpectedConditions.presenceOfElementLocated(locator)
 				));
 		  }
 }

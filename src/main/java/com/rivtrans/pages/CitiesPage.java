@@ -3,14 +3,15 @@ package com.rivtrans.pages;
 
 import org.openqa.selenium.By;
 import com.rivtrans.base.BasePage;
+import com.rivtrans.utilities.JavaScriptUtility;
 
 
 public class CitiesPage extends BasePage {
 	//add city buttons
-	private By add_city_button = By.cssSelector("div[class='mat-mdc-tooltip-trigger ng-star-inserted']");
+	private By add_city_button = By.cssSelector("div[class='mat-mdc-tooltip-trigger ng-star-inserted'][mattooltip=\"اضافة\"]");
 	private By add_city_window_arabic_name_input = By.cssSelector("input[formcontrolname='nameAr']");
 	private By add_city_window_english_name_input = By.cssSelector("input[formcontrolname='nameEn']");
-	private By add_city_window_countries_dropdown_list = By.cssSelector("div[class='mat-mdc-form-field-infix ng-tns-c508571215-12']");
+	private By add_city_window_countries_dropdown_list = By.cssSelector("mat-select[formcontrolname='countryId'][role='combobox']");
 	private By add_city_window_iso_code_input= By.cssSelector("input[formcontrolname='code']");
 	private By add_city_window_add_button = By.cssSelector("button[type='submit']");
 	private By add_city_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
@@ -26,7 +27,7 @@ public class CitiesPage extends BasePage {
 			+ "-icons mat-ligature-font edit-icon mat-icon-no-color\']"); //edit buttons list
 	private By edit_city_window_arabic_name_input = By.cssSelector("input[formcontrolname='nameAr']");
 	private By edit_city_window_english_name_input = By.cssSelector("input[formcontrolname='nameEn']");
-	private By edit_city_window_countries_dropdown_list = By.cssSelector("div[class='mat-mdc-form-field-infix ng-tns-c508571215-12']");
+	private By edit_city_window_countries_dropdown_list = By.cssSelector("mat-select[formcontrolname='countryId'][role='combobox']");
 	private By edit_city_window_iso_code_input= By.cssSelector("input[formcontrolname='code']");
 	private By edit_city_window_update_button = By.cssSelector("button[type='submit']");
 	private By edit_city_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
@@ -42,7 +43,8 @@ public class CitiesPage extends BasePage {
 	
 	//rows number methods
 	public void select100Row() {
-		click(rows_number_drop_down_list);
+		find(rows_number_drop_down_list);
+		JavaScriptUtility.clickJS(rows_number_drop_down_list);
 		find(rows_number_drop_down_list_options_box).findElement(By.cssSelector(":nth-child(4)")).click();
 	}
 	
@@ -121,14 +123,14 @@ public class CitiesPage extends BasePage {
 	
 	public void clickEditCityButtonByCityIsoCode(String iso_code) {
 		String IsoCode = iso_code;
-		String xpathExpression = String.format("//span[contains(text(),'%s')]", IsoCode);
+		String xpathExpression = String.format("//span[contains(text(),'%s')//parent::*/following-sibling::*[3]/*[2]]", IsoCode);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
 				click(next_rows_button);
 				clickEditCityButtonByCityIsoCode(IsoCode);
 		} else {
 			
-			find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[2]")).click();
-			
+			//find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[2]")).click();
+			click(By.xpath(xpathExpression));
 		}
 	}
 	
@@ -225,6 +227,9 @@ public class CitiesPage extends BasePage {
 	//////////////////////////////////////////////////////////////////////
 	///
 	///
-
+	public void reloadCitesPage() {
+		
+		reloadPage();
+	}
 
 }

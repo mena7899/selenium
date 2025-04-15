@@ -51,7 +51,6 @@ public class MotorStatePage extends BasePage {
 	///
 	///
 	///
-	///
 	
 
 	
@@ -136,7 +135,7 @@ public class MotorStatePage extends BasePage {
 				clickDeleteMotorStateButtonByMotorStateName(arabicName,english_name);
 		} else {
 			
-			find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]")).click();
+			click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
 			
 		}
 	}
@@ -149,7 +148,7 @@ public class MotorStatePage extends BasePage {
 				clickDeleteMotorStateButtonByMotorStateNameArabic(arabicName);
 		} else {
 			
-			find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]")).click();
+			click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
 			
 		}
 	}
@@ -162,7 +161,8 @@ public class MotorStatePage extends BasePage {
 				clickDeleteMotorStateButtonByMotorStateNameEnglish(englishName);
 		} else {
 			
-			find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]")).click();
+			//find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]")).click();
+			click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
 			
 		}
 	}
@@ -202,7 +202,7 @@ public class MotorStatePage extends BasePage {
 				clickDeleteMotorStateButtonByMotorStateName(arabicName,english_name);
 		} else {
 			
-			find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[2]")).click();
+			click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
 			
 		}
 	}
@@ -215,7 +215,8 @@ public class MotorStatePage extends BasePage {
 				clickEditMotorStateButtonByMotorStateNameArabic(arabicName);
 		} else {
 			
-			find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[2]")).click();
+			//find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[2]")).click();
+			click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
 			
 		}
 	}
@@ -227,7 +228,8 @@ public class MotorStatePage extends BasePage {
 				clickEditMotorStateButtonByMotorStateNameArabic(englishName);
 		} else {
 			
-			find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[2]")).click();
+			//find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[2]")).click();
+			click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
 			
 		}
 	}
@@ -285,7 +287,10 @@ public class MotorStatePage extends BasePage {
 	
 	/////////////////////////////////////////////////////////////////////////////////////
 	
-
+	public void reloadMotorStatePage() {
+		
+		reloadPage();
+	}
 
 
 }

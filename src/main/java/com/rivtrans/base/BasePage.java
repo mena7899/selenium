@@ -41,7 +41,7 @@ public class BasePage {
 		return driver.findElement(locator);
 		
 	}
-	
+
 	protected boolean isElementVisible(By locator) {
 	    try {
 	        return find(locator).isDisplayed();
@@ -76,6 +76,10 @@ public class BasePage {
 	protected void set(By locator,String text) {
 		find(locator).clear();
 		find(locator).sendKeys(text);
+	}
+	
+	protected void reloadPage() {
+	    driver.navigate().refresh();
 	}
 	
 }

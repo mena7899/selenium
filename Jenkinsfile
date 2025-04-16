@@ -15,8 +15,9 @@ pipeline {
         }
 
         stage('Run Selenium Tests') {
-            steps {
-                sh 'mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testng.xml'  // Runs TestNG tests using testng.xml(it can have more than one testng.xml files seperated by comma)
+            steps {            
+               sh 'mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testng.xml -Dci=true -Dchrome.options="--headless,--disable-gpu,--window-size=1280,720"'
+  // Runs TestNG tests using testng.xml(it can have more than one testng.xml files seperated by comma)
             }
         }
 

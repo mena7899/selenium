@@ -6,11 +6,17 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.io.FileHandler;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 
 import com.rivtrans.pages.LoginPage;
 import static com.rivtrans.utilities.Utility.setWebDriver;
@@ -53,6 +59,28 @@ public class BaseTest {
 
 	    return chromePath;
 	}
+	
+	
+	
+    @BeforeSuite
+    public void cleanScreenshotDirectory() {
+        String screenshotDirPath = System.getProperty("user.dir") + "/resources/screenshots";
+        File screenshotDir = new File(screenshotDirPath);
+
+        if (screenshotDir.exists() && screenshotDir.isDirectory()) {
+            File[] files = screenshotDir.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    if (file.isFile()) {
+                        file.delete();
+                    }
+                }
+                System.out.println("✅ Screenshot directory cleaned.");
+            }
+        } else {
+            System.out.println("⚠ Screenshot directory does not exist: " + screenshotDirPath);
+        }
+    }
     
 	@BeforeClass
 	public void setUp() {
@@ -92,6 +120,35 @@ public class BaseTest {
 		setWebDriver(); //initiate this method to link the basepage driver to utility driver
 		loginPage = new LoginPage();
 		
+	}
+	
+	@AfterMethod
+	public void takeFailedResultScreenshot(ITestResult testResult)  {
+	    if (ITestResult.FAILURE == testResult.getStatus()) {
+	    
+				
+		
+	        TakesScreenshot screenshot = (TakesScreenshot) driver;
+	        File source = screenshot.getScreenshotAs(OutputType.FILE);
+
+	        String screenshotDirPath = System.getProperty("user.dir") + "/resources/screenshots";
+	        File screenshotDir = new File(screenshotDirPath);
+
+	        // Create directory if it doesn't exist
+	        if (!screenshotDir.exists()) {
+	            screenshotDir.mkdirs();
+	        }
+
+	        String timestamp = java.time.LocalDateTime.now().toString().replace(":", "-");
+	        File destination = new File(screenshotDirPath + "/(" + timestamp + ") " + testResult.getName() + ".png");
+
+	        try {
+	            FileHandler.copy(source, destination);
+	        } catch (IOException e) {
+	            throw new RuntimeException(e);
+	        }
+	        System.out.println("Screenshot Located At " + destination);
+	    }
 	}
 	
 	

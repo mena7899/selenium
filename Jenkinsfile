@@ -16,15 +16,26 @@ pipeline {
 
         stage('Run Selenium Tests') {
             steps {            
-               sh 'mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testng.xml -Dci=true -Dchrome.options="--headless,--disable-gpu,--window-size=1280,720"'
+               sh 'mvn clean test -Dsurefire.suiteXmlFiles=testng.xml -Dci=true -Dchrome.options="--headless,--disable-gpu,--window-size=1280,720"'
   // Runs TestNG tests using testng.xml(it can have more than one testng.xml files seperated by comma)
             }
         }
 
-        stage('Publish TestNG Report') {
-            post {
-                always {
-                    publishTestNGResults testResultsPattern: '**/target/surefire-reports/testng-results.xml', escapeTestDescription: false, escapeExceptionMessages: false
+        stage('Publish Reports') {
+            steps {
+                script {
+                    publishTestNGResults testResultsPattern: '**/target/surefire-reports/testng-results.xml',
+                        escapeTestDescription: false,
+                        escapeExceptionMessages: false
+
+                    publishHTML(target: [
+                        reportDir: 'target/surefire-reports',
+                        reportFiles: 'emailable-report.html',
+                        reportName: 'TestNG HTML Report',
+                        keepAll: true,
+                        alwaysLinkToLastBuild: true,
+                        allowMissing: true
+                    ])
                 }
             }
         }

@@ -22,7 +22,7 @@ public class UnitUseTest extends BaseTest {
 		unitUsePage.addUnitUseWindowSelectStatusArabic("نشط");
 		unitUsePage.addUnitUseWindowClickAddButton();
 		Assert.assertTrue(unitUsePage.addUnitUseSuccessMessageIsDisplayed(),"add unit use failed");
-		unitUsePage.clickCloseSuccessMessage();
+		//unitUsePage.clickCloseSuccessMessage();
 
 	}
 	

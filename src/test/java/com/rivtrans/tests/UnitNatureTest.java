@@ -21,7 +21,7 @@ public class UnitNatureTest extends BaseTest {
 		unitNaturePage.addUnitNatureWindowSelectStatusArabic("نشط");
 		unitNaturePage.addUnitNatureWindowClickAddButton();
 		Assert.assertTrue(unitNaturePage.addUnitNatureSuccessMessageIsDisplayed(),"add unit nature failed");
-		unitNaturePage.clickCloseSuccessMessage();
+		//unitNaturePage.clickCloseSuccessMessage();
 
 	}
 	

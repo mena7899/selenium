@@ -28,7 +28,7 @@ public class BasePage {
 	//to use it in the click method and set method
 	protected  WebElement find(By locator) {
 		
-		WaitUtility.fluentWaitUntilVisible(6, locator, 500);
+		WaitUtility.fluentWaitUntilVisible(1500, locator, 500);
 		JavaScriptUtility.scrollToElementJS(locator);
 		return driver.findElement(locator);
 		
@@ -36,7 +36,7 @@ public class BasePage {
 	
 	protected  WebElement findToClick(By locator) {
 		
-		WaitUtility.fluentWaitUntilVisibleAndClickable(6, locator, 500);
+		WaitUtility.fluentWaitUntilVisibleAndClickable(1500, locator, 500);
 		JavaScriptUtility.scrollToElementJS(locator);
 		return driver.findElement(locator);
 		
@@ -53,7 +53,7 @@ public class BasePage {
 	//find more than one element
 	protected List<WebElement> findList(By locator) {
 		
-		WaitUtility.fluentWaitUntilVisible(6, locator, 500);
+		WaitUtility.fluentWaitUntilVisible(1500, locator, 500);
 		JavaScriptUtility.scrollToElementJS(locator);
 		return driver.findElements(locator);
 		

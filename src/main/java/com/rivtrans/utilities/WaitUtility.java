@@ -37,7 +37,7 @@ public class WaitUtility extends Utility {
 	  public static void fluentWaitUntilVisible(int seconds, By locator,int frequent_in_milliseconds) {
 		   
 			FluentWait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver)
-		            .withTimeout(Duration.ofSeconds(seconds))
+		            .withTimeout(Duration.ofMillis(seconds))
 		            .pollingEvery(Duration.ofMillis(frequent_in_milliseconds))
 		            .ignoring(NoSuchElementException.class,
 		                    StaleElementReferenceException.class);
@@ -50,7 +50,7 @@ public class WaitUtility extends Utility {
 	  public static void fluentWaitUntilVisibleAndClickable(int seconds, By locator,int frequent_in_milliseconds) {
 		   
 			FluentWait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver)
-		            .withTimeout(Duration.ofSeconds(seconds))
+		            .withTimeout(Duration.ofMillis(seconds))
 		            .pollingEvery(Duration.ofMillis(frequent_in_milliseconds))
 		            .ignoring(NoSuchElementException.class,
 		                    StaleElementReferenceException.class);

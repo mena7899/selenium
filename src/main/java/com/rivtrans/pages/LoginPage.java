@@ -3,6 +3,7 @@ package com.rivtrans.pages;
 import org.openqa.selenium.By;
 
 import com.rivtrans.base.BasePage;
+import com.rivtrans.utilities.JavaScriptUtility;
 
 public class LoginPage extends BasePage {
 	
@@ -17,6 +18,8 @@ public class LoginPage extends BasePage {
 	public void setLoginpageUserName(String text) {
 		
 		set(user_name_input,text);
+		//find(user_name_input);
+		//JavaScriptUtility.setJS(user_name_input, text);
 		
 	}
 	

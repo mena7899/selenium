@@ -4,11 +4,14 @@ import org.openqa.selenium.By;
 
 import com.rivtrans.base.BasePage;
 //import com.rivtrans.utilities.WaitUtility;
+import com.rivtrans.utilities.JavaScriptUtility;
 
 public class SidePanel extends BasePage {
 	//"hide-menu ng-tns-c1203807328-0 ng-star-inserted"
 	private By licenses_button_h1 = By.cssSelector("span[class*='ng-star-inserted']");
 	//private By licenses_button_h1 = By.xpath("//*[@id=\"sidebarnav\"]/li/a/span");
+	//#sidebarnav > li > ul > li > a
+	//private By main_data_h1x1 = By.cssSelector("#sidebarnav > li > ul > li > a");
 	private By main_data_h1x1 = By.cssSelector("a[class*='ml-sub-menu']");
 	//private By countries_button_h3 = By.xpath("//*[@id=\"sidebarnav\"]/li/ul/li/ul/li[1]/a");
 	private By countries_button_h1x1x1 = By.cssSelector("a[href='/countries']");
@@ -20,22 +23,25 @@ public class SidePanel extends BasePage {
 	
 //	public void clickCountriesButton() throws InterruptedException {
 //		WaitUtility.fluentWaitUntilVisible(6, licenses_button_h1, 2);
-//		click(licenses_button_h1);
+//		JavaScriptUtility.clickJS(licenses_button_h1);
 //		WaitUtility.fluentWaitUntilVisible(6, main_data_h2, 2);
-//		click(main_data_h2);
+//		JavaScriptUtility.clickJS(main_data_h2);
 //		WaitUtility.fluentWaitUntilVisible(6, countries_button_h3, 2);
-//		click(countries_button_h3);
+//		JavaScriptUtility.clickJS(countries_button_h3);
 //		Thread.sleep(5000);
 //				
 //	}
 	
 	public void clickH1x1Button(By H1x1xi) {
 		//WaitUtility.fluentWaitUntilVisible(6, licenses_button_h1, 2);
-		click(licenses_button_h1);
+		//findToClick(licenses_button_h1);
+		JavaScriptUtility.clickJS(licenses_button_h1);
 		//WaitUtility.fluentWaitUntilVisible(6, main_data_h2, 2);
-		click(main_data_h1x1);
+		//findToClick(main_data_h1x1);
+		JavaScriptUtility.clickJS(main_data_h1x1);
 		//WaitUtility.fluentWaitUntilVisible(6, H3, 2);
-		click(H1x1xi);
+		//findToClick(H1x1xi);
+		JavaScriptUtility.clickJS(H1x1xi);
 		
 		
 	}

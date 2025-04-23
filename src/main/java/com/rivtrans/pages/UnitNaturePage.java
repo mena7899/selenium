@@ -8,7 +8,7 @@ import com.rivtrans.utilities.JavaScriptUtility;
 public class UnitNaturePage extends BasePage {
 
 	//add unit nature buttons
-	private By add_unit_nature_button = By.cssSelector("div[class='mat-mdc-tooltip-trigger ng-star-inserted']");
+	private By add_unit_nature_button = By.cssSelector("div[class='mat-mdc-tooltip-trigger ng-star-inserted']> :first-child");
 	private By add_unit_nature_window_arabic_name_input = By.cssSelector("input[formcontrolname='natureNameAr']");
 	private By add_unit_nature_window_english_name_input = By.cssSelector("input[formcontrolname='natureNameEn']");
 	private By add_unit_nature_window_description_input = By.cssSelector("textarea[formcontrolname='natureDescription']");
@@ -47,7 +47,7 @@ public class UnitNaturePage extends BasePage {
 		JavaScriptUtility.clickJS(rows_number_drop_down_list);
 		findToClick(rows_number_drop_down_list_100_row_option);
 		JavaScriptUtility.clickJS(rows_number_drop_down_list_100_row_option);
-		//find(rows_number_drop_down_list_options_box).findElement(By.cssSelector(":nth-child(4)")).click();
+		//find(rows_number_drop_down_list_options_box).findElement(By.cssSelector(":nth-child(4)")).JavaScriptUtility.clickJS();
 		
 	}
 	
@@ -57,50 +57,51 @@ public class UnitNaturePage extends BasePage {
 	private By success_message_close_button = By.cssSelector("div.snackbar.success.ng-star-inserted > *:nth-child(2)");
 	//click close success message
 	public void clickCloseSuccessMessage() {
-		click(success_message_close_button);
+		JavaScriptUtility.clickJS(success_message_close_button);
 	}
 	
 	
 	///////////////////////////////////////////////////////////////////////////////////////////
 	//add unit nature methods
 	public void clickAddUnitNatureButton() {
-		click(add_unit_nature_button);
+		findToClick(add_unit_nature_button);
+		JavaScriptUtility.clickJS(add_unit_nature_button);
 	}
 	
 	public void addUnitNatureWindowSetArabicName(String arabic_name) {
-		set(add_unit_nature_window_arabic_name_input, arabic_name);
+		JavaScriptUtility.setJS(add_unit_nature_window_arabic_name_input, arabic_name);
 	}
 	
 	public void addUnitNatureWindowSetEnglishName(String english_name) {
-		set(add_unit_nature_window_english_name_input, english_name);
+		JavaScriptUtility.setJS(add_unit_nature_window_english_name_input, english_name);
 	}
 	
 	public void addUnitNatureWindowSelectStatus(String arabic_name,String english_name)   {
-		click(add_unit_nature_window_status_dropdown_list);
+		JavaScriptUtility.clickJS(add_unit_nature_window_status_dropdown_list);
 		String statusEnglish = english_name;
 		String statusArabic = arabic_name;
 		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(), '%s' or contains(text(), '%s')]", statusEnglish, statusArabic);
-		click(By.xpath(xpathExpression));
+		JavaScriptUtility.clickJS(By.xpath(xpathExpression));
 		
 	}
 	
 	public void addUnitNatureWindowSetDescription(String description) {
-		set(add_unit_nature_window_description_input, description);
+		JavaScriptUtility.setJS(add_unit_nature_window_description_input, description);
 	}
 	
 	public void addUnitNatureWindowSelectStatusArabic(String arabic_name) {
-		click(add_unit_nature_window_status_dropdown_list);
+		JavaScriptUtility.clickJS(add_unit_nature_window_status_dropdown_list);
 		String statusArabic = arabic_name;
 		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(), '%s')]", statusArabic);
-		click(By.xpath(xpathExpression));
+		JavaScriptUtility.clickJS(By.xpath(xpathExpression));
 		
 	}
 	
 	public void addUnitNatureWindowSelectStatusEnglish(String english_name) {
-		click(add_unit_nature_window_status_dropdown_list);
+		JavaScriptUtility.clickJS(add_unit_nature_window_status_dropdown_list);
 		String statusEnglish = english_name;
 		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(),  '%s']", statusEnglish);
-		click(By.xpath(xpathExpression));
+		JavaScriptUtility.clickJS(By.xpath(xpathExpression));
 		
 	}
 	
@@ -108,7 +109,7 @@ public class UnitNaturePage extends BasePage {
 	
 	public void addUnitNatureWindowClickAddButton() {
 		
-		click(add_unit_nature_window_add_button);
+		JavaScriptUtility.clickJS(add_unit_nature_window_add_button);
 	}
 	
 	public boolean addUnitNatureSuccessMessageIsDisplayed() {		
@@ -118,7 +119,7 @@ public class UnitNaturePage extends BasePage {
 	
 	public void clickAddUnitNatureSuccessMessageCloseButton() {
 		
-		click(add_unit_nature_success_message_close_button);	
+		JavaScriptUtility.clickJS(add_unit_nature_success_message_close_button);	
 	}
 	/////////////////////////////////////////////////////////////////////////////////////
 	///
@@ -136,11 +137,11 @@ public class UnitNaturePage extends BasePage {
 		String englishName = english_name;
 		String xpathExpression = String.format("//*[@cell='cell']//span[contains(text(),'%s') or contains(text(), '%s')]", englishName, arabicName);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
-				click(next_rows_button);
+				JavaScriptUtility.clickJS(next_rows_button);
 				clickDeleteUnitNatureButtonByUnitNatureName(arabicName,english_name);
 		} else {
 			
-			click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
 			
 		}
 	}
@@ -149,11 +150,11 @@ public class UnitNaturePage extends BasePage {
 		String arabicName = arabic_name;
 		String xpathExpression = String.format("//span[contains(text(), '%s')]", arabicName);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
-				click(next_rows_button);
+				JavaScriptUtility.clickJS(next_rows_button);
 				clickDeleteUnitNatureButtonByUnitNatureNameArabic(arabicName);
 		} else {
 			
-			click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
 			
 		}
 	}
@@ -162,18 +163,18 @@ public class UnitNaturePage extends BasePage {
 		String englishName = english_name;
 		String xpathExpression = String.format("//span[contains(text(),'%s')]", englishName);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
-				click(next_rows_button);
+				JavaScriptUtility.clickJS(next_rows_button);
 				clickDeleteUnitNatureButtonByUnitNatureNameEnglish(englishName);
 		} else {
 			
-			//find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]")).click();
-			click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
+			//find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]")).JavaScriptUtility.clickJS();
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
 			
 		}
 	}
 	
 	public void clickDeleteUnitNatureConfirmButton() {
-		click(delete_unit_nature_confirm_button);
+		JavaScriptUtility.clickJS(delete_unit_nature_confirm_button);
 		
 	}
 	
@@ -184,7 +185,7 @@ public class UnitNaturePage extends BasePage {
 	
 	public void clickDeleteUnitNatureSuccessMessageCloseButton() {
 		
-		click(delete_unit_nature_success_message_close_button);	
+		JavaScriptUtility.clickJS(delete_unit_nature_success_message_close_button);	
 	}
 	//////////////////////////////////////////////////////////////////////
 	///
@@ -202,11 +203,11 @@ public class UnitNaturePage extends BasePage {
 		String englishName = english_name;
 		String xpathExpression = String.format("//*[@role='cell']//span[contains(text(),'%s') or contains(text(), '%s')]", englishName, arabicName);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
-				click(next_rows_button);
+				JavaScriptUtility.clickJS(next_rows_button);
 				clickDeleteUnitNatureButtonByUnitNatureName(arabicName,english_name);
 		} else {
 			
-			click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
 			
 		}
 	}
@@ -215,11 +216,11 @@ public class UnitNaturePage extends BasePage {
 		String arabicName = arabic_name;
 		String xpathExpression = String.format("//span[contains(text(), '%s')]", arabicName);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
-				click(next_rows_button);
+				JavaScriptUtility.clickJS(next_rows_button);
 				clickEditUnitNatureButtonByUnitNatureNameArabic(arabicName);
 		} else {
 			
-			click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
 			
 		}
 	}
@@ -227,45 +228,45 @@ public class UnitNaturePage extends BasePage {
 		String englishName = english_name;
 		String xpathExpression = String.format("//span[contains(text(),'%s')]", englishName);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
-				click(next_rows_button);
-				clickEditUnitNatureButtonByUnitNatureNameArabic(englishName);
+				JavaScriptUtility.clickJS(next_rows_button);
+				clickEditUnitNatureButtonByUnitNatureNameEnglish(englishName);
 		} else {
 			
-			click(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
 			
 		}
 	}
 	
 	public void editUnitNatureWindowSetArabicName(String arabic_name) {
-		set(edit_unit_nature_window_arabic_name_input, arabic_name);
+		JavaScriptUtility.setJS(edit_unit_nature_window_arabic_name_input, arabic_name);
 	}
 	
 	public void editUnitNatureWindowSetEnglishName(String english_name) {
-		set(edit_unit_nature_window_english_name_input, english_name);
+		JavaScriptUtility.setJS(edit_unit_nature_window_english_name_input, english_name);
 	}
 	
 	public void editUnitNatureWindowSelectStatus(String arabic_name,String english_name)  {
-		click(edit_unit_nature_window_status_dropdown_list);
+		JavaScriptUtility.clickJS(edit_unit_nature_window_status_dropdown_list);
 		String statusEnglish = english_name;
 		String statusArabic = arabic_name;
 		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(),'%s')]", statusEnglish, statusArabic);
-		click(By.xpath(xpathExpression));
+		JavaScriptUtility.clickJS(By.xpath(xpathExpression));
 		
 	}
 	
 	public void editUnitNatureWindowSelectStatusArabic(String arabic_name) {
-		click(edit_unit_nature_window_status_dropdown_list);
+		JavaScriptUtility.clickJS(edit_unit_nature_window_status_dropdown_list);
 		String statusArabic = arabic_name;
 		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(), '%s')]", statusArabic);
-		click(By.xpath(xpathExpression));
+		JavaScriptUtility.clickJS(By.xpath(xpathExpression));
 		
 	}
 	
 	public void editUnitNatureWindowSelectStatusEnglish(String english_name) {
-		click(edit_unit_nature_window_status_dropdown_list);
+		JavaScriptUtility.clickJS(edit_unit_nature_window_status_dropdown_list);
 		String statusEnglish = english_name;
 		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(),'%s')]", statusEnglish);
-		click(By.xpath(xpathExpression));
+		JavaScriptUtility.clickJS(By.xpath(xpathExpression));
 		
 	}
 	
@@ -273,7 +274,7 @@ public class UnitNaturePage extends BasePage {
 	
 	public void editUnitNatureWindowClickUpdateButton() {
 		
-		click(edit_unit_nature_window_update_button);
+		JavaScriptUtility.clickJS(edit_unit_nature_window_update_button);
 	}
 	
 	public boolean editUnitNatureSuccessMessageIsDisplayed() {		
@@ -284,7 +285,7 @@ public class UnitNaturePage extends BasePage {
 	
 	public void clickEditUnitNatureSuccessMessageCloseButton() {
 		
-		click(edit_unit_nature_success_message_close_button);	
+		JavaScriptUtility.clickJS(edit_unit_nature_success_message_close_button);	
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////////////

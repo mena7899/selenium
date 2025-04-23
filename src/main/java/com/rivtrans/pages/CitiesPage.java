@@ -8,7 +8,7 @@ import com.rivtrans.utilities.JavaScriptUtility;
 
 public class CitiesPage extends BasePage {
 	//add city buttons
-	private By add_city_button = By.cssSelector("div[class='mat-mdc-tooltip-trigger ng-star-inserted'][mattooltip=\"اضافة\"]");
+	private By add_city_button = By.cssSelector("div[class='mat-mdc-tooltip-trigger ng-star-inserted'][mattooltip='اضافة']> :first-child");
 	private By add_city_window_arabic_name_input = By.cssSelector("input[formcontrolname='nameAr']");
 	private By add_city_window_english_name_input = By.cssSelector("input[formcontrolname='nameEn']");
 	private By add_city_window_countries_dropdown_list = By.cssSelector("mat-select[formcontrolname='countryId'][role='combobox']");
@@ -40,62 +40,72 @@ public class CitiesPage extends BasePage {
 	//row number button
 	private By rows_number_drop_down_list=By.cssSelector("mat-select[aria-haspopup='listbox']");
 	private By rows_number_drop_down_list_options_box=By.cssSelector("div[role='listbox']");
+	private By rows_number_drop_down_list_100_row_option = By.xpath("//div[@role='listbox']/*[4]");
 	
 	//rows number methods
 	public void select100Row() {
 		findToClick(rows_number_drop_down_list);
 		JavaScriptUtility.clickJS(rows_number_drop_down_list);
-		findToClick(rows_number_drop_down_list_options_box).findElement(By.cssSelector(":nth-child(4)")).click();
+		findToClick(rows_number_drop_down_list_100_row_option);
+		JavaScriptUtility.clickJS(rows_number_drop_down_list_100_row_option);
+		//find(rows_number_drop_down_list_options_box).findElement(By.cssSelector(":nth-child(4)")).JavaScriptUtility.clickJS();
+		
 	}
 	
 	
 	///////////////////////////////////////////////////////////////////////////////////////////
 	//add city methods
 	public void clickAddCityButton() {
-		click(add_city_button);
+		findToClick(add_city_button);
+		JavaScriptUtility.clickJS(add_city_button);
 	}
 	
 	public void addCityWindowSetArabicName(String arabic_name) {
-		set(add_city_window_arabic_name_input, arabic_name);
+		//JavaScriptUtility.clickJS(add_city_window_arabic_name_input);
+		JavaScriptUtility.setJS(add_city_window_arabic_name_input, arabic_name);
+		//find(add_city_window_arabic_name_input);
+		//JavaScriptUtility.setJS(add_city_button, arabic_name);
 	}
 	
 	public void addCityWindowSetEnglishName(String english_name) {
-		set(add_city_window_english_name_input, english_name);
+		JavaScriptUtility.setJS(add_city_window_english_name_input, english_name);
 	}
 	
 	public void addCityWindowSelectCountry(String arabic_name,String english_name) {
-		click(add_city_window_countries_dropdown_list);
+		JavaScriptUtility.clickJS(add_city_window_countries_dropdown_list);
 		String countryEnglish = english_name;
 		String countryArabic = arabic_name;
 		String xpathExpression = String.format("//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
 				+ " 'abcdefghijklmnopqrstuvwxyz'), '%s') or contains(text(), '%s')]", countryEnglish, countryArabic);
-		click(By.xpath(xpathExpression));
+		JavaScriptUtility.clickJS(By.xpath(xpathExpression));
 		
 	}
 	
 	public void addCityWindowSelectCountryArabic(String arabic_name) {
-		click(add_city_window_countries_dropdown_list);
+		JavaScriptUtility.clickJS(add_city_window_countries_dropdown_list);
 		String countryArabic = arabic_name;
 		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(), '%s')]", countryArabic);
-		click(By.xpath(xpathExpression));
+		JavaScriptUtility.clickJS(By.xpath(xpathExpression));
 		
 	}
 	
 	public void addCityWindowSelectCountryEnglish(String english_name) {
-		click(add_city_window_countries_dropdown_list);
+		JavaScriptUtility.clickJS(add_city_window_countries_dropdown_list);
 		String countryEnglish = english_name;
 		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(), '%s')]", countryEnglish);
-		click(By.xpath(xpathExpression));
+		JavaScriptUtility.clickJS(By.xpath(xpathExpression));
 		
 	}
 	
 	public void addCityWindowSetIsoCode(String iso_code) {
-		set(add_city_window_iso_code_input, iso_code);
+		//JavaScriptUtility.setJS(add_city_window_iso_code_input, iso_code);
+		find(add_city_window_iso_code_input);
+		JavaScriptUtility.setJS(add_city_window_iso_code_input, iso_code);
 	}
 	
 	public void addCityWindowClickAddButton() {
 		
-		click(add_city_window_add_button);
+		JavaScriptUtility.clickJS(add_city_window_add_button);
 	}
 	
 	public boolean addCitySuccessMessageIsDisplayed() {		
@@ -105,7 +115,7 @@ public class CitiesPage extends BasePage {
 	
 	public void clickAddCitySuccessMessageCloseButton() {
 		
-		click(add_city_success_message_close_button);	
+		JavaScriptUtility.clickJS(add_city_success_message_close_button);	
 	}
 	/////////////////////////////////////////////////////////////////////////////////////
 	///
@@ -125,55 +135,55 @@ public class CitiesPage extends BasePage {
 		String IsoCode = iso_code;
 		String xpathExpression = String.format("//span[contains(text(),'%s')]//parent::*/following-sibling::*[3]/*[2]", IsoCode);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
-				click(next_rows_button);
+				JavaScriptUtility.clickJS(next_rows_button);
 				clickEditCityButtonByCityIsoCode(IsoCode);
 		} else {
 			
-			//find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[2]")).click();
-			click(By.xpath(xpathExpression));
+			//find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[2]")).JavaScriptUtility.clickJS();
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression));
 		}
 	}
 	
 	public void editCityWindowSetArabicName(String arabic_name) {
-		set(edit_city_window_arabic_name_input, arabic_name);
+		JavaScriptUtility.setJS(edit_city_window_arabic_name_input, arabic_name);
 	}
 	
 	public void editCityWindowSetEnglishName(String english_name) {
-		set(edit_city_window_english_name_input, english_name);
+		JavaScriptUtility.setJS(edit_city_window_english_name_input, english_name);
 	}
 	
 	public void editCityWindowSelectCountry(String arabic_name,String english_name)  {
-		click(edit_city_window_countries_dropdown_list);
+		JavaScriptUtility.clickJS(edit_city_window_countries_dropdown_list);
 		String countryEnglish = english_name;
 		String countryArabic = arabic_name;
 		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(),  '%s') or contains(text(), '%s')]", countryEnglish, countryArabic);
-		click(By.xpath(xpathExpression));
+		JavaScriptUtility.clickJS(By.xpath(xpathExpression));
 		
 	}
 	
 	public void editCityWindowSelectCountryArabic(String arabic_name) {
-		click(edit_city_window_countries_dropdown_list);
+		JavaScriptUtility.clickJS(edit_city_window_countries_dropdown_list);
 		String countryArabic = arabic_name;
 		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(), '%s')]", countryArabic);
-		click(By.xpath(xpathExpression));
+		JavaScriptUtility.clickJS(By.xpath(xpathExpression));
 		
 	}
 	
 	public void editCityWindowSelectCountryEnglish(String english_name) {
-		click(edit_city_window_countries_dropdown_list);
+		JavaScriptUtility.clickJS(edit_city_window_countries_dropdown_list);
 		String countryEnglish = english_name;
 		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(),'%s')]", countryEnglish);
-		click(By.xpath(xpathExpression));
+		JavaScriptUtility.clickJS(By.xpath(xpathExpression));
 		
 	}
 	
 	public void editCityWindowSetIsoCode(String iso_code) {
-		set(edit_city_window_iso_code_input, iso_code);
+		JavaScriptUtility.setJS(edit_city_window_iso_code_input, iso_code);
 	}
 	
 	public void editCityWindowClickUpdateButton() {
 		
-		click(edit_city_window_update_button);
+		JavaScriptUtility.clickJS(edit_city_window_update_button);
 	}
 	
 	public boolean editCitySuccessMessageIsDisplayed() {		
@@ -183,7 +193,7 @@ public class CitiesPage extends BasePage {
 	
 	public void clickEditCitySuccessMessageCloseButton() {
 		
-		click(edit_city_success_message_close_button);	
+		JavaScriptUtility.clickJS(edit_city_success_message_close_button);	
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////////////
@@ -199,19 +209,19 @@ public class CitiesPage extends BasePage {
 		String xpathExpression = String.format("//span[contains(text(),'%s')]//parent::*/following-sibling::*[3]/*[1]", IsoCode);
 		
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
-				click(next_rows_button);
+				JavaScriptUtility.clickJS(next_rows_button);
 				clickDeleteCityButtonByCityIsoCode(IsoCode);
 		} else {
 			
-			//find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]")).click();
+			//find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]")).JavaScriptUtility.clickJS();
 			
-			click(By.xpath(xpathExpression));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression));
 			//JavaScriptUtility.clickJS(By.xpath(xpathExpression));
 		}
 	}
 	
 	public void clickDeleteCityConfirmButton() {
-		click(delete_city_confirm_button);
+		JavaScriptUtility.clickJS(delete_city_confirm_button);
 		
 	}
 	
@@ -222,7 +232,7 @@ public class CitiesPage extends BasePage {
 	
 	public void clickDeleteCitySuccessMessageCloseButton() {
 		
-		click(delete_city_success_message_close_button);	
+		JavaScriptUtility.clickJS(delete_city_success_message_close_button);	
 	}
 	//////////////////////////////////////////////////////////////////////
 	///

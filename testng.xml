@@ -13,6 +13,7 @@
       <class name="com.rivtrans.tests.MotorStateTest"/>
       <class name="com.rivtrans.tests.CitiesTest"/>
       <class name="com.rivtrans.tests.HomeTest"/>
+      <class name="com.rivtrans.tests.UnitUseTest"/>
       <class name="com.rivtrans.tests.CountriesTest"/>
       <class name="com.rivtrans.tests.UnitNatureTest"/>
     </classes>

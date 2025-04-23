@@ -4,6 +4,8 @@ package com.rivtrans.base;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 import org.openqa.selenium.OutputType;
@@ -106,6 +108,7 @@ public class BaseTest {
             for (String arg : chromeArgs.split(",")) {
                 options.addArguments(arg.trim());
             }
+            //options.addArguments("--disable-save-password-bubble");
             driver = new ChromeDriver(options);
         } else {
             System.out.println("Running locally. Launching browser in normal mode.");

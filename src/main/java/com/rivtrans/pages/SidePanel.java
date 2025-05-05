@@ -16,9 +16,14 @@ public class SidePanel extends BasePage {
 	//private By countries_button_h3 = By.xpath("//*[@id=\"sidebarnav\"]/li/ul/li/ul/li[1]/a");
 	private By countries_button_h1x1x1 = By.cssSelector("a[href='/countries']");
 	private By cities_button_h1x1x2 = By.cssSelector("a[href='/cities']");
-	private By unit_natures_button_h1x1x3 = By.cssSelector("a[href='/motor-states']");
+	private By motor_state_button_h1x1x3 = By.cssSelector("a[href='/motor-states']");
 	private By unit_nature_button_h1x1x4 = By.cssSelector("a[href='/unit-nature']");
 	private By unit_use_button_h1x1x5 = By.cssSelector("a[href='/unitUse']");
+	private By measure_unit_button_h1x1x6 = By.cssSelector("a[href='/measurement-unit-type']");
+	private By documents_button_h1x1x7 = By.cssSelector("a[href='/documents']");
+	private By river_unit_button_h1x1x8 = By.cssSelector("a[href='/riverUnit']");
+	private By technical_estimate_button_h1x1x9 = By.cssSelector("a[href='/technical-estimate']");
+	private By authorities_button_h1x1x10 = By.cssSelector("a[href='/authorities']");
 	
 	
 //	public void clickCountriesButton() throws InterruptedException {
@@ -31,6 +36,16 @@ public class SidePanel extends BasePage {
 //		Thread.sleep(5000);
 //				
 //	}
+	public void clickLicensesButton() {
+		JavaScriptUtility.clickJS(licenses_button_h1);
+	}
+	
+	
+	public void clickMainDataButton() {
+		JavaScriptUtility.clickJS(main_data_h1x1);
+	}
+	
+	
 	
 	public void clickH1x1Button(By H1x1xi) {
 		//WaitUtility.fluentWaitUntilVisible(6, licenses_button_h1, 2);
@@ -47,29 +62,55 @@ public class SidePanel extends BasePage {
 	}
 	
     public CountriesPage clickCountriesButton()  {
-    	clickH1x1Button(countries_button_h1x1x1);
+    	JavaScriptUtility.clickJS(countries_button_h1x1x1);
 		return new CountriesPage();
     }
 
     public CitiesPage clickCitiesButton()   {
-    	clickH1x1Button(cities_button_h1x1x2);
+    	JavaScriptUtility.clickJS(cities_button_h1x1x2);
 		return new CitiesPage();
 		
     }
     
     public MotorStatePage clickMotorStatesButton()   {
-    	clickH1x1Button(unit_natures_button_h1x1x3);
+    	JavaScriptUtility.clickJS(motor_state_button_h1x1x3);
         return new MotorStatePage();
     }
 
     public UnitNaturePage clickUnitNatureButton()   {
-    	clickH1x1Button(unit_nature_button_h1x1x4);
+    	JavaScriptUtility.clickJS(unit_nature_button_h1x1x4);
         return new UnitNaturePage();
     }
     
     public UnitUsePage clickUnitUseButton()  {
-    	clickH1x1Button(unit_use_button_h1x1x5);
+    	JavaScriptUtility.clickJS(unit_use_button_h1x1x5);
         return new UnitUsePage();
+    }
+    
+    public MeasureUnitPage clickMeasureUnitButton()  {
+    	JavaScriptUtility.clickJS(measure_unit_button_h1x1x6);
+		return new MeasureUnitPage();
+    }
+
+    public DocumentsPage clickDocumentsButton()   {
+    	JavaScriptUtility.clickJS(documents_button_h1x1x7);
+		return new DocumentsPage();
+		
+    }
+    
+    public RiverUnitPage clickRiverUnitsButton()   {
+    	JavaScriptUtility.clickJS(river_unit_button_h1x1x8);
+        return new RiverUnitPage();
+    }
+
+    public TechnicalEstimatePage clickTechnicalEstimateButton()   {
+    	JavaScriptUtility.clickJS(technical_estimate_button_h1x1x9);
+        return new TechnicalEstimatePage();
+    }
+    
+    public AuthoritiesPage clickAuthoritiesButton()  {
+    	JavaScriptUtility.clickJS(authorities_button_h1x1x10);
+        return new AuthoritiesPage();
     }
     
     

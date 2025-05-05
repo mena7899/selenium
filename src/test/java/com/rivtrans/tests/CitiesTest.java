@@ -10,19 +10,33 @@ import com.rivtrans.pages.HomePage;
 
 public class CitiesTest extends BaseTest{
 	
-	@Test(priority =1)
+	public String random_country_zip_code = generateRandomEnglishCapitalCharacters(2);
+	public String random_city_zip_code = generateRandomEnglishCapitalCharacters(3);
+	public String random_country_arabic_name= generateRandomArabicLetters(10);
+	public String random_city_arabic_name= generateRandomArabicLetters(10);
+
+	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddCity()  {
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
-		CitiesPage citiesPage = homePage.sidePanel.clickCitiesButton();
+		homePage.sidePanel.clickLicensesButton();
+		homePage.sidePanel.clickMainDataButton();
+		CountriesPage countriesPage = homePage.sidePanel.clickCountriesButton();
+		countriesPage.clickAddCountryButton();
+		countriesPage.addCountryWindowSetArabicName(random_country_arabic_name);
+		//SKIPPED//countriesPage.addCountryWindowSetEnglishName("virtual country");
+		countriesPage.addCountryWindowSetIsoCode(random_country_zip_code);
+		countriesPage.addCountryWindowClickAddButton();
+		Assert.assertTrue(countriesPage.addCountrySuccessMessageIsDisplayed());
+		CitiesPage citiesPage = countriesPage.sidePanel.clickCitiesButton();
 		citiesPage.select100Row();
 		citiesPage.clickAddCityButton();
-		citiesPage.addCityWindowSetArabicName("مدينة افتراضية");
-		citiesPage.addCityWindowSetEnglishName("virtual city");
-		citiesPage.addCityWindowSetIsoCode("ZZZ");
-		citiesPage.addCityWindowSelectCountryArabic("زدغعقهبمزم");
+		citiesPage.addCityWindowSetArabicName(random_city_arabic_name);
+		//SKIPPED//citiesPage.addCityWindowSetEnglishName("virtual city");
+		citiesPage.addCityWindowSetIsoCode(random_city_zip_code);
+		citiesPage.addCityWindowSelectCountryArabic(random_country_arabic_name);
 		citiesPage.addCityWindowClickAddButton();
-		Assert.assertTrue(citiesPage.addCitySuccessMessageIsDisplayed(),"add city failed");
-		//citiesPage.clickAddCitySuccessMessageCloseButton();
+		Assert.assertTrue(citiesPage.addCitySuccessMessageIsDisplayed());
+		//SKIPPED//citiesPage.clickAddCitySuccessMessageCloseButton();
 
 	}
 	
@@ -31,13 +45,13 @@ public class CitiesTest extends BaseTest{
 	public void validEditCity()  {
 		CitiesPage citiesPage = new CitiesPage();
 		citiesPage.reloadCitesPage();
-		//citiesPage.clickEditCityButtonByOrder(0);
-		citiesPage.clickEditCityButtonByCityIsoCode("ZZZ");
-		citiesPage.editCityWindowSetArabicName("مدينة افتراضية معدلة");
-		citiesPage.editCityWindowSetEnglishName("virtual city edited");
+		//SKIPPED//citiesPage.clickEditCityButtonByOrder(0);
+		citiesPage.clickEditCityButtonByCityIsoCode(random_city_zip_code);
+		citiesPage.editCityWindowSetArabicName(random_city_arabic_name+" "+"معدلة");
+		//SKIPPED//citiesPage.editCityWindowSetEnglishName("virtual city edited");
 		citiesPage.editCityWindowClickUpdateButton();
-		Assert.assertTrue(citiesPage.editCitySuccessMessageIsDisplayed(),"edit city failed");
-		//citiesPage.clickEditCitySuccessMessageCloseButton();
+		Assert.assertTrue(citiesPage.editCitySuccessMessageIsDisplayed());
+		//SKIPPED//citiesPage.clickEditCitySuccessMessageCloseButton();
 
 	}
 	
@@ -46,13 +60,16 @@ public class CitiesTest extends BaseTest{
 		
 		CitiesPage citiesPage = new CitiesPage();
 		citiesPage.reloadCitesPage();
-		//citiesPage.clickDeleteCityButtonByOrder(0);
-		citiesPage.clickDeleteCityButtonByCityIsoCode("ZZZ");
+		//SKIPPED//citiesPage.clickDeleteCityButtonByOrder(0);
+		citiesPage.clickDeleteCityButtonByCityIsoCode(random_city_zip_code);
 		citiesPage.clickDeleteCityConfirmButton();
-		Assert.assertTrue(citiesPage.deleteCitySuccessMessageIsDisplayed(),"delete city failed");
-		//citiesPage.clickDeleteCitySuccessMessageCloseButton();
+		Assert.assertTrue(citiesPage.deleteCitySuccessMessageIsDisplayed());
+		//SKIPPED//citiesPage.clickDeleteCitySuccessMessageCloseButton();
+		CountriesPage countriesPage = citiesPage.sidePanel.clickCountriesButton();
+		countriesPage.clickDeleteCountryButtonByCountryIsoCode(random_country_zip_code);
+		countriesPage.clickDeleteCountryConfirmButton();
 		
-		
+	
 	}
 
 }

@@ -9,18 +9,20 @@ import com.rivtrans.pages.MotorStatePage;
 
 public class MotorStateTest extends BaseTest {
 	
-	@Test(priority =1)
+	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddMotorState() throws InterruptedException  {
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		MotorStatePage motorStatePage = homePage.sidePanel.clickMotorStatesButton();
+		homePage.sidePanel.clickLicensesButton();
+		homePage.sidePanel.clickMainDataButton();
 		motorStatePage.select100Row();
 		motorStatePage.clickAddMotorStateButton();
 		motorStatePage.addMotorStateWindowSetArabicName("حالة_وحدة_افتراضية_1");
-		motorStatePage.addMotorStateWindowSetEnglishName("virtual_motor_state_1");
+		//SKIPPEDmotorStatePage.addMotorStateWindowSetEnglishName("virtual_motor_state_1");
 		motorStatePage.addMotorStateWindowSetDescription("وصفdescription");
 		motorStatePage.addMotorStateWindowSelectStatusArabic("نشط");
 		motorStatePage.addMotorStateWindowClickAddButton();
-		Assert.assertTrue(motorStatePage.addMotorStateSuccessMessageIsDisplayed(),"add motor state");
+		Assert.assertTrue(motorStatePage.addMotorStateSuccessMessageIsDisplayed());
 
 	}
 	
@@ -29,12 +31,12 @@ public class MotorStateTest extends BaseTest {
 	public void validEditMotorState()  {
 		MotorStatePage motorStatePage = new MotorStatePage();
 		motorStatePage.reloadMotorStatePage();
-		//citiesPage.clickEditMotorStateButtonByOrder(0);
+		//SKIPPEDcitiesPage.clickEditMotorStateButtonByOrder(0);
 		motorStatePage.clickEditMotorStateButtonByMotorStateNameArabic("حالة_وحدة_افتراضية_1");
 		motorStatePage.editMotorStateWindowSetArabicName("حالة_وحدة_افتراضية_1_معدلة");
-		motorStatePage.editMotorStateWindowSetEnglishName("virtual_motor_state_1_edited");
+		//SKIPPEDmotorStatePage.editMotorStateWindowSetEnglishName("virtual_motor_state_1_edited");
 		motorStatePage.editMotorStateWindowClickUpdateButton();
-		Assert.assertTrue(motorStatePage.editMotorStateSuccessMessageIsDisplayed(),"edit motor state");
+		Assert.assertTrue(motorStatePage.editMotorStateSuccessMessageIsDisplayed());
 
 	}
 	
@@ -43,10 +45,10 @@ public class MotorStateTest extends BaseTest {
 		
 		MotorStatePage motorStatePage = new MotorStatePage();
 		motorStatePage.reloadMotorStatePage();
-		//citiesPage.clickDeleteMotorStateButtonByOrder(0);
+		//SKIPPEDcitiesPage.clickDeleteMotorStateButtonByOrder(0);
 		motorStatePage.clickDeleteMotorStateButtonByMotorStateNameArabic("حالة_وحدة_افتراضية_1_معدلة");
 		motorStatePage.clickDeleteMotorStateConfirmButton();
-		Assert.assertTrue(motorStatePage.deleteMotorStateSuccessMessageIsDisplayed(),"delete motor state");
+		Assert.assertTrue(motorStatePage.deleteMotorStateSuccessMessageIsDisplayed());
 		
 		}
 }

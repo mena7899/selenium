@@ -7,7 +7,7 @@ import com.rivtrans.base.BaseTest;
 import com.rivtrans.pages.HomePage;
 import com.rivtrans.pages.UnitUsePage;
 
-public class UnitUseTest extends BaseTest {
+public class RiverUnitTest extends BaseTest {
 	
 	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddUnitUse()  {

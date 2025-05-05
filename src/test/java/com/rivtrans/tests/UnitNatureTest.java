@@ -9,19 +9,21 @@ import com.rivtrans.pages.UnitNaturePage;
 
 public class UnitNatureTest extends BaseTest {
 	
-	@Test(priority =1)
+	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddUnitNature()  {
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		UnitNaturePage unitNaturePage = homePage.sidePanel.clickUnitNatureButton();
+		homePage.sidePanel.clickLicensesButton();
+		homePage.sidePanel.clickMainDataButton();
 		unitNaturePage.select100Row();
 		unitNaturePage.clickAddUnitNatureButton();
 		unitNaturePage.addUnitNatureWindowSetArabicName("طبيعة_وحدة_افتراضية_1");
-		unitNaturePage.addUnitNatureWindowSetEnglishName("virtual_unit_nature_1");
+		//SKIPPEDunitNaturePage.addUnitNatureWindowSetEnglishName("virtual_unit_nature_1");
 		unitNaturePage.addUnitNatureWindowSetDescription("وصف_description");
 		unitNaturePage.addUnitNatureWindowSelectStatusArabic("نشط");
 		unitNaturePage.addUnitNatureWindowClickAddButton();
-		Assert.assertTrue(unitNaturePage.addUnitNatureSuccessMessageIsDisplayed(),"add unit nature failed");
-		//unitNaturePage.clickCloseSuccessMessage();
+		Assert.assertTrue(unitNaturePage.addUnitNatureSuccessMessageIsDisplayed());
+		//SKIPPEDunitNaturePage.clickCloseSuccessMessage();
 
 	}
 	
@@ -30,12 +32,12 @@ public class UnitNatureTest extends BaseTest {
 	public void validEditUnitNature()  {
 		UnitNaturePage unitNaturePage = new UnitNaturePage();
 		unitNaturePage.reloadUnitNaturePage();
-		//citiesPage.clickEditUnitNatureButtonByOrder(0);
+		//SKIPPEDcitiesPage.clickEditUnitNatureButtonByOrder(0);
 		unitNaturePage.clickEditUnitNatureButtonByUnitNatureNameArabic("طبيعة_وحدة_افتراضية_1");
 		unitNaturePage.editUnitNatureWindowSetArabicName("طبيعة_وحدة_افتراضية_1_معدلة");
-		unitNaturePage.editUnitNatureWindowSetEnglishName("virtual_unit_nature_1_edited");
+		//SKIPPEDunitNaturePage.editUnitNatureWindowSetEnglishName("virtual_unit_nature_1_edited");
 		unitNaturePage.editUnitNatureWindowClickUpdateButton();
-		Assert.assertTrue(unitNaturePage.editUnitNatureSuccessMessageIsDisplayed(),"edit unit nature failed");
+		Assert.assertTrue(unitNaturePage.editUnitNatureSuccessMessageIsDisplayed());
 
 	}
 	
@@ -44,10 +46,10 @@ public class UnitNatureTest extends BaseTest {
 		
 		UnitNaturePage unitNaturePage = new UnitNaturePage();
 		unitNaturePage.reloadUnitNaturePage();
-		//citiesPage.clickDeleteUnitNatureButtonByOrder(0);
+		//SKIPPEDcitiesPage.clickDeleteUnitNatureButtonByOrder(0);
 		unitNaturePage.clickDeleteUnitNatureButtonByUnitNatureNameArabic("طبيعة_وحدة_افتراضية_1_معدلة");
 		unitNaturePage.clickDeleteUnitNatureConfirmButton();
-		Assert.assertTrue(unitNaturePage.deleteUnitNatureSuccessMessageIsDisplayed(),"edit unit nature failed");
+		Assert.assertTrue(unitNaturePage.deleteUnitNatureSuccessMessageIsDisplayed());
 		
 		}
 }

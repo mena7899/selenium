@@ -12,7 +12,7 @@ public class UnitNaturePage extends BasePage {
 	private By add_unit_nature_window_arabic_name_input = By.cssSelector("input[formcontrolname='natureNameAr']");
 	private By add_unit_nature_window_english_name_input = By.cssSelector("input[formcontrolname='natureNameEn']");
 	private By add_unit_nature_window_description_input = By.cssSelector("textarea[formcontrolname='natureDescription']");
-	private By add_unit_nature_window_status_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][formcontrolname='status']");
+	private By add_unit_nature_window_status_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][formcontrolname='isActive']");
 	private By add_unit_nature_window_add_button = By.xpath("//span[normalize-space(text())='save' or normalize-space(text())='حفظ']");
 	private By add_unit_nature_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
 	private By add_unit_nature_success_message_close_button = By.cssSelector("div.snackbar.success.ng-star-inserted > *:nth-child(2)");

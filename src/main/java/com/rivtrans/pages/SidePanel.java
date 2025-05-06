@@ -8,6 +8,7 @@ import com.rivtrans.utilities.JavaScriptUtility;
 
 public class SidePanel extends BasePage {
 	//"hide-menu ng-tns-c1203807328-0 ng-star-inserted"
+	private By side_menu_button = By.cssSelector("button[class='sidemenu-collapse mdc-icon-button mat-mdc-icon-button mat-unthemed mat-mdc-button-base']");
 	private By licenses_button_h1 = By.cssSelector("span[class*='ng-star-inserted']");
 	//private By licenses_button_h1 = By.xpath("//*[@id=\"sidebarnav\"]/li/a/span");
 	//#sidebarnav > li > ul > li > a
@@ -24,6 +25,7 @@ public class SidePanel extends BasePage {
 	private By river_unit_button_h1x1x8 = By.cssSelector("a[href='/riverUnit']");
 	private By technical_estimate_button_h1x1x9 = By.cssSelector("a[href='/technical-estimate']");
 	private By authorities_button_h1x1x10 = By.cssSelector("a[href='/authorities']");
+	private By jobs_button_h1x1x11 = By.cssSelector("a[href='/jobs']");
 	
 	
 //	public void clickCountriesButton() throws InterruptedException {
@@ -36,6 +38,11 @@ public class SidePanel extends BasePage {
 //		Thread.sleep(5000);
 //				
 //	}
+	
+	
+	public void clickSideMenuButton() {
+		JavaScriptUtility.clickJS(side_menu_button);
+			}
 	public void clickLicensesButton() {
 		JavaScriptUtility.clickJS(licenses_button_h1);
 	}
@@ -111,6 +118,11 @@ public class SidePanel extends BasePage {
     public AuthoritiesPage clickAuthoritiesButton()  {
     	JavaScriptUtility.clickJS(authorities_button_h1x1x10);
         return new AuthoritiesPage();
+    }
+    
+    public JobsPage clickJobsButton()  {
+    	JavaScriptUtility.clickJS(jobs_button_h1x1x11);
+        return new JobsPage();
     }
     
     

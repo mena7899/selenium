@@ -142,7 +142,7 @@ public class DocumentsPage extends BasePage{
 				clickDeleteDocumentsButtonByDocumentsName(arabicName,english_name);
 		} else {
 			
-			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[2]/*[2]"));
 			
 		}
 	}
@@ -155,7 +155,7 @@ public class DocumentsPage extends BasePage{
 				clickDeleteDocumentsButtonByDocumentsNameArabic(arabicName);
 		} else {
 			
-			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[2]/*[2]"));
 			
 		}
 	}
@@ -169,7 +169,7 @@ public class DocumentsPage extends BasePage{
 		} else {
 			
 			//find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]")).JavaScriptUtility.clickJS();
-			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[2]/*[2]"));
 			
 		}
 	}
@@ -208,7 +208,7 @@ public class DocumentsPage extends BasePage{
 				clickDeleteDocumentsButtonByDocumentsName(arabicName,english_name);
 		} else {
 			
-			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[2]/*[1]"));
 			
 		}
 	}
@@ -221,7 +221,7 @@ public class DocumentsPage extends BasePage{
 				clickEditDocumentsButtonByDocumentsNameArabic(arabicName);
 		} else {
 			
-			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[2]/*[1]"));
 			
 		}
 	}
@@ -233,7 +233,7 @@ public class DocumentsPage extends BasePage{
 				clickEditDocumentsButtonByDocumentsNameArabic(englishName);
 		} else {
 			
-			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[2]/*[1]"));
 			
 		}
 	}

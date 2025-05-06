@@ -13,7 +13,7 @@ public class MeasureUnitTest extends BaseTest {
 	public String random_measure_unit_arabic_name= generateRandomArabicLetters(10);
 	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddMeasureUnit()  {
-		HomePage homePage = loginPage.validLogin("ramadan", "123456");
+		HomePage homePage = loginPage.validLogin("ramadan", "123456");homePage.sidePanel.clickSideMenuButton();
 		homePage.sidePanel.clickLicensesButton();
 		homePage.sidePanel.clickMainDataButton();
 		MeasureUnitPage measureUnitPage = homePage.sidePanel.clickMeasureUnitButton();

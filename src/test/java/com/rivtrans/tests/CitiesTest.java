@@ -17,7 +17,7 @@ public class CitiesTest extends BaseTest{
 
 	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddCity()  {
-		HomePage homePage = loginPage.validLogin("ramadan", "123456");
+		HomePage homePage = loginPage.validLogin("ramadan", "123456");homePage.sidePanel.clickSideMenuButton();
 		homePage.sidePanel.clickLicensesButton();
 		homePage.sidePanel.clickMainDataButton();
 		CountriesPage countriesPage = homePage.sidePanel.clickCountriesButton();

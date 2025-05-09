@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com</groupId>
-  <artifactId>rivtrans</artifactId>
+  <artifactId>RTA</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>rivtrans</name>
+  <name>RTA</name>
   <url>http://maven.apache.org</url>
 
 

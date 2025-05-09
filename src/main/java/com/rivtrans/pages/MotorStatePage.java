@@ -11,7 +11,7 @@ public class MotorStatePage extends BasePage {
 	private By add_motor_state_window_arabic_name_input = By.cssSelector("input[formcontrolname='nameAr']");
 	private By add_motor_state_window_english_name_input = By.cssSelector("input[formcontrolname='nameEn']");
 	private By add_motor_state_window_description_input = By.cssSelector("textarea[formcontrolname='description']");
-	private By add_motor_state_window_status_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][formcontrolname='status']");
+	private By add_motor_state_window_status_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][formcontrolname='isActive']");
 	private By add_motor_state_window_add_button = By.xpath("//span[normalize-space(text())='save' or normalize-space(text())='حفظ']");
 	private By add_motor_state_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
 	private By add_motor_state_success_message_close_button = By.cssSelector("div.snackbar.success.ng-star-inserted > *:nth-child(2)");
@@ -26,7 +26,7 @@ public class MotorStatePage extends BasePage {
 			+ "-icons mat-ligature-font edit-icon mat-icon-no-color\']"); //edit buttons list
 	private By edit_motor_state_window_arabic_name_input = By.cssSelector("input[formcontrolname='nameAr']");
 	private By edit_motor_state_window_english_name_input = By.cssSelector("input[formcontrolname='nameEn']");
-	private By edit_motor_state_window_status_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][formcontrolname='status']");
+	private By edit_motor_state_window_status_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][formcontrolname='isActive']");
 	private By edit_motor_state_window_update_button = By.xpath("//span[normalize-space(text())='update' or normalize-space(text())='تحديث']");
 	private By edit_motor_state_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
 	private By edit_motor_state_success_message_close_button = By.cssSelector("div.snackbar.success.ng-star-inserted > *:nth-child(2)");

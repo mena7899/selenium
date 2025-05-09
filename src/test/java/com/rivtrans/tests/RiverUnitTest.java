@@ -17,7 +17,6 @@ public class RiverUnitTest extends BaseTest {
 	public void validAddRiverUnit()  {
 		//set up test data
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
-		homePage.sidePanel.clickSideMenuButton();
 		homePage.sidePanel.clickLicensesButton();
 		homePage.sidePanel.clickMainDataButton();
 		UnitUsePage unitUsePage = homePage.sidePanel.clickUnitUseButton();
@@ -63,7 +62,7 @@ public class RiverUnitTest extends BaseTest {
 		riverUnitPage.addRiverUnitWindowSetlength("10");
 		riverUnitPage.addRiverUnitWindowSetwidth("10");
 		riverUnitPage.addRiverUnitWindowSetheight("10");
-		riverUnitPage.addRiverUnitWindowSelectMeasureLoadArabic("وحدة_وزن_افتراضيي1");
+		riverUnitPage.addRiverUnitWindowSelectMeasureLoadArabic("وحدة_وزن_افتراضي1");
 		riverUnitPage.addRiverUnitWindowSetMaximumLoad("10");
 		riverUnitPage.addRiverUnitWindowSetNetLoad("10");
 		riverUnitPage.addRiverUnitWindowSelectFuelTypeArabic("ديزل");
@@ -81,7 +80,7 @@ public class RiverUnitTest extends BaseTest {
 	@Test(priority =2,dependsOnMethods = {"validAddRiverUnit"})
 	public void validEditRiverUnit()  {
 		RiverUnitPage riverUnitPage = new RiverUnitPage();
-		riverUnitPage.reloadRiverUnitPage();
+		//riverUnitPage.reloadRiverUnitPage();
 		//SKIPPEDcitiesPage.clickEditRiverUnitButtonByOrder(0);
 		riverUnitPage.clickEditRiverUnitButtonByRiverUnitNameArabic("virtual_افتراضية");
 		riverUnitPage.editRiverUnitWindowSetArabicName("استخدام_وحدة_افتراضية_1_معدلة");

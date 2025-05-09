@@ -11,7 +11,7 @@ public class UnitNatureTest extends BaseTest {
 	
 	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddUnitNature()  {
-		HomePage homePage = loginPage.validLogin("ramadan", "123456");homePage.sidePanel.clickSideMenuButton();
+		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		UnitNaturePage unitNaturePage = homePage.sidePanel.clickUnitNatureButton();
 		homePage.sidePanel.clickLicensesButton();
 		homePage.sidePanel.clickMainDataButton();

@@ -11,7 +11,7 @@ public class DocumentsTest extends BaseTest {
 	
 	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddDocuments()  {
-		HomePage homePage = loginPage.validLogin("ramadan", "123456");homePage.sidePanel.clickSideMenuButton();
+		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		homePage.sidePanel.clickLicensesButton();
 		homePage.sidePanel.clickMainDataButton();
 		DocumentsPage documentsPage = homePage.sidePanel.clickDocumentsButton();

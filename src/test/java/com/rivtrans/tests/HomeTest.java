@@ -11,7 +11,7 @@ public class HomeTest extends BaseTest{
 	@Test
 	public void validLoginVisbleLogo()    {
 		
-		HomePage homePage = loginPage.validLogin("ramadan", "123456");homePage.sidePanel.clickSideMenuButton();
+		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		Assert.assertTrue(homePage.logoIsDisplayed());
 				
 	}

@@ -13,14 +13,13 @@ public class MeasureUnitTest extends BaseTest {
 	public String random_measure_unit_arabic_name= generateRandomArabicLetters(10);
 	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddMeasureUnit()  {
-		HomePage homePage = loginPage.validLogin("ramadan", "123456");homePage.sidePanel.clickSideMenuButton();
+		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		homePage.sidePanel.clickLicensesButton();
 		homePage.sidePanel.clickMainDataButton();
 		MeasureUnitPage measureUnitPage = homePage.sidePanel.clickMeasureUnitButton();
 		measureUnitPage.select100Row();
 		measureUnitPage.clickAddMeasureUnitButton();
 		measureUnitPage.addMeasureUnitWindowSetArabicName(random_measure_unit_arabic_name);
-		measureUnitPage.addMeasureUnitWindowSetEnglishName("virtualmeasureunit");
 		measureUnitPage.addMeasureUnitWindowSelectMeasureTypeArabic("درجة الحرارة");
 		measureUnitPage.addMeasureUnitWindowSetConversionRate(".1");
 		measureUnitPage.addMeasureUnitWindowClickStandaradUnitCheckbox();

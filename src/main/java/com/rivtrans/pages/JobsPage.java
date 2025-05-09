@@ -13,7 +13,7 @@ public class JobsPage extends BasePage {
 	private By add_jobs_window_english_name_input = By.cssSelector("input[formcontrolname='natureNameEn']");
 	private By add_jobs_window_description_input = By.cssSelector("textarea[formcontrolname='jobDescription']");
 	private By add_jobs_window_status_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][formcontrolname='jobStatus']");
-	private By add_jobs_window_add_button = By.xpath("//span[normalize-space(text())='save' or normalize-space(text())='حفظ']");
+	private By add_jobs_window_add_button = By.cssSelector("button[type='submit']");
 	private By add_jobs_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
 	private By add_jobs_success_message_close_button = By.cssSelector("div.snackbar.success.ng-star-inserted > *:nth-child(2)");
 	//delete unit nature buttons
@@ -28,7 +28,7 @@ public class JobsPage extends BasePage {
 	private By edit_jobs_window_arabic_name_input = By.cssSelector("input[formcontrolname='jobNameAr']");
 	private By edit_jobs_window_english_name_input = By.cssSelector("input[formcontrolname='natureNameEn']");
 	private By edit_jobs_window_status_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][formcontrolname='jobStatus']");
-	private By edit_jobs_window_update_button = By.xpath("//span[normalize-space(text())='update' or normalize-space(text())='تحديث']");
+	private By edit_jobs_window_update_button = By.cssSelector("button[type='submit']");
 	private By edit_jobs_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
 	private By edit_jobs_success_message_close_button = By.cssSelector("div.snackbar.success.ng-star-inserted > *:nth-child(2)");
 	
@@ -141,7 +141,7 @@ public class JobsPage extends BasePage {
 				clickDeleteJobsButtonByJobsName(arabicName,english_name);
 		} else {
 			
-			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[4]/*[2]"));
 			
 		}
 	}
@@ -154,7 +154,7 @@ public class JobsPage extends BasePage {
 				clickDeleteJobsButtonByJobsNameArabic(arabicName);
 		} else {
 			
-			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[4]/*[2]"));
 			
 		}
 	}
@@ -168,7 +168,7 @@ public class JobsPage extends BasePage {
 		} else {
 			
 			//find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]")).JavaScriptUtility.clickJS();
-			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[4]/*[2]"));
 			
 		}
 	}
@@ -207,7 +207,7 @@ public class JobsPage extends BasePage {
 				clickDeleteJobsButtonByJobsName(arabicName,english_name);
 		} else {
 			
-			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[4]/*[1]"));
 			
 		}
 	}
@@ -220,7 +220,7 @@ public class JobsPage extends BasePage {
 				clickEditJobsButtonByJobsNameArabic(arabicName);
 		} else {
 			
-			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[4]/*[1]"));
 			
 		}
 	}
@@ -232,7 +232,7 @@ public class JobsPage extends BasePage {
 				clickEditJobsButtonByJobsNameEnglish(englishName);
 		} else {
 			
-			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[4]/*[1]"));
 			
 		}
 	}

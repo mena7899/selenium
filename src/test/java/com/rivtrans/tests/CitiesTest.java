@@ -17,7 +17,7 @@ public class CitiesTest extends BaseTest{
 
 	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddCity()  {
-		HomePage homePage = loginPage.validLogin("ramadan", "123456");homePage.sidePanel.clickSideMenuButton();
+		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		homePage.sidePanel.clickLicensesButton();
 		homePage.sidePanel.clickMainDataButton();
 		CountriesPage countriesPage = homePage.sidePanel.clickCountriesButton();
@@ -47,7 +47,7 @@ public class CitiesTest extends BaseTest{
 		citiesPage.reloadCitesPage();
 		//SKIPPED//citiesPage.clickEditCityButtonByOrder(0);
 		citiesPage.clickEditCityButtonByCityIsoCode(random_city_zip_code);
-		citiesPage.editCityWindowSetArabicName(random_city_arabic_name+" "+"معدلة");
+		citiesPage.editCityWindowSetArabicName(random_city_arabic_name+"معدلة");
 		//SKIPPED//citiesPage.editCityWindowSetEnglishName("virtual city edited");
 		citiesPage.editCityWindowClickUpdateButton();
 		Assert.assertTrue(citiesPage.editCitySuccessMessageIsDisplayed());

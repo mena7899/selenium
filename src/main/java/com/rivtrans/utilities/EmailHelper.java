@@ -17,7 +17,7 @@ public class EmailHelper {
     private static final String SMTP_HOST = "mail.isfpegypt.com"; // replace with your SMTP host
     private static final String SMTP_PORT = "587";
     private static final String SMTP_USER = "RTA_TEST@isfpdomain.com"; // replace with your email
-    private static final String SMTP_PASSWORD = "rwa!GWLu4$"; // replace with your email password
+    private static final String SMTP_PASSWORD = ""; // replace with your email password
 
     public static void sendFailureEmail(String testName, File screenshot, String steps) {
         try {

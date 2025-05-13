@@ -262,7 +262,7 @@ public class BaseTest {
     
     public static String generateRandomArabicLetters(int length) {
         Random random = new Random();
-        String arabicLetters = "ابتثجحخدذرزسشصضطظعغفقكلمنهوي"; // Arabic alphabet without diacritics or tatweel
+        String arabicLetters = "ابتثجحخدذرزسشصضطظعغفقكلمنهو"; // Arabic alphabet without diacritics or tatweel
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < length; i++) {
@@ -340,7 +340,7 @@ public class BaseTest {
             captureScreenshot(result);
             String steps = getFailureSteps(result);  // Capture the formatted steps
             
-            if (isCI || sendEmail==true) {
+            if (isCI && sendEmail==true) {
                 // ONLY send email if running in CI/CD
             	sendFailureEmail(result.getName(), new File(System.getProperty("user.dir") + "/resources/screenshots/" + result.getName() + ".png"), steps);
             } else {

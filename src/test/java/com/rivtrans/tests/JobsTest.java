@@ -11,7 +11,7 @@ public class JobsTest extends BaseTest {
 	
 	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddJobs()  {
-		HomePage homePage = loginPage.validLogin("ramadan", "123456");homePage.sidePanel.clickSideMenuButton();
+		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		JobsPage jobsPage = homePage.sidePanel.clickJobsButton();
 		homePage.sidePanel.clickLicensesButton();
 		homePage.sidePanel.clickMainDataButton();

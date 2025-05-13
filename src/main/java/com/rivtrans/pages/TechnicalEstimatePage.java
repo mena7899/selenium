@@ -142,7 +142,7 @@ public class TechnicalEstimatePage extends BasePage{
 				clickDeleteTechnicalEstimateButtonByTechnicalEstimateName(arabicName,english_name);
 		} else {
 			
-			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
 			
 		}
 	}
@@ -155,7 +155,7 @@ public class TechnicalEstimatePage extends BasePage{
 				clickDeleteTechnicalEstimateButtonByTechnicalEstimateNameArabic(arabicName);
 		} else {
 			
-			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
 			
 		}
 	}
@@ -169,7 +169,7 @@ public class TechnicalEstimatePage extends BasePage{
 		} else {
 			
 			//find(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[3]/*[1]")).JavaScriptUtility.clickJS();
-			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
 			
 		}
 	}
@@ -208,7 +208,7 @@ public class TechnicalEstimatePage extends BasePage{
 				clickDeleteTechnicalEstimateButtonByTechnicalEstimateName(arabicName,english_name);
 		} else {
 			
-			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
 			
 		}
 	}
@@ -221,7 +221,7 @@ public class TechnicalEstimatePage extends BasePage{
 				clickEditTechnicalEstimateButtonByTechnicalEstimateNameArabic(arabicName);
 		} else {
 			
-			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
 			
 		}
 	}
@@ -233,7 +233,7 @@ public class TechnicalEstimatePage extends BasePage{
 				clickEditTechnicalEstimateButtonByTechnicalEstimateNameArabic(englishName);
 		} else {
 			
-			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[2]"));
+			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
 			
 		}
 	}

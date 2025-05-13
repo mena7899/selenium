@@ -11,7 +11,7 @@ public class MotorStateTest extends BaseTest {
 	
 	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddMotorState() throws InterruptedException  {
-		HomePage homePage = loginPage.validLogin("ramadan", "123456");homePage.sidePanel.clickSideMenuButton();
+		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		MotorStatePage motorStatePage = homePage.sidePanel.clickMotorStatesButton();
 		homePage.sidePanel.clickLicensesButton();
 		homePage.sidePanel.clickMainDataButton();

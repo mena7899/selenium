@@ -56,12 +56,12 @@ public class CitiesPage extends BasePage {
 	///////////////////////////////////////////////////////////////////////////////////////////
 	//add city methods
 	public void clickAddCityButton() {
-		findToClick(add_city_button);
 		JavaScriptUtility.clickJS(add_city_button);
 	}
 	
 	public void addCityWindowSetArabicName(String arabic_name) {
 		//JavaScriptUtility.clickJS(add_city_window_arabic_name_input);
+		JavaScriptUtility.clickJS(add_city_window_arabic_name_input);
 		JavaScriptUtility.setJS(add_city_window_arabic_name_input, arabic_name);
 		//find(add_city_window_arabic_name_input);
 		//JavaScriptUtility.setJS(add_city_button, arabic_name);
@@ -145,6 +145,7 @@ public class CitiesPage extends BasePage {
 	}
 	
 	public void editCityWindowSetArabicName(String arabic_name) {
+		JavaScriptUtility.clickJS(edit_city_window_arabic_name_input);
 		JavaScriptUtility.setJS(edit_city_window_arabic_name_input, arabic_name);
 	}
 	

@@ -11,7 +11,7 @@ public class TechnicalEstimateTest extends BaseTest {
 	
 	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddTechnicalEstimate()  {
-		HomePage homePage = loginPage.validLogin("ramadan", "123456");homePage.sidePanel.clickSideMenuButton();
+		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		homePage.sidePanel.clickLicensesButton();
 		homePage.sidePanel.clickMainDataButton();
 		TechnicalEstimatePage technicalEstimatePage = homePage.sidePanel.clickTechnicalEstimateButton();
@@ -20,7 +20,6 @@ public class TechnicalEstimateTest extends BaseTest {
 		technicalEstimatePage.addTechnicalEstimateWindowSetArabicName("استخدام_وحدة_افتراضية_1");
 		technicalEstimatePage.addTechnicalEstimateWindowSetCode("كود_virtual_technical_estimate_1");
 		technicalEstimatePage.addTechnicalEstimateWindowSetDescription("وصف_description1");
-		technicalEstimatePage.addTechnicalEstimateWindowSelectStatusArabic("نشط");
 		technicalEstimatePage.addTechnicalEstimateWindowClickAddButton();
 		Assert.assertTrue(technicalEstimatePage.addTechnicalEstimateSuccessMessageIsDisplayed());
 		//SKIPPEDtechnicalEstimatePage.clickCloseSuccessMessage();

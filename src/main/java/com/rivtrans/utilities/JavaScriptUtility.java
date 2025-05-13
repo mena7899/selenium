@@ -34,6 +34,7 @@ public class JavaScriptUtility extends Utility {
 			    JavascriptExecutor executor = (JavascriptExecutor) driver;
 			    
 			    executor.executeScript("arguments[0].scrollIntoView();", element);
+			    executor.executeScript("arguments[0].click();", element);
 
 			    //highlight the input for debug
 			    executor.executeScript("arguments[0].style.border='2px solid red'", element);

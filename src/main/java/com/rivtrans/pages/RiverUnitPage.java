@@ -36,7 +36,7 @@ public class RiverUnitPage extends BasePage{
 	private By add_river_unit_window_last_maintenance_date =By.cssSelector("input['lastDateMainten']");
 	private By add_river_unit_window_description_input = By.cssSelector("textarea[formcontrolname='licenseDesc']");
 	private By add_river_unit_window_add_button = By.xpath("//span[normalize-space(text())='save' or normalize-space(text())='إضافة']");
-	private By add_river_unit_success_message = By.cssSelector("div[class=\'snackbar success ng-star-inserted\']");
+	private By add_river_unit_success_message = By.cssSelector("div[class='snackbar success ng-star-inserted']");
 	private By add_river_unit_success_message_close_button = By.cssSelector("div.snackbar.success.ng-star-inserted > *:nth-child(2)");
 	//delete unit use buttons
 	private By delete_river_unit_buttons =By.cssSelector("mat-icon[class=\'mat-icon notranslate material"

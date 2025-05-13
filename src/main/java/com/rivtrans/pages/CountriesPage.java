@@ -54,7 +54,7 @@ public class CountriesPage extends BasePage {
 		///////////////////////////////////////////////////////////////////////////////////////////
 		//add country methods
 		public void clickAddCountryButton() {
-			findToClick(add_country_button);
+			
 			JavaScriptUtility.clickJS(add_country_button);
 		}
 		

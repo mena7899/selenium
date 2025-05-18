@@ -340,7 +340,7 @@ public class BaseTest {
             captureScreenshot(result);
             String steps = getFailureSteps(result);  // Capture the formatted steps
             
-            if (isCI && sendEmail==true) {
+            if (isCI || sendEmail==true) {
                 // ONLY send email if running in CI/CD
             	sendFailureEmail(result.getName(), new File(System.getProperty("user.dir") + "/resources/screenshots/" + result.getName() + ".png"), steps);
             } else {

@@ -8,7 +8,7 @@ import com.rivtrans.utilities.JavaScriptUtility;
 
 public class CitiesPage extends BasePage {
 	//add city buttons
-	private By add_city_button = By.cssSelector("div[class='mat-mdc-tooltip-trigger ng-star-inserted'][mattooltip='اضافة']> :first-child");
+	private By add_city_button = By.cssSelector("div[class='mat-mdc-tooltip-trigger ng-star-inserted']> :first-child");
 	private By add_city_window_arabic_name_input = By.cssSelector("input[formcontrolname='nameAr']");
 	private By add_city_window_english_name_input = By.cssSelector("input[formcontrolname='nameEn']");
 	private By add_city_window_countries_dropdown_list = By.cssSelector("mat-select[formcontrolname='countryId'][role='combobox']");

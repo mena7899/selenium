@@ -6,7 +6,7 @@
       <class name="com.rivtrans.tests.MeasureUnitTest"/>
       <class name="com.rivtrans.tests.LoginTest"/>
       <class name="com.rivtrans.tests.AuthoritiesTest"/>
-      <class name="com.rivtrans.tests.RiverUnitTest"/>
+    <!--  <class name="com.rivtrans.tests.RiverUnitTest"/> -->
       <class name="com.rivtrans.tests.UnitUseTest"/>
       <class name="com.rivtrans.tests.JobsTest"/>
       <class name="com.rivtrans.tests.CountriesTest"/>

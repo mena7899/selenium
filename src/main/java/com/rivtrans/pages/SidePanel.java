@@ -26,6 +26,10 @@ public class SidePanel extends BasePage {
 	private By technical_estimate_button_h1x1x9 = By.cssSelector("a[href='/technical-estimate']");
 	private By authorities_button_h1x1x10 = By.cssSelector("a[href='/authorities']");
 	private By jobs_button_h1x1x11 = By.cssSelector("a[href='/jobs']");
+	private By river_paths_button_h1x1x12 = By.cssSelector("a[href='/river-paths']");
+	private By river_marina_button_h1x1x13 = By.cssSelector("a[href='/river-marina']");
+	private By crew_members_button_h1x1x14 = By.cssSelector("a[href='/crewMembers']");
+	private By regions_button_h1x1x15 = By.cssSelector("a[href='/regions']");
 	
 	
 //	public void clickCountriesButton() throws InterruptedException {
@@ -126,6 +130,10 @@ public class SidePanel extends BasePage {
     }
     
     
+    public RegionsPage clickRegionsButton()  {
+    	JavaScriptUtility.clickJS(regions_button_h1x1x15);
+        return new RegionsPage();
+    }
     
     
     

@@ -9,6 +9,11 @@ import com.rivtrans.pages.TechnicalEstimatePage;
 
 public class TechnicalEstimateTest extends BaseTest {
 	
+	public String random_english_letters = generateRandomEnglishCapitalCharacters(5);
+	public String random_arabic_letters= generateRandomArabicLetters(10);
+	
+	
+	
 	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddTechnicalEstimate()  {
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
@@ -17,7 +22,7 @@ public class TechnicalEstimateTest extends BaseTest {
 		TechnicalEstimatePage technicalEstimatePage = homePage.sidePanel.clickTechnicalEstimateButton();
 		technicalEstimatePage.select100Row();
 		technicalEstimatePage.clickAddTechnicalEstimateButton();
-		technicalEstimatePage.addTechnicalEstimateWindowSetArabicName("استخدام_وحدة_افتراضية_1");
+		technicalEstimatePage.addTechnicalEstimateWindowSetArabicName("استخدام_وحدة_افتراضية_1"+random_arabic_letters);
 		technicalEstimatePage.addTechnicalEstimateWindowSetCode("كود_virtual_technical_estimate_1");
 		technicalEstimatePage.addTechnicalEstimateWindowSetDescription("وصف_description1");
 		technicalEstimatePage.addTechnicalEstimateWindowClickAddButton();
@@ -32,7 +37,7 @@ public class TechnicalEstimateTest extends BaseTest {
 		TechnicalEstimatePage technicalEstimatePage = new TechnicalEstimatePage();
 		technicalEstimatePage.reloadTechnicalEstimatePage();
 		//SKIPPEDcitiesPage.clickEditTechnicalEstimateButtonByOrder(0);
-		technicalEstimatePage.clickEditTechnicalEstimateButtonByTechnicalEstimateNameArabic("استخدام_وحدة_افتراضية_1");
+		technicalEstimatePage.clickEditTechnicalEstimateButtonByTechnicalEstimateNameArabic("استخدام_وحدة_افتراضية_1"+random_arabic_letters);
 		technicalEstimatePage.editTechnicalEstimateWindowSetArabicName("استخدام_وحدة_افتراضية_1_معدلة");
 		technicalEstimatePage.editTechnicalEstimateWindowSetEnglishName("virtual_technical_estimate_1_edited");
 		technicalEstimatePage.editTechnicalEstimateWindowClickUpdateButton();

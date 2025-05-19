@@ -160,7 +160,6 @@ public class CountriesPage extends BasePage {
 					JavaScriptUtility.clickJS(next_rows_button);
 					clickDeleteCountryButtonByCountryIsoCode(IsoCode);
 			} else {
-				System.out.print("123");
 				//findToClick(By.xpath(xpathExpression)).findElement(By.xpath("parent::*/following-sibling::*[2]/*[2]")).JavaScriptUtility.clickJS();
 				JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[2]/*[2]"));
 			}

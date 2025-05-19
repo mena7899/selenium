@@ -219,7 +219,7 @@ public class MeasureUnitPage extends BasePage{
 	
 	public void clickEditMeasureUnitButtonByMeasureUnitNameArabic(String arabic_name) {
 		String arabicName = arabic_name;
-		String xpathExpression = String.format("//span[contains(text(), '%s')]", arabicName);
+		String xpathExpression = String.format("//span[text()='%s']", arabicName);
 		if(find(next_rows_button).isEnabled()==true && isElementVisible(By.xpath(xpathExpression))==false) {
 				JavaScriptUtility.clickJS(next_rows_button);
 				clickEditMeasureUnitButtonByMeasureUnitNameArabic(arabicName);

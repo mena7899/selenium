@@ -37,6 +37,7 @@ public class MeasureUnitTest extends BaseTest {
 		MeasureUnitPage measureUnitPage = new MeasureUnitPage();
 		measureUnitPage.reloadMeasureUnitPage();
 		//SKIPPEDcitiesPage.clickEditMeasureUnitButtonByOrder(0);
+		//random_measure_unit_arabic_name+"اوتو"
 		measureUnitPage.clickEditMeasureUnitButtonByMeasureUnitNameArabic(random_measure_unit_arabic_name+"اوتو");
 		measureUnitPage.editMeasureUnitWindowSetArabicName(random_measure_unit_arabic_name+" "+"معدلة");
 		//SKIPPEDmeasureUnitPage.editMeasureUnitWindowSetEnglishName("virtual_measure_unit_1_edited");

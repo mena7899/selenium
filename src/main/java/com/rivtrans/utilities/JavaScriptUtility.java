@@ -17,13 +17,13 @@ public class JavaScriptUtility extends Utility {
 		  }
 
 		  public static void clickJS(By locator) {
-			WaitUtility.fluentWaitUntilVisible(2500, locator, 500);
+			WaitUtility.fluentWaitUntilVisibleAndClickable(2500, locator, 500);
 		    WebElement element = driver.findElement(locator);
 		    JavascriptExecutor executor = (JavascriptExecutor) driver;
 		    executor.executeScript("arguments[0].scrollIntoView();", element);
 		    executor.executeScript("arguments[0].click();", element);
 		  }
-		  
+		 
 		  
 		  public static void setJS(By locator, String text) {
 			    //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

@@ -297,9 +297,8 @@ public class MeasureUnitPage extends BasePage{
 	///
 	
 	public void reloadMeasureUnitPage() {
-		System.out.print("page reload...");
 		reloadPage();
-		System.out.print("page reloaded");
+		
 	}
 	
 

@@ -79,7 +79,8 @@ public class BasePage {
 	}
 	
 	protected void reloadPage() {
-	    driver.navigate().refresh();
+	    //driver.navigate().refresh();
+	    driver.get(driver.getCurrentUrl());
 	}
 	
 }

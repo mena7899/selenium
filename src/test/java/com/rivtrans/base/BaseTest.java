@@ -335,7 +335,7 @@ public class BaseTest {
     @AfterMethod
     public void takeFailedResultScreenshot(ITestResult result) {
     	boolean isCI = System.getProperty("ci") != null || System.getenv("JENKINS_HOME") != null;
-    	boolean sendEmail= false;
+    	boolean sendEmail= true;
         if (ITestResult.FAILURE == result.getStatus()) {
             captureScreenshot(result);
             String steps = getFailureSteps(result);  // Capture the formatted steps

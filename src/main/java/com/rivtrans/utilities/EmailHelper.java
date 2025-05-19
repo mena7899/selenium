@@ -54,7 +54,8 @@ public class EmailHelper {
             // Email message setup
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("RTA_TEST@isfpegypt.com"));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("RTA_TEAM@isfpegypt.com"));
+            //RTA_TEAM@isfpegypt.com
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("melias@isfpegypt.com"));
             message.setSubject("Test Failure - " + testName);
 
             // Prepare email body

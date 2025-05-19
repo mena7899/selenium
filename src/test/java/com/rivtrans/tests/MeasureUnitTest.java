@@ -35,7 +35,7 @@ public class MeasureUnitTest extends BaseTest {
 	@Test(priority =2,dependsOnMethods = {"validAddMeasureUnit"})
 	public void validEditMeasureUnit()  {
 		MeasureUnitPage measureUnitPage = new MeasureUnitPage();
-		//SKIPPEDmeasureUnitPage.reloadMeasureUnitPage();
+		measureUnitPage.reloadMeasureUnitPage();
 		//SKIPPEDcitiesPage.clickEditMeasureUnitButtonByOrder(0);
 		measureUnitPage.clickEditMeasureUnitButtonByMeasureUnitNameArabic(random_measure_unit_arabic_name+"اوتو");
 		measureUnitPage.editMeasureUnitWindowSetArabicName(random_measure_unit_arabic_name+" "+"معدلة");

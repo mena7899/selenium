@@ -19,7 +19,7 @@ public class MeasureUnitTest extends BaseTest {
 		MeasureUnitPage measureUnitPage = homePage.sidePanel.clickMeasureUnitButton();
 		measureUnitPage.select100Row();
 		measureUnitPage.clickAddMeasureUnitButton();
-		measureUnitPage.addMeasureUnitWindowSetArabicName(random_measure_unit_arabic_name);
+		measureUnitPage.addMeasureUnitWindowSetArabicName(random_measure_unit_arabic_name+"اوتو");
 		measureUnitPage.addMeasureUnitWindowSelectMeasureTypeArabic("درجة الحرارة");
 		measureUnitPage.addMeasureUnitWindowSetConversionRate(".1");
 		measureUnitPage.addMeasureUnitWindowClickStandaradUnitCheckbox();
@@ -37,7 +37,7 @@ public class MeasureUnitTest extends BaseTest {
 		MeasureUnitPage measureUnitPage = new MeasureUnitPage();
 		//SKIPPEDmeasureUnitPage.reloadMeasureUnitPage();
 		//SKIPPEDcitiesPage.clickEditMeasureUnitButtonByOrder(0);
-		measureUnitPage.clickEditMeasureUnitButtonByMeasureUnitNameArabic(random_measure_unit_arabic_name);
+		measureUnitPage.clickEditMeasureUnitButtonByMeasureUnitNameArabic(random_measure_unit_arabic_name+"اوتو");
 		measureUnitPage.editMeasureUnitWindowSetArabicName(random_measure_unit_arabic_name+" "+"معدلة");
 		//SKIPPEDmeasureUnitPage.editMeasureUnitWindowSetEnglishName("virtual_measure_unit_1_edited");
 		measureUnitPage.editMeasureUnitWindowClickUpdateButton();

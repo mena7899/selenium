@@ -18,7 +18,7 @@ public class MeasureUnitTest extends BaseTest {
 		homePage.sidePanel.clickMainDataButton();
 		MeasureUnitPage measureUnitPage = homePage.sidePanel.clickMeasureUnitButton();
 		measureUnitPage.select100Row();
-		measureUnitPage.clickAddMeasureUnitButton();
+		//measureUnitPage.clickAddMeasureUnitButton();
 		measureUnitPage.addMeasureUnitWindowSetArabicName(random_measure_unit_arabic_name+"اوتو");
 		measureUnitPage.addMeasureUnitWindowSelectMeasureTypeArabic("درجة الحرارة");
 		measureUnitPage.addMeasureUnitWindowSetConversionRate(".1");

@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 
 import com.rivtrans.base.BasePage;
 import com.rivtrans.utilities.JavaScriptUtility;
+import com.rivtrans.utilities.WaitUtility;
 
 public class MeasureUnitPage extends BasePage{
 
@@ -235,7 +236,7 @@ public class MeasureUnitPage extends BasePage{
 				JavaScriptUtility.clickJS(next_rows_button);
 				clickEditMeasureUnitButtonByMeasureUnitNameArabic(englishName);
 		} else {
-			
+			 WaitUtility.fluentWaitUntilVisibleAndClickable(2500, By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"), 500);
 			JavaScriptUtility.clickJS(By.xpath(xpathExpression+"//parent::*/following-sibling::*[3]/*[1]"));
 			
 		}

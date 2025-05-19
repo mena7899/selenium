@@ -17,7 +17,7 @@ public class JavaScriptUtility extends Utility {
 		  }
 
 		  public static void clickJS(By locator) {
-			WaitUtility.fluentWaitUntilVisibleAndClickable(2500, locator, 500);
+			WaitUtility.fluentWaitUntilVisible(2500, locator, 500);
 		    WebElement element = driver.findElement(locator);
 		    JavascriptExecutor executor = (JavascriptExecutor) driver;
 		    executor.executeScript("arguments[0].scrollIntoView();", element);

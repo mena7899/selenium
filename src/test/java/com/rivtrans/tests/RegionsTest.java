@@ -17,7 +17,7 @@ public class RegionsTest extends BaseTest{
 	public String random_city_arabic_name= generateRandomArabicLetters(10);
 	public String random_region_arabic_name= generateRandomArabicLetters(10)+"_1";
 
-	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
+	@Test(priority =4,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddRegion()  {
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		homePage.sidePanel.clickLicensesButton();
@@ -52,7 +52,7 @@ public class RegionsTest extends BaseTest{
 	}
 	
 	
-	@Test(priority =2,dependsOnMethods = {"validAddRegion"})
+	@Test(priority =5,dependsOnMethods = {"validAddRegion"})
 	public void validEditRegion()  {
 		RegionsPage regionsPage = new RegionsPage();
 		regionsPage.reloadRegionsPage();
@@ -66,7 +66,7 @@ public class RegionsTest extends BaseTest{
 
 	}
 	//,dependsOnMethods = {"validEditRegion"}
-	@Test(priority =3,dependsOnMethods = {"validAddRegion"})
+	@Test(priority =6,dependsOnMethods = {"validAddRegion"})
 	public void validDeleteRegion()   {
 		
 		RegionsPage regionsPage = new RegionsPage();

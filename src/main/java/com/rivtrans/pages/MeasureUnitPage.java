@@ -297,7 +297,7 @@ public class MeasureUnitPage extends BasePage{
 	///
 	
 	public void reloadMeasureUnitPage() {
-		reloadPage();
+		JavaScriptUtility.reloadPageJS();
 		
 	}
 	

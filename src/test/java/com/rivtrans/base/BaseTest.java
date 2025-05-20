@@ -460,5 +460,6 @@ public class BaseTest {
     @AfterClass
     public void tearDown() {
         driver.quit();
+        //BasePage2.quitDriver();
     }
 }

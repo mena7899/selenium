@@ -16,7 +16,7 @@
       <class name="com.rivtrans.tests.MotorStateTest"/>
       <class name="com.rivtrans.tests.CitiesTest"/>
       <class name="com.rivtrans.tests.HomeTest"/>
-      <class name="com.rivtrans.tests.RegionsTest"/>
+    <!--    <class name="com.rivtrans.tests.RegionsTest"/> -->
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

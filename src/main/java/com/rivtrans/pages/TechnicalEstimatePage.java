@@ -294,7 +294,7 @@ public class TechnicalEstimatePage extends BasePage{
 	
 	public void reloadTechnicalEstimatePage() {
 		
-		reloadPage();
+		JavaScriptUtility.reloadPageJS();
 	}
 	
 

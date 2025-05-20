@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class JavaScriptUtility extends Utility {
 //add scroll to element by id and click methods
 	
-	  public static void scrollToElementJS(By locator) {
+	  	   public static void scrollToElementJS(By locator) {
 		    WebElement element = driver.findElement(locator);
 		    String jsScript = "arguments[0].scrollIntoView();";
 		    ((JavascriptExecutor)driver).executeScript(jsScript, element);
@@ -52,5 +52,10 @@ public class JavaScriptUtility extends Utility {
 			    """;
 
 			    executor.executeScript(script, element, text);
+			}
+		  
+		  public static void reloadPageJS() {
+				((JavascriptExecutor) driver).executeScript("location.reload()");
+			    //driver.get(driver.getCurrentUrl());
 			}
 }

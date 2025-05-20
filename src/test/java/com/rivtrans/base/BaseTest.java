@@ -315,7 +315,7 @@ public class BaseTest {
         boolean isCI = System.getProperty("ci") != null || System.getenv("JENKINS_HOME") != null;
         if (isCI) {
             System.out.println("Running in CI environment. Launching browser in headless mode.");
-            String chromeArgs = System.getProperty("chrome.options", "--headless,--disable-gpu,--window-size=1280,720");
+            String chromeArgs = System.getProperty("chrome.options", "--headless=chrome,--disable-gpu,--window-size=1280,720");
             Arrays.stream(chromeArgs.split(",")).forEach(arg -> options.addArguments(arg.trim()));
             driver = new ChromeDriver(options);
         } else {

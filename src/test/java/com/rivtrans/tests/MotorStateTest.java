@@ -9,7 +9,7 @@ import com.rivtrans.pages.MotorStatePage;
 
 public class MotorStateTest extends BaseTest {
 	
-	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
+	@Test(priority =27,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddMotorState() throws InterruptedException  {
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		MotorStatePage motorStatePage = homePage.sidePanel.clickMotorStatesButton();
@@ -27,7 +27,7 @@ public class MotorStateTest extends BaseTest {
 	}
 	
 	
-	@Test(priority =2,dependsOnMethods = {"validAddMotorState"})
+	@Test(priority =28,dependsOnMethods = {"validAddMotorState"})
 	public void validEditMotorState()  {
 		MotorStatePage motorStatePage = new MotorStatePage();
 		motorStatePage.reloadMotorStatePage();
@@ -40,7 +40,7 @@ public class MotorStateTest extends BaseTest {
 
 	}
 	
-	@Test(priority =3,dependsOnMethods = {"validEditMotorState"})
+	@Test(priority =29,dependsOnMethods = {"validEditMotorState"})
 	public void validDeleteMotorState() {
 		
 		MotorStatePage motorStatePage = new MotorStatePage();

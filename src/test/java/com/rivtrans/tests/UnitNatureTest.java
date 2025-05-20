@@ -9,7 +9,7 @@ import com.rivtrans.pages.UnitNaturePage;
 
 public class UnitNatureTest extends BaseTest {
 	
-	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
+	@Test(priority =21,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddUnitNature()  {
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		UnitNaturePage unitNaturePage = homePage.sidePanel.clickUnitNatureButton();
@@ -28,7 +28,7 @@ public class UnitNatureTest extends BaseTest {
 	}
 	
 	
-	@Test(priority =2,dependsOnMethods = {"validAddUnitNature"})
+	@Test(priority =22,dependsOnMethods = {"validAddUnitNature"})
 	public void validEditUnitNature()  {
 		UnitNaturePage unitNaturePage = new UnitNaturePage();
 		unitNaturePage.reloadUnitNaturePage();
@@ -41,7 +41,7 @@ public class UnitNatureTest extends BaseTest {
 
 	}
 	
-	@Test(priority =3,dependsOnMethods = {"validEditUnitNature"})
+	@Test(priority =23,dependsOnMethods = {"validEditUnitNature"})
 	public void validDeleteUnitNature() {
 		
 		UnitNaturePage unitNaturePage = new UnitNaturePage();

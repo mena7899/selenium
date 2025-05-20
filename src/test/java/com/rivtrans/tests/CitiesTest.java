@@ -15,7 +15,7 @@ public class CitiesTest extends BaseTest{
 	public String random_country_arabic_name= generateRandomArabicLetters(10);
 	public String random_city_arabic_name= generateRandomArabicLetters(10);
 
-	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
+	@Test(priority =30,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddCity()  {
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		homePage.sidePanel.clickLicensesButton();
@@ -40,7 +40,7 @@ public class CitiesTest extends BaseTest{
 	}
 	
 	
-	@Test(priority =2,dependsOnMethods = {"validAddCity"})
+	@Test(priority =31,dependsOnMethods = {"validAddCity"})
 	public void validEditCity()  {
 		CitiesPage citiesPage = new CitiesPage();
 		citiesPage.reloadCitesPage();
@@ -54,7 +54,7 @@ public class CitiesTest extends BaseTest{
 
 	}
 	
-	@Test(priority =3,dependsOnMethods = {"validEditCity"})
+	@Test(priority =32,dependsOnMethods = {"validEditCity"})
 	public void validDeleteCity()   {
 		
 		CitiesPage citiesPage = new CitiesPage();

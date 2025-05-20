@@ -11,7 +11,7 @@ public class MeasureUnitTest extends BaseTest {
 	
 	
 	public String random_measure_unit_arabic_name= generateRandomArabicLetters(10);
-	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
+	@Test(priority =3,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddMeasureUnit()  {
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		homePage.sidePanel.clickLicensesButton();
@@ -32,7 +32,7 @@ public class MeasureUnitTest extends BaseTest {
 	}
 	
 	
-	@Test(priority =2,dependsOnMethods = {"validAddMeasureUnit"})
+	@Test(priority =4,dependsOnMethods = {"validAddMeasureUnit"})
 	public void validEditMeasureUnit()  {
 		MeasureUnitPage measureUnitPage = new MeasureUnitPage();
 		measureUnitPage.reloadMeasureUnitPage();
@@ -47,7 +47,7 @@ public class MeasureUnitTest extends BaseTest {
 
 	}
 	
-	@Test(priority =3,dependsOnMethods = {"validEditMeasureUnit"})
+	@Test(priority =5,dependsOnMethods = {"validEditMeasureUnit"})
 	public void validDeleteMeasureUnit() {
 		
 		MeasureUnitPage measureUnitPage = new MeasureUnitPage();

@@ -14,7 +14,7 @@ public class TechnicalEstimateTest extends BaseTest {
 	
 	
 	
-	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
+	@Test(priority =24,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddTechnicalEstimate()  {
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		homePage.sidePanel.clickLicensesButton();
@@ -32,7 +32,7 @@ public class TechnicalEstimateTest extends BaseTest {
 	}
 	
 	
-	@Test(priority =2,dependsOnMethods = {"validAddTechnicalEstimate"})
+	@Test(priority =25,dependsOnMethods = {"validAddTechnicalEstimate"})
 	public void validEditTechnicalEstimate()  {
 		TechnicalEstimatePage technicalEstimatePage = new TechnicalEstimatePage();
 		technicalEstimatePage.reloadTechnicalEstimatePage();
@@ -45,7 +45,7 @@ public class TechnicalEstimateTest extends BaseTest {
 
 	}
 	
-	@Test(priority =3,dependsOnMethods = {"validEditTechnicalEstimate"})
+	@Test(priority =26,dependsOnMethods = {"validEditTechnicalEstimate"})
 	public void validDeleteTechnicalEstimate() {
 		
 		TechnicalEstimatePage technicalEstimatePage = new TechnicalEstimatePage();

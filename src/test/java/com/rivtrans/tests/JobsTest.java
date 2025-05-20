@@ -9,7 +9,7 @@ import com.rivtrans.pages.JobsPage;
 
 public class JobsTest extends BaseTest {
 	
-	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
+	@Test(priority =12,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddJobs()  {
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		JobsPage jobsPage = homePage.sidePanel.clickJobsButton();
@@ -28,7 +28,7 @@ public class JobsTest extends BaseTest {
 	}
 	
 	
-	@Test(priority =2,dependsOnMethods = {"validAddJobs"})
+	@Test(priority =13,dependsOnMethods = {"validAddJobs"})
 	public void validEditJobs()  {
 		JobsPage jobsPage = new JobsPage();
 		jobsPage.reloadJobsPage();
@@ -41,7 +41,7 @@ public class JobsTest extends BaseTest {
 
 	}
 	
-	@Test(priority =3,dependsOnMethods = {"validEditJobs"})
+	@Test(priority =14,dependsOnMethods = {"validEditJobs"})
 	public void validDeleteJobs() {
 		
 		JobsPage jobsPage = new JobsPage();

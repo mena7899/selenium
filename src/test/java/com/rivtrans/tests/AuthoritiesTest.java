@@ -10,7 +10,7 @@ import com.rivtrans.pages.AuthoritiesPage;
 public class AuthoritiesTest extends BaseTest {
 	public String random_authority_tax_number= generateRandomEnglishNumbers(9);
 	
-	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
+	@Test(priority =6,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddAuthorities()  {
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		homePage.sidePanel.clickLicensesButton();
@@ -31,7 +31,7 @@ public class AuthoritiesTest extends BaseTest {
 	}
 	
 
-	@Test(priority =2,dependsOnMethods = {"validAddAuthorities"})
+	@Test(priority =7,dependsOnMethods = {"validAddAuthorities"})
 	public void validEditAuthorities()  {
 		AuthoritiesPage authoritiesPage = new AuthoritiesPage();
 		authoritiesPage.reloadAuthoritiesPage();
@@ -44,7 +44,7 @@ public class AuthoritiesTest extends BaseTest {
 
 	}
 	
-	@Test(priority =3,dependsOnMethods = {"validEditAuthorities"})
+	@Test(priority =8,dependsOnMethods = {"validEditAuthorities"})
 	public void validDeleteAuthorities() {
 		
 		AuthoritiesPage authoritiesPage = new AuthoritiesPage();

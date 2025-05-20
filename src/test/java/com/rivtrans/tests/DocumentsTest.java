@@ -9,7 +9,7 @@ import com.rivtrans.pages.DocumentsPage;
 
 public class DocumentsTest extends BaseTest {
 	
-	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
+	@Test(priority =18,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddDocuments()  {
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		homePage.sidePanel.clickLicensesButton();
@@ -26,7 +26,7 @@ public class DocumentsTest extends BaseTest {
 	}
 	
 	
-	@Test(priority =2,dependsOnMethods = {"validAddDocuments"})
+	@Test(priority =19,dependsOnMethods = {"validAddDocuments"})
 	public void validEditDocuments()  {
 		DocumentsPage documentsPage = new DocumentsPage();
 		documentsPage.reloadDocumentsPage();
@@ -39,7 +39,7 @@ public class DocumentsTest extends BaseTest {
 
 	}
 	
-	@Test(priority =3,dependsOnMethods = {"validEditDocuments"})
+	@Test(priority =20,dependsOnMethods = {"validEditDocuments"})
 	public void validDeleteDocuments() {
 		
 		DocumentsPage documentsPage = new DocumentsPage();

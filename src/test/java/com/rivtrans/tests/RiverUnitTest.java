@@ -13,7 +13,7 @@ import com.rivtrans.pages.UnitUsePage;
 
 public class RiverUnitTest extends BaseTest {
 	
-	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
+	@Test(priority =35,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddRiverUnit()  {
 		//set up test data
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
@@ -77,7 +77,7 @@ public class RiverUnitTest extends BaseTest {
 	}
 
 	
-	@Test(priority =2,dependsOnMethods = {"validAddRiverUnit"})
+	@Test(priority =36,dependsOnMethods = {"validAddRiverUnit"})
 	public void validEditRiverUnit()  {
 		RiverUnitPage riverUnitPage = new RiverUnitPage();
 		//riverUnitPage.reloadRiverUnitPage();
@@ -90,7 +90,7 @@ public class RiverUnitTest extends BaseTest {
 
 	}
 	
-	@Test(priority =3,dependsOnMethods = {"validEditRiverUnit"})
+	@Test(priority =37,dependsOnMethods = {"validEditRiverUnit"})
 	public void validDeleteRiverUnit() {
 		
 		RiverUnitPage riverUnitPage = new RiverUnitPage();

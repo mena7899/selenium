@@ -10,7 +10,7 @@ public class CountriesTest extends BaseTest  {
 	
 	public String random_country_zip_code = generateRandomEnglishCapitalCharacters(2);
 	
-	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
+	@Test(priority =15,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddCountry()  {
 		
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
@@ -27,7 +27,7 @@ public class CountriesTest extends BaseTest  {
 			
 	}
 	
-	@Test(priority =2,dependsOnMethods = {"validAddCountry"})
+	@Test(priority =16,dependsOnMethods = {"validAddCountry"})
 	public void validEditCountry() {
 		
 		CountriesPage countriesPage = new CountriesPage();
@@ -41,7 +41,7 @@ public class CountriesTest extends BaseTest  {
 			
 	}
 	//,dependsOnMethods = {"validEditCountry"}
-	@Test(priority =3,dependsOnMethods = {"validEditCountry"})
+	@Test(priority =17,dependsOnMethods = {"validEditCountry"})
 	public void validDeleteCountry() {
 		CountriesPage countriesPage = new CountriesPage();
 		countriesPage.reloadCountriesPage();

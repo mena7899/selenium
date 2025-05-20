@@ -9,7 +9,7 @@ import com.rivtrans.pages.UnitUsePage;
 
 public class UnitUseTest extends BaseTest {
 	
-	@Test(priority =1,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
+	@Test(priority =9,dependsOnMethods = {"com.rivtrans.tests.HomeTest.validLoginVisbleLogo"})
 	public void validAddUnitUse()  {
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");
 		homePage.sidePanel.clickLicensesButton();
@@ -28,7 +28,7 @@ public class UnitUseTest extends BaseTest {
 	}
 	
 	
-	@Test(priority =2,dependsOnMethods = {"validAddUnitUse"})
+	@Test(priority =10,dependsOnMethods = {"validAddUnitUse"})
 	public void validEditUnitUse()  {
 		UnitUsePage unitUsePage = new UnitUsePage();
 		unitUsePage.reloadUnitUsePage();
@@ -41,7 +41,7 @@ public class UnitUseTest extends BaseTest {
 
 	}
 	
-	@Test(priority =3,dependsOnMethods = {"validEditUnitUse"})
+	@Test(priority =11,dependsOnMethods = {"validEditUnitUse"})
 	public void validDeleteUnitUse() {
 		
 		UnitUsePage unitUsePage = new UnitUsePage();

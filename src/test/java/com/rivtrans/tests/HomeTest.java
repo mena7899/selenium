@@ -8,7 +8,7 @@ import com.rivtrans.utilities.WaitUtility;
 
 public class HomeTest extends BaseTest{
 	
-	@Test
+	@Test(priority =2)
 	public void validLoginVisbleLogo()    {
 		
 		HomePage homePage = loginPage.validLogin("ramadan", "123456");

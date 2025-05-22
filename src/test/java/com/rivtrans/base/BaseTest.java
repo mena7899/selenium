@@ -315,8 +315,17 @@ public class BaseTest {
         boolean isCI = System.getProperty("ci") != null || System.getenv("JENKINS_HOME") != null;
         if (isCI) {
             System.out.println( this.getClass().getSimpleName()+ "Running in CI environment. Launching browser in headless mode.");
-            String chromeArgs = System.getProperty("chrome.options", "--headless,--disable-gpu,--window-size=1280,720");
-            Arrays.stream(chromeArgs.split(",")).forEach(arg -> options.addArguments(arg.trim()));
+//            String chromeArgs = System.getProperty("chrome.options", "--headless,--disable-gpu,--window-size=1280,720");
+//            Arrays.stream(chromeArgs.split(",")).forEach(arg -> options.addArguments(arg.trim()));
+//            driver = new ChromeDriver(options);
+
+            
+            options.addArguments("--headless=new");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--window-size=1280,720");
+            options.addArguments("--remote-allow-origins=*");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
             driver = new ChromeDriver(options);
         } else {
             System.out.println("Running locally. Launching browser in normal mode.");

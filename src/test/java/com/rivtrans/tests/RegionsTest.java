@@ -66,12 +66,13 @@ public class RegionsTest extends BaseTest{
 
 	}
 	//,dependsOnMethods = {"validEditRegion"}
-	@Test(priority =34,dependsOnMethods = {"validAddRegion"})
+	@Test(priority =34,dependsOnMethods = {"validEditRegion"})
 	public void validDeleteRegion()   {
 		
 		RegionsPage regionsPage = new RegionsPage();
 		regionsPage.clickDeleteRegionButtonByRegionName(random_region_arabic_name+"معدلة");
 		regionsPage.clickDeleteRegionConfirmButton();
+		regionsPage.deleteRegionSuccessMessageIsDisplayed();
 		CitiesPage citiesPage = regionsPage.sidePanel.clickCitiesButton();
 		citiesPage.reloadCitesPage();
 		//SKIPPED//citiesPage.clickDeleteRegionButtonByOrder(0);

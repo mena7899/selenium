@@ -6,8 +6,8 @@ import com.rivtrans.base.BasePage;
 import com.rivtrans.utilities.JavaScriptUtility;
 
 public class RiverUnitPage extends BasePage{
-
-
+//find unit machine fields by it's order
+////h4[normalize-space(text())='آلة #2']/parent::*/parent::*//input[@formcontrolname='machineName']
 	//add unit use buttons
 	private By add_river_unit_button = By.cssSelector("div[class='mat-mdc-tooltip-trigger ng-star-inserted']> :first-child");
 	private By add_river_unit_window_name_input = By.cssSelector("input[formcontrolname='unitName']");
@@ -18,7 +18,7 @@ public class RiverUnitPage extends BasePage{
 	private By add_river_unit_window_unit_Use_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][formcontrolname='unitUseId']");
 	private By add_river_unit_window_is_engine_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][formcontrolname='isEngine']");
 	private By add_river_unit_window_is_licensed_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][formcontrolname='isLicensed']");
-	private By add_river_unit_window_is_company_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][formcontrolname='companyId']");
+	private By add_river_unit_window_company_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][formcontrolname='companyId']");
 	private By add_river_unit_window_motors_number =By.cssSelector("input[formcontrolname='motorNo']");
 	private By add_river_unit_window_trade_mark =By.cssSelector("input[formcontrolname='tradeMark']");
 	private By add_river_unit_window_unit_length =By.cssSelector("input[formcontrolname='unitLength']");
@@ -35,6 +35,8 @@ public class RiverUnitPage extends BasePage{
 	private By add_river_unit_window_is_maintenance_status_dropdown_list = By.cssSelector("mat-select[aria-haspopup='listbox'][formcontrolname='maintenanceStatusId']");
 	private By add_river_unit_window_last_maintenance_date =By.cssSelector("input['lastDateMainten']");
 	private By add_river_unit_window_description_input = By.cssSelector("textarea[formcontrolname='licenseDesc']");
+	private By add_river_unit_window_add_machine_button = By.cssSelector("div[class='add-machine-button-container'] button[type='button']");
+	
 	private By add_river_unit_window_add_button = By.xpath("//span[normalize-space(text())='save' or normalize-space(text())='إضافة']");
 	private By add_river_unit_success_message = By.cssSelector("div[class='snackbar success ng-star-inserted']");
 	private By add_river_unit_success_message_close_button = By.cssSelector("div.snackbar.success.ng-star-inserted > *:nth-child(2)");
@@ -139,7 +141,7 @@ public class RiverUnitPage extends BasePage{
 		
 	}
 	public void addRiverUnitWindowSelectCompanyArabic(String company) {
-		JavaScriptUtility.clickJS(add_river_unit_window_is_company_dropdown_list);
+		JavaScriptUtility.clickJS(add_river_unit_window_company_dropdown_list);
 		String statusArabic = company;
 		String xpathExpression = String.format("//*[@role=\"option\"]//span[contains(text(), '%s')]", statusArabic);
 		JavaScriptUtility.clickJS(By.xpath(xpathExpression));
@@ -226,7 +228,57 @@ public class RiverUnitPage extends BasePage{
 	}
 	
 
+	public void addRiverUnitWindowSetMachineNameByMachineOrder(int machine_order,String machine_name) {
+	    String xpath = String.format("//h4[normalize-space(text())='آلة #%d']/parent::*/parent::*//input[@formcontrolname='machineName']", machine_order);
+	    By add_river_unit_window_machine_name_input = By.xpath(xpath);
+	     JavaScriptUtility.setJS(add_river_unit_window_machine_name_input, machine_name);
+	}
 	
+	public void addRiverUnitWindowSelectMachineTypeByMachineOrder(int machine_order,String machine_type) {
+	    String list_xpath = String.format("//h4[normalize-space(text())='آلة #%d']/parent::*/parent::*//mat-select[@formcontrolname='machineTypeId']", machine_order);
+	    By add_river_unit_window_machine_type_dropdown_list = By.xpath(list_xpath);
+	    JavaScriptUtility.clickJS(add_river_unit_window_machine_type_dropdown_list);
+	  //mat-option[@role='option']//span[text()='ديزل']
+	    String option_xpath = String.format("//mat-option[@role='option']//span[text()='%s']", machine_type);
+	    JavaScriptUtility.clickJS(By.xpath(option_xpath));
+	}
+	
+	public void addRiverUnitWindowSetMachineNumberByMachineOrder(int machine_order,String machine_number) {
+	    String xpath = String.format("//h4[normalize-space(text())='آلة #%d']/parent::*/parent::*//input[@formcontrolname='machineNumber']", machine_order);
+	    By add_river_unit_window_machine_number_input = By.xpath(xpath);
+	     JavaScriptUtility.setJS(add_river_unit_window_machine_number_input, machine_number);
+	}
+	
+	
+	public void addRiverUnitWindowSetMachineHorsePowerByMachineOrder(int machine_number,String horse_power) {
+	    String xpath = String.format("//h4[normalize-space(text())='آلة #%d']/parent::*/parent::*//input[@formcontrolname='capacityHp']", machine_number);
+	    By add_river_unit_window_machine_horse_power_input = By.xpath(xpath);
+	     JavaScriptUtility.setJS(add_river_unit_window_machine_horse_power_input, horse_power);
+	}
+	
+	
+	public void addRiverUnitWindowSetMachineManufacturerrByMachineOrder(int machine_number,String manufacturer) {
+	    String xpath = String.format("//h4[normalize-space(text())='آلة #%d']/parent::*/parent::*//input[@formcontrolname='manufacturer']", machine_number);
+	    By add_river_unit_window_machine_manufacturer_input = By.xpath(xpath);
+	     JavaScriptUtility.setJS(add_river_unit_window_machine_manufacturer_input, manufacturer);
+	}
+	
+	
+	public void addRiverUnitWindowSetMachineYearOfManufacturingByMachineOrder(int machine_number,String year_of_manufacturer) {
+	    String xpath = String.format("//h4[normalize-space(text())='آلة #%d']/parent::*/parent::*//input[@formcontrolname='yearOfManufacturer']", machine_number);
+	    By add_river_unit_window_machine_year_of_manufacturer_input = By.xpath(xpath);
+	     JavaScriptUtility.setJS(add_river_unit_window_machine_year_of_manufacturer_input, year_of_manufacturer);
+	}
+	
+	
+	public void addRiverUnitWindowSetMachineDescriptionByMachineOrder(int machine_number,String description) {
+	    String xpath = String.format("//h4[normalize-space(text())='آلة #%d']/parent::*/parent::*//input[@formcontrolname='notes']", machine_number);
+	    By add_river_unit_window_machine_horse_power_input = By.xpath(xpath);
+	     JavaScriptUtility.setJS(add_river_unit_window_machine_horse_power_input, description);
+	}
+
+
+
 
 
 	

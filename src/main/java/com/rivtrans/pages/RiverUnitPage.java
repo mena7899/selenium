@@ -276,6 +276,11 @@ public class RiverUnitPage extends BasePage{
 	    By add_river_unit_window_machine_horse_power_input = By.xpath(xpath);
 	     JavaScriptUtility.setJS(add_river_unit_window_machine_horse_power_input, description);
 	}
+	
+	
+	public void addRiverUnitWindowClickAddMachineButton() {
+		JavaScriptUtility.clickJS(add_river_unit_window_add_machine_button);
+	}
 
 
 

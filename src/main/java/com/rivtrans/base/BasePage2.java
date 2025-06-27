@@ -35,7 +35,6 @@ public class BasePage2 {
         }
     }
 	
-
     // Constructor – assigns thread-safe WebDriver
     public BasePage2() {
         this.driver = getDriver();

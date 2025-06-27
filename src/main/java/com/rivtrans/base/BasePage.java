@@ -82,5 +82,5 @@ public class BasePage {
 	    driver.navigate().refresh();
 	    //driver.get(driver.getCurrentUrl());
 	}
-	
+
 }

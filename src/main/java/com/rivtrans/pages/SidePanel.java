@@ -3,6 +3,7 @@ package com.rivtrans.pages;
 import org.openqa.selenium.By;
 
 import com.rivtrans.base.BasePage;
+import com.rivtrans.pages.RegionsPage;
 //import com.rivtrans.utilities.WaitUtility;
 import com.rivtrans.utilities.JavaScriptUtility;
 

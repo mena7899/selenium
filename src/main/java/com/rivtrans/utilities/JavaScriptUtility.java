@@ -48,8 +48,11 @@ public class JavaScriptUtility extends Utility {
 			    String script = """
 			        arguments[0].value = arguments[1];
 			        arguments[0].dispatchEvent(new Event('input', { bubbles: true }));
-			        arguments[0].dispatchEvent(new Event('blur'));
+			        arguments[0].dispatchEvent(new Event('blur')); 
 			    """;
+			    //change argument 0 (text field) to argument 1 
+			    //create input event (bubbles: true) means passing the event to the parents also
+			    //left the input field
 
 			    executor.executeScript(script, element, text);
 			}

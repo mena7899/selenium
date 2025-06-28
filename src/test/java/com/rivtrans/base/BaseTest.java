@@ -323,9 +323,9 @@ public class BaseTest {
             options.addArguments("--headless=new");
             options.addArguments("--disable-gpu");
             options.addArguments("--window-size=1280,720");
-            options.addArguments("--remote-allow-origins=*");
+            options.addArguments("--remote-allow-origins=*"); //open links from any origin(protocol-domain-port )
             options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-dev-shm-usage");//use disk instead of shared ram it might be to small in CI/CD
             driver = new ChromeDriver(options);
         } else {
             System.out.println("Running locally. Launching browser in normal mode.");
